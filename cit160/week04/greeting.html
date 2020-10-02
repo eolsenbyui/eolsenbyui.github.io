@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>CIT160</title>
+
+        <script>
+        function greetUser() {
+            var name = window.prompt("Please enter your name");
+
+            if (name === null) {    // The user clicked the Cancel button
+                return;
+            }
+
+            if (name.trim() === "") {      // The user didn't enter any text but clicked the OK button
+                return; 
+            }
+
+            let time = new Date();
+
+            // Find the current time of day for an appropriate greeting
+            var timeOfDay = "morning";  // Default to morning
+
+            let hour = time.getHours();
+
+            if (hour > 12 && hour < 17) {
+                timeOfDay = "afternoon";
+            }
+
+            if (time.getHours >= 17) {
+                timeOfDay = "evening";
+            }
+
+            var greeting = "Good " + timeOfDay + " " + name + "! How is your day going?";
+
+            window.alert(greeting);
+        }
+
+        // Button click handler
+        function handleGreetingClick() {
+            greetUser();
+        }
+        </script>
+    </head>
+
+    <body>
+        <h2 style="text-align: center; color: green">Chapter 4 Programming Assignment 1: Greeting</h2>
+        <h3 style="text-align: center; color: darkslategray">Modify Example 2 in Chapter</h3>
+        <button type="button" id="greeting" style="margin-left: 60px" onclick="handleGreetingClick()">Greet Me!</button>
+    </body>
+</html>

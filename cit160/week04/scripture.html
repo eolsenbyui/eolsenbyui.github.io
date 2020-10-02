@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <script type="text/javascript">
+
+        // Function that displays the verse 
+        function personalizeVerse(name) {
+            var scripture = "3 Nephi 12:39 &ldquo;But I say unto you, <b>";
+            scripture += name;
+            scripture += ",</b> that ye shall not resist evil, ";
+            scripture += "but whosoever shall smite thee on thy right cheek, ";
+            scripture += "turn to him the other also;&rdquo;";
+
+            return scripture;
+        }
+
+        // Button click handler
+        function handleClick() {
+            var name = document.getElementById("nameInputBox").value;
+
+            document.getElementById("output").innerHTML = personalizeVerse(name);
+        }
+
+        </script>
+    </head>
+    <body>
+        <h2 style="text-align: center; color: darkblue">Chapter 4 Programming Assignment 2: Scripture</h2>
+        <h3 style="text-align: center; color: darkslategray">Modify Example 3 in Chapter</h3>
+        <div style="margin-left: 60px">
+            Please enter your name: <input type="text" id="nameInputBox" autofocus/>
+            <button type="button" onclick="handleClick()">Personalize Verse</button>
+        </div>
+        <br/>
+        <div id="output" style="margin-left: 60px; font-size: 16pt"></div>
+    </body>
+</html>
