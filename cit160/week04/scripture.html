@@ -3,8 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>Title</title>
-        <script type="text/javascript">
 
+        <style>
+            body {
+                background-image: url('https://picsum.photos/id/24/1920/1080');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        </style>
+
+        <script type="text/javascript">
         // Function that displays the verse 
         function personalizeVerse(name) {
             var scripture = "3 Nephi 12:39 &ldquo;But I say unto you, <b>";
@@ -28,10 +37,12 @@
     <body>
         <h2 style="text-align: center; color: darkblue">Chapter 4 Programming Assignment 2: Scripture</h2>
         <h3 style="text-align: center; color: darkslategray">Modify Example 3 in Chapter</h3>
+
         <div style="margin-left: 60px">
             Please enter your name: <input type="text" id="nameInputBox" autofocus/>
             <button type="button" onclick="handleClick()">Personalize Verse</button>
         </div>
+
         <br/>
         <div id="output" style="margin-left: 60px; font-size: 16pt"></div>
     </body>
