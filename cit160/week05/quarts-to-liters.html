@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>CIT160 Liters</title>
+
+        <style>
+            #header {
+				width:100%;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            #sidebar {
+                width:15%;
+                color: darkslategray;
+			}
+
+			#assignment {
+				width:85%;
+			}
+            
+            #footer {
+				width:100%;
+                text-align: center;
+            }
+
+            #header, #footer {
+                background-color: #dfeaee;
+            }
+
+			#sidebar, #assignment {
+				float:left;
+                min-height: 180px;
+            }
+
+            #main {
+                min-height: 180px;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 30px;
+				background-color: #EBEBEB;
+            }
+            
+            table {
+                border-collapse:separate;
+                border:none;
+                box-shadow: 4px 4px 4px #aaa
+            }
+
+            td, th {
+                border-left: none;
+                border-right: none;
+                border-top:solid white 1px;
+                background-color: white;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            th {
+                background-color: cornflowerblue;
+                border-top: none;
+                color:white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                font-size: 12pt;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: 400;
+            }
+
+            td:first-child, th:first-child {
+                border-left: none;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function calculateLiters(quarts) {
+                let liters = quarts * 0.946385;
+
+                // Round to 3 decimal places
+                let decimalPlaces = 3;
+                let multiplier = Math.pow(10, decimalPlaces);
+                liters = Math.round(liters * multiplier) / multiplier;
+
+                return liters;
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault(); // Prevent the reloading of the page, which is the default behavior
+                let input = document.getElementById("input").value;
+
+                let quarts = parseFloat(input);
+
+                let liters = calculateLiters(quarts);
+
+                document.getElementById("output").innerHTML = liters + " Liters";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="header">
+            <h3 style="text-align: center; color: black">CIT 160</h3>
+            <h2 style="text-align: center; color: black; margin: -15px">Chapter 5 Programming Assignment 1</h2>
+            <h3 style="text-align: center; color: darkslategray">Liters from Quarts Calculator</h3>    
+        </div>
+        <div id="sidebar">
+            <div style="padding-left: 15px; ">
+                <br>
+                <table>
+                    <thead>
+                    <tr><th>Credits</th></tr>
+                    </thead>
+                    <tr><td>Author: Eugene C. Olsen</td></tr>
+                    <tr><td>Course: CIT160</td></tr>
+                    <tr><td>Section: 7</td></tr>
+                    <tr><td>Instructor: Sokolowsky, Eric</td></tr>
+                </table>
+            </div>
+        </div>
+        <section id="assignment" style="font-size: 13pt;">
+            <p><strong>Assignment: </strong> 
+                Write an IPO model and a JavaScript program that asks a user
+                for a volume in quarts and then converts that volume into liters.
+                Your program should correctly handle fractional numbers such as 7.54.
+            </p>
+        </section>
+        <section id="ipo-model", style="padding: 20px;">
+            <h3 style="text-align: center;">Input-Process-Output Model</h3>
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="width: 33%;">Input</th>
+                        <th style="width: 34%;">Process</th>
+                        <th style="width: 33%;">Output</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td id="ipo-input" style="vertical-align: top;">
+                        <ol>
+                            <li>The volume in quarts</li>
+                        </ol>
+                    </td>
+                    <td id="ipo-process" style="vertical-align: top;">
+                        <br>Multiply the number of quarts by 0.946385</td>
+                    <td id="ipo-output" style="vertical-align: top;"
+                        ><br>The number of liters, rounded to 3 decimal places</td>
+                </tr>
+            </table>
+        </section>
+        <section id="main">
+            <h3>Calculate Liters Given Quarts</h3>
+            <form onsubmit="handleSubmit(event)">
+                <label style="display: inline-block;">Volume in Quarts:</label>
+                <input 
+                    id="input" 
+                    type="text" 
+                    placeholder="Enter the number of quarts here"
+                    style="width: 200px;"
+                    autofocus
+                >
+                <br><br>
+                <button type="submit">Calculate Liters</button>
+            </form>
+            <div id="output" style="margin-top: 20px; font-size: 16pt; font-weight: 600;"></div>
+        </section>
+        <div id="footer">
+            <div style="margin-top: 10px; padding-bottom: 10px;"><i>When you care enough to code the very best.</i></div>
+        </div>
+    </body>
+</html>
