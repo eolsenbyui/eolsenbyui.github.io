@@ -124,6 +124,7 @@
         *
         -->
         <script>
+            // Dictionary of weather and corresponding footwear
             const dictionary = {
                 "hot": "sandals",
                 "rain": "galoshes",
@@ -134,10 +135,10 @@
                 event.preventDefault(); // Prevent the reloading of the page, which is the default behavior
                 let weather = document.getElementById("weather").value;
 
-                let footwear = dictionary[weather];
+                let footwear = dictionary[weather]; // Look up the footwear corresponding to the weather in the dictionary
 
                 if (footwear == undefined) {    // If it's not in the dictionary...
-                    footwear = "shoes";
+                    footwear = "shoes";         // default to shoes
                 }
 
                 document.getElementById("output").innerHTML = "Wear " + footwear;
