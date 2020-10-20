@@ -151,11 +151,11 @@
                 let answer = document.getElementById("answer").value;
                 answer = parseFloat(answer);
 
-                let result = math.evaluate(expression);
+                let result = math.evaluate(expression);     // Evaluate the expression that the user entered.
 
                 let feedback = "";
 
-                if (result === answer) {
+                if (result === answer) {    // Compare the result of the expression with the answer the user entered.
                     feedback = "Correct! Great job!";
                 } else {
                     feedback = "<span style='color: darkred;'>Incorrect. Try again.</span>";
@@ -233,12 +233,13 @@
                 <tr>
                     <td style="vertical-align: top;">
                         <ol>
-                            <li>An arithmetic expression consisting of:</li>
-                            <ol style="list-style-type:lower-alpha">
-                                <li>A number.</li>
-                                <li>An arithmetic operator { +, -, *, or / }.</li>
-                                <li>Another number.</li>
-                            </ol>
+                            <li>An arithmetic expression consisting of:
+                                <ol style="list-style-type:lower-alpha">
+                                    <li>A number.</li>
+                                    <li>An arithmetic operator { +, -, *, or / }.</li>
+                                    <li>Another number.</li>
+                                </ol>
+                            </li>
                             <li>The answer to the problem.</li>
                         </ol>
                     </td>
@@ -268,7 +269,7 @@
                         &nbsp;=&nbsp;
                         <input id="answer" type="text" placeholder="Type the answer here." oninput="handleChange(event)">
                         &nbsp;
-                        <button type="button" onclick="handleClear(event)">Clear</button>
+                        <button type="button" onclick="handleClear(event)">Start Over</button>
                     </li>
                     <li>&nbsp;</li>
                     <li>
