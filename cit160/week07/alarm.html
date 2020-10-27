@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Alarm</title>
+
+        <style>
+            header {
+                position: relative;
+                text-align: center;
+                color: white;
+            }
+
+            nav {
+                min-height: 35px;
+                padding-top: 15px;
+                text-indent: 16px;
+                background-color: #dfeaee;
+            }
+
+            #sidebar {
+                width:20%;
+                color: darkslategray;
+			}
+
+			#assignment {
+				width:80%;
+                margin-bottom: 10px;
+			}
+
+			#sidebar, #assignment {
+				float:left;
+                min-height: 175px;
+				background-color: rgb(252, 252, 232);
+            }
+
+            #ipo-model {
+                padding: 20px;
+            }
+
+            #assignment-html {
+                margin-left: 25px;
+                min-height: 120px;
+            }
+
+            #output {
+                margin-top: 20px; 
+                margin-bottom: 10px;
+                font-size: 24pt; 
+                font-weight: 600;
+                color:darkgreen;
+            }
+
+            footer {
+				width:100%;
+                text-align: center;
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #dfeaee;
+            }
+
+            form ul {
+                list-style-type: none; 
+                padding-left: 0;
+            }
+
+            form li {
+                margin-top: 5px;
+            }
+
+            form label {
+                display: inline-block;
+                width: 47px;
+            }
+
+            form input {
+                border: none;
+                border-radius: 5px;
+                background-color: #dfeaee;
+            }
+            
+            table {
+                border-collapse:separate;
+                border:none;
+                box-shadow: 4px 4px 4px #aaa
+            }
+
+            td, th {
+                border-left: none;
+                border-right: none;
+                border-top:solid white 1px;
+                background-color: white;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            th {
+                background-color: cornflowerblue;
+                border-top: none;
+                color:white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                font-size: 12pt;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: 400;
+            }
+
+            td:first-child, th:first-child {
+                border-left: none;
+            }
+
+            .center-leftish {
+                position: absolute;
+                top: 50%;
+                left: 30%;
+                transform: translate(-50%, -50%)
+            }
+        </style>
+
+
+        <!-- 
+        *
+        *   Scripting Here
+        *
+        -->
+        <script>
+            /*
+             * The Input-Process-Output model can be found in the 
+             * table defined in <section id="ipo-model">, below.
+            */
+
+            // Object to map days to the number returned by Date.getDay()
+            // Makes our code more readable
+            const DayOfWeek = {
+                Sunday: 0,
+                Monday: 1,
+                Tuesday: 2,
+                Wednesday: 3,
+                Thursday: 4,
+                Friday: 5,
+                Saturday: 6
+            }
+
+            // Object to map the month to the number returned by Date.getMonth()
+            const Month = {
+                January: 0,
+                February: 1,
+                March: 2,
+                April: 3,
+                May: 4,
+                June: 5,
+                July: 6,
+                August: 7,
+                September: 8,
+                October: 9,
+                November: 10,
+                December: 11
+            }
+
+            Object.freeze(DayOfWeek);   // Keep the DayOfWeek object from getting messed with
+            Object.freeze(Month);       // Likewise with the Month object.
+
+            const now = new Date();
+            const month = now.getMonth();
+            const dayOfMonth = now.getDate();
+            const dayOfWeek = now.getDay();
+
+            // Demonstrates how to perform processing 
+            // when the HTML document is loading, partially loaded, and fully loaded.
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
+            function pageLoad(event) {
+                // When page is loading
+                if (event.target.readyState === "loading") {
+                    // Cannot write to HTML elements yet.
+                }
+
+                // When HTML/DOM elements are ready but external resources are not yet loaded:
+                if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
+                    document.getElementById('output').innerHTML = "Loading Resources...";
+                }
+
+                // When document is fully loaded (external resources are loaded too - css, src, etc...) 
+                if (event.target.readyState === "complete") {
+                    let message = "";
+
+                    let weekend = dayOfWeek === DayOfWeek.Saturday || dayOfWeek === DayOfWeek.Sunday;
+                    let newYearsDay = dayOfMonth === 1 && month === Month.January;
+                    let independenceDay = dayOfMonth === 4 && month === Month.July;
+                    let Christmas = dayOfMonth === 25 && month === Month.December;
+
+                    if (weekend) {
+                        message = "Sleep in: it's the weekend! :)";
+                    } else if (newYearsDay || independenceDay || Christmas) {
+                            message = "Sleep in: it's a holiday! :D";
+                    } else {
+                        message = "Get up, you sleepy-head!";
+                    }
+                    
+                    document.getElementById('output').innerHTML = message;
+                }
+            }
+
+            document.onreadystatechange = pageLoad;     // Process the document/page load events
+        </script>
+
+    </head>
+
+
+    <body>
+        <header>
+            <img src="http://picsum.photos/id/265/1600/300/" alt="Paradise" style="width: 100%;"/>
+            <div class="center-leftish">
+                <h1 style="font-size: 30pt;">CIT 160</h1>
+                <h2>Alarming JavaScript</h2>
+            </div>
+        </header>
+
+        <nav>
+            <b>Lynx: </b>
+            <a href="https://byui.edu/" target="_blank">BYU-Idaho</a>&nbsp;&nbsp;
+            <a href="https://byupathway.org" target="_blank">BYU Pathway</a>&nbsp;&nbsp;
+            <a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML</a>&nbsp;&nbsp;
+            <a href="https://www.w3schools.com/js/" target="_blank">W3Schools JavaScript</a>&nbsp;&nbsp;
+            <a href="https://www.w3schools.com/w3css/" target="_blank">W3.CSS</a>&nbsp;&nbsp;
+            <a href="https://nodejs.org/en/docs/guides/getting-started-guide/" target="_blank">Node.js</a>&nbsp;&nbsp;
+            <a href="https://reactjs.org" target="_blank">React</a>&nbsp;&nbsp;
+            <a href="https://expressjs.com/" target="_blank">Express</a>&nbsp;&nbsp;
+            <a href="https://nextjs.org/" target="_blank">Next.js</a>
+        </nav>
+
+        <aside id="sidebar">
+            <div style="padding-left: 15px; ">
+                <br>
+                <table>
+                    <thead>
+                    <tr><th>Credits</th></tr>
+                    </thead>
+                    <tr><td>Author: Eugene C. Olsen</td></tr>
+                    <tr><td>Course: CIT 160</td></tr>
+                    <tr><td>Section: 7</td></tr>
+                    <tr><td>Instructor: Eric Solokowsky</td></tr>
+                </table>
+            </div>
+
+        </aside>
+
+        <section id="assignment">
+            <h2>Week 7 Assignment 2: Smart Alarm Clock</h2>
+            <p style="padding-right: 20px">Create an IPO Model and then a program that 
+                determines if you can sleep in or not. 
+                Your program should get all its input from your 
+                computer’s clock. On all weekdays (Monday through Friday) 
+                that are not holidays, your program should output “Get up!” 
+                On all other days (weekends and holidays) your program 
+                should output “Sleep in.” The three holidays that your program 
+                must check for are January 1 (New Year’s Day), July 4 (U.S. Independence Day), 
+                and December 25 (Christmas). You don’t need to include other 
+                holidays in your program because most other holidays do not occur 
+                on a fixed day each year.
+            </p>
+        </section>
+
+        <!-- The IPO Model is shown in the following section -->
+        <section id="ipo-model">
+            <h3 style="text-align: center;">Input-Process-Output Model</h3>
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="width: 33%;">Input</th>
+                        <th style="width: 34%;">Process</th>
+                        <th style="width: 33%;">Output</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="vertical-align: top;">
+                        <p>System clock</p>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <ol>
+                            <li>Check for weekend</li>
+                            <li>Check for holidays not on a weekend:
+                                <ul>
+                                    <li>New Year's Day (1 January)</li>
+                                    <li>US Independence Day (4 July)</li>
+                                    <li>Christmas (25 December)</li>
+                                </ul>
+                            </li>
+                            <li>Set alarm message accordingly: Get up if not a weekend or holiday; otherwise, sleep in.</li>
+                        </ol>
+                    <td style="vertical-align: top;"><br>Alarm message</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="assignment-html">
+            <h3>Smart Alarm Clock</h3>
+            <div id="output"><span style="color: darkred">Alarm malfunction</span></div>
+        </section>
+
+        <footer><i>When you care enough to code the very best.</i><br/>
+            <small>Photo by Chris Liu-Beers, courtesy picsum.photos</small>
+        </footer>
+    </body>
+</html>
