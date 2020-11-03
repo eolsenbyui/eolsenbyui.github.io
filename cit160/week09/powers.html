@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Eugene C. Olsen">
+        <meta name="course" content="CIT160">
+        <meta name="section" content="7">
+        <meta name="instructor" content="Eric Solokowsky">
+
+        <meta name="week" content="9">
+        <meta name="assignment" content="2">
+
+        <title>Powers</title>
+
+        <script>
+            /*  Input-Process-Output Model
+             *
+             *  Input: No user input
+             *  Process: Raise 2 to the power of 0 through 31, iteratively
+             *  Output: A series of powers of 2
+            */
+
+            // Raises a number to the specified power
+            // We could also use the built-in Math.pow() function
+            function power(radix, exponent) {
+                let result = 1;
+
+                for (let i = 0; i < exponent; i++) {
+                    result *= radix;
+                }
+
+                return result;
+            }
+
+            // Process when the HTML document is loaded.
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
+            function pageLoad(event) {
+                // When document is loaded
+                if (event.target.readyState === "interactive") {
+                    let output = "";
+
+                    for (let i = 0; i <= 31; i++){
+                        let result = power(2, i);
+                        // We could build a <table> "on the fly" for this
+                        // but today we'll just use line breaks.
+                        output += "2<sup>" + i + "</sup> = " + result.toLocaleString() + "<br/>";
+                    }
+
+                    document.getElementById('output').innerHTML = output;
+                }
+            }
+
+            document.onreadystatechange = pageLoad;     // Process the document/page load events
+        </script>
+
+    </head>
+
+    <body>
+        <header style="margin-left: 30px;">
+            <h2>Week 9, Programming Assignment 2</h2>
+        </header>
+        <section style="margin-left: 60px;">
+            <h3>Powers of 2</h3>
+            <div id="output"></div>
+        </section>
+    </body>
+</html>

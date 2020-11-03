@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Eugene C. Olsen">
+        <meta name="course" content="CIT160">
+        <meta name="section" content="7">
+        <meta name="instructor" content="Eric Solokowsky">
+
+        <meta name="week" content="9">
+        <meta name="assignment" content="1">
+
+        <title>Fives</title>
+
+        <script>
+            /*  Input-Process-Output Model
+             *
+             *  Input: No user input
+             *  Process: Multiply 5 by the integers 1 through 12, iteratively
+             *  Output: The fives multiplication table
+            */
+
+            // Process when the HTML document is loaded.
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
+            function pageLoad(event) {
+                // When document is loaded 
+                if (event.target.readyState === "interactive") {
+                    let output = "";
+
+                    for (let i = 1; i <= 12; i++){
+                        // We could build a <table> "on the fly" for this
+                        // but today we'll just use line breaks.
+                        output += "5 x " + i + " = " + 5 * i + "<br/>";
+                    }
+
+                    document.getElementById('output').innerHTML = output;
+                }
+            }
+
+            document.onreadystatechange = pageLoad;     // Process the document/page load events
+        </script>
+
+    </head>
+
+    <body>
+        <header style="margin-left: 30px;">
+            <h2>Week 9, Programming Assignment 1</h2>
+        </header>
+        <section style="margin-left: 60px;">
+            <h3>Fives Multiplication Table</h3>
+            <div id="output"></div>
+        </section>
+    </body>
+</html>
