@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Eugene C. Olsen">
+        <meta name="course" content="CIT160">
+        <meta name="section" content="7">
+        <meta name="instructor" content="Eric Solokowsky">
+
+        <meta name="week" content="10">
+        <meta name="assignment" content="1">
+
+        <title>Wind Chill</title>
+
+        <style>
+            form ul {
+                list-style-type: none; 
+                padding-left: 0;
+            }
+
+            form li {
+                margin-top: 5px;
+            }
+
+            form label {
+                display: inline-block;
+                width: 185px;
+            }
+        </style>
+
+        <script>
+            /*  Input-Process-Output Model
+             *
+             *  Task: Calculate Wind Chill Factor
+             *
+             *  Input: 1. Temperature in degrees Fahrenheit
+             *         2. Wind speed in miles per hour
+             *
+             *  Process: chillFactor = 35.74 + 0.6215 * t - 35.75 * s**0.16 + 0.4275 * t * s**0.16
+             *             where t is the temperature in degrees Fahrenheit
+             *             and s is the wind speed in miles per hour
+             *
+             *  Output: The wind chill factor in degrees Fahrenheit
+            */
+
+            // Finds the wind chill factor
+            // based on temperature and wind speed
+            function windChill(tempF, speed) {
+                const s16 = speed ** 0.16;
+
+                return 35.74 + 0.6215 * tempF - 35.75 * s16 + 0.4275 * tempF * s16;
+            }
+
+
+            // Process when the HTML document is loaded.
+            function doInputOutput(event) {
+                event.preventDefault();
+
+                let temp = parseFloat(document.getElementById('temp').value);
+                let speed = parseFloat(document.getElementById('wind-speed').value);
+
+                let output = "";
+
+                if (temp <= 50.0 && speed >= 3.0) {
+                    let chillFactor = windChill(temp, speed);
+
+                    output = "Wind chill factor = " + Math.round(chillFactor) + "&deg; F  (brrrr!)";
+                } else {
+                    output = '<span style="color: darkred">';
+                    output += "Wind Chill is not defined for temperatures above 50&deg; F ";
+                    output +- "or wind speeds lower than 3 mph";
+                    output += "<br/>&nbsp;&nbsp;according to the National Weather Service."
+                    output += '</span>';
+                }
+
+                document.getElementById('output').innerHTML = output;
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <header style="margin-left: 30px;">
+            <h2>Week 10, Programming Assignment 1</h2>
+        </header>
+        <section style="margin-left: 60px;">
+            <h3>Calculate Wind Chill Factor</h3>
+            <form onsubmit="doInputOutput(event)">
+                <ul>
+                    <li>
+                        <label>Temperature in &deg;Fahrenheit:</label>
+                        <input type="text" id="temp" autofocus/>
+                    </li>
+                    <li>
+                        <label>Wind speed in mph:</label>
+                        <input type="text" id="wind-speed" />
+                    </li>
+                    <li>&nbsp;</li>
+                    <li>
+                        <button type="submit">Wind Chill</button> <small>or press <strong>Enter</strong></small>
+                    </li>
+                </ul>
+            </form>
+            <div id="output" style="font-size: 16pt; font-weight: 600; color: darkslateblue"></div>
+        </section>
+    </body>
+</html>
