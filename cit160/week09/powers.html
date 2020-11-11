@@ -35,23 +35,19 @@
 
             // Process when the HTML document is loaded.
             // https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
-            function pageLoad(event) {
+            function pageLoad() {
                 // When document is loaded
-                if (event.target.readyState === "interactive") {
-                    let output = "";
+                let output = "";
 
-                    for (let i = 0; i <= 31; i++){
-                        let result = power(2, i);
-                        // We could build a <table> "on the fly" for this
-                        // but today we'll just use line breaks.
-                        output += "2<sup>" + i + "</sup> = " + result.toLocaleString() + "<br/>";
-                    }
-
-                    document.getElementById('output').innerHTML = output;
+                for (let i = 0; i <= 31; i++){
+                    let result = power(2, i);
+                    // We could build a <table> "on the fly" for this
+                    // but today we'll just use line breaks.
+                    output += "2<sup>" + i + "</sup> = " + result.toLocaleString() + "<br/>";
                 }
-            }
 
-            document.onreadystatechange = pageLoad;     // Process the document/page load events
+                document.getElementById('output').innerHTML = output;
+            }
         </script>
 
     </head>
@@ -64,5 +60,8 @@
             <h3>Powers of 2</h3>
             <div id="output"></div>
         </section>
+        <script>
+            pageLoad();
+        </script>
     </body>
 </html>

@@ -23,22 +23,18 @@
 
             // Process when the HTML document is loaded.
             // https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
-            function pageLoad(event) {
+            function pageLoad() {
                 // When document is loaded 
-                if (event.target.readyState === "interactive") {
-                    let output = "";
+                let output = "";
 
-                    for (let i = 1; i <= 12; i++){
-                        // We could build a <table> "on the fly" for this
-                        // but today we'll just use line breaks.
-                        output += "5 x " + i + " = " + 5 * i + "<br/>";
-                    }
-
-                    document.getElementById('output').innerHTML = output;
+                for (let i = 1; i <= 12; i++){
+                    // We could build a <table> "on the fly" for this
+                    // but today we'll just use line breaks.
+                    output += "5 x " + i + " = " + 5 * i + "<br/>";
                 }
-            }
 
-            document.onreadystatechange = pageLoad;     // Process the document/page load events
+                document.getElementById('output').innerHTML = output;
+            }
         </script>
 
     </head>
@@ -51,5 +47,8 @@
             <h3>Fives Multiplication Table</h3>
             <div id="output"></div>
         </section>
+        <script>
+            pageLoad();
+        </script>
     </body>
 </html>
