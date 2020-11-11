@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Eugene C. Olsen">
+        <meta name="course" content="CIT160">
+        <meta name="section" content="7">
+        <meta name="instructor" content="Eric Solokowsky">
+
+        <meta name="week" content="11">
+        <meta name="assignment" content="2">
+
+        <title>Loan</title>
+
+        <style>
+            form ul {
+                list-style-type: none; 
+                padding-left: 0;
+            }
+
+            form li {
+                margin-top: 5px;
+            }
+
+            form input {
+                float: right;
+                text-align: right;
+                clear: both;
+            }
+        </style>
+
+        <script>
+            /*  Input-Process-Output Model
+             *
+             *  Use Case: Compute the Payment and Outstanding Balance of a loan
+             *
+             *  Input: 1. The amount invested (principal)
+             *         2. The annual interest rate
+             *         3. The number of years
+             *         4. The number of periods in each year that interest is calculated
+             *         5. The number of payments paid to date
+             *
+             *  Process: 1. payment = principal * rate per period, all divided by 1 - (1 + rate per period)**-total number of periods for the life of the loan
+             *           2. balance = principal * (1 + rate per period)**payments paid to date less the following:
+                            payment per period * ((1 + rate per period)**payments paid to date - 1) / rate per period
+             *
+             *  Output: 1. The computed payment
+             *          2. The outstanding loan balance
+            */
+
+            // Calculate the payent of an amortizing loan
+            function computePayment(principal, annualRate, years, paymentsPerYear) {
+                // Calculate the loan payment
+                let periodRate = annualRate / paymentsPerYear;
+                let periods = paymentsPerYear * years;
+
+                let payment = (principal * periodRate) / (1 - (1 + periodRate)**(0-periods));
+                
+                return payment;
+            }
+
+            // Calculate the outstanding balance of an amortizing loan
+            function computeBalance(principal, annualRate, years, paymentsPerYear, numberOfPaymentsPaidToDate) {
+                // Calculate outstanding loan balance; 
+                let payment = computePayment(principal, annualRate, years, paymentsPerYear);
+                let periodRate = annualRate / paymentsPerYear;
+                let periods = paymentsPerYear * years;
+
+                let fvOriginal = principal * (1 + periodRate)**numberOfPaymentsPaidToDate;
+                let interestPaid = (1 + periodRate)**numberOfPaymentsPaidToDate;
+                let amortization = interestPaid - 1;
+                let amortizationRate = amortization / periodRate;
+                let fvAnnuity = payment * amortizationRate;
+                let balance = fvOriginal - fvAnnuity;
+
+                return balance;
+            }
+
+            function doPayment() {
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualrate').value);
+                let years = parseFloat(document.getElementById('years').value);
+                let paymentsPerYear = parseFloat(document.getElementById('paymentsperyear').value);
+
+                let payment = computePayment(principal, annualRate, years, paymentsPerYear);
+
+                let output = Math.round(payment * 10**2) / 10**2;
+
+                document.getElementById('payment').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+            }
+
+            // Handle the input and output for the loan balance
+            function doBalance() {
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualrate').value);
+                let years = parseFloat(document.getElementById('years').value);
+                let paymentsPerYear = parseFloat(document.getElementById('paymentsperyear').value);
+                let paymentsToDate = parseFloat(document.getElementById('paymentstodate').value);
+
+                // Compute the outstanding loan balance
+                let balance = computeBalance(principal, annualRate, years, paymentsPerYear, paymentsToDate);
+
+                let output = Math.round(balance * 10**2) / 10**2;;
+
+                document.getElementById('output').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+            }
+
+            // Handle the form submission
+            function onSubmit(event) {
+                event.preventDefault(); 
+
+                doBalance();
+            }
+
+            function tryPayment() {
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualrate').value);
+                let years = parseFloat(document.getElementById('years').value);
+                let paymentsPerYear = parseFloat(document.getElementById('paymentsperyear').value);
+
+                if (!isNaN(principal) &&
+                    !isNaN(annualRate) &&
+                    !isNaN(years) &&
+                    !isNaN(paymentsPerYear)) {
+                        doPayment();
+                }
+
+                document.getElementById('paymentstodate').focus();
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <header style="margin-left: 30px;">
+            <h2>Week 10, Programming Assignment 2</h2>
+        </header>
+        <section style="margin-left: 60px;">
+            <h3>Loan Calculator</h3>
+            <form onsubmit="onSubmit(event)" style="width: 400px;">
+                <ul>
+                    <li>
+                        <label>Amount invested (principal):</label>
+                        <input type="text" id="principal" placeholder="Enter principal amount"  style="width: 150px" autofocus/>
+                    </li>
+                    <li>
+                        <label>Annual interest rate (example: .035 for 3.5%):</label>
+                        <input type="text" id="annualrate" placeholder="Enter rate" style="width: 72px"/>
+                    </li>
+                    <li>
+                        <label>Number of years:</label>
+                        <input type="text" id="years" placeholder="Years" style="width: 50px"/>
+                    </li>
+                    <li>
+                        <label>Payments per year:</label>
+                        <input type="text" id="paymentsperyear" onblur="tryPayment()" placeholder="Pmnts" style="width: 50px"/>
+                    </li>
+                    <li>
+                        <button type="button" onclick="doPayment()">Computer Payment</button>
+                        <span id="payment"style="text-align: right; float: right; font-weight: 600"></span>
+                    </li>
+                        <label>Number of payments paid to date:</label>
+                        <input type="text" id="paymentstodate" placeholder="# Pmnts" style="width: 50px" />
+                    <li>
+                        <button type="submit">Compute Payoff Amount</button> <small>or press <strong>Enter</strong></small>
+                        <span id="output" style="text-align: right; float: right; font-weight: 600"></span>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </body>
+</html>

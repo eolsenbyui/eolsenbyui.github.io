@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Eugene C. Olsen">
+        <meta name="course" content="CIT160">
+        <meta name="section" content="7">
+        <meta name="instructor" content="Eric Solokowsky">
+
+        <meta name="week" content="11">
+        <meta name="assignment" content="1">
+
+        <title>Invest</title>
+
+        <style>
+            form ul {
+                list-style-type: none; 
+                padding-left: 0;
+            }
+
+            form li {
+                margin-top: 5px;
+            }
+
+            form input {
+                float: right;
+                text-align: right;
+                clear: both;
+            }
+        </style>
+
+        <script>
+            /*  Input-Process-Output Model
+             *
+             *  Use Case: Compute the Future Value (FV) of a lump sum investment
+             *
+             *  Input: 1. The amount invested (principal)
+             *         2. The annual interest rate
+             *         3. The number of years
+             *         4. The number of periods in each year that interest is calculated
+             *
+             *  Process: FV = principal * (1 + ratePerPeriod)**numberOfPeriods
+             *
+             *  Output: The the value of the investment at maturity or Future Value (FV)
+            */
+
+            // Finds the Future Value of a lump sum investment
+            function computeFutureValue(principal, annualRate, years, periodsPerYear) {
+                let periods = years * periodsPerYear;
+                let periodRate = annualRate / periodsPerYear;
+
+                let futureValue = principal * (1 + periodRate)**periods;
+
+                return futureValue;
+            }
+
+
+            // Process when the HTML form is submitted
+            // Because the input is in a <form> we need the event parameter
+            function doFV(event) {
+                event.preventDefault(); 
+
+                let principal = parseFloat(document.getElementById('principal').value);
+                let annualRate = parseFloat(document.getElementById('annualrate').value);
+                let years = parseFloat(document.getElementById('years').value);
+                let periodsPerYear = parseFloat(document.getElementById('periodsperyear').value);
+
+                let futureValue = computeFutureValue(principal, annualRate, years, periodsPerYear);
+
+                let output = Math.round(futureValue * 10**2) / 10**2;
+
+                document.getElementById('output').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <header style="margin-left: 30px;">
+            <h2>Week 10, Programming Assignment 1</h2>
+        </header>
+        <section style="margin-left: 60px;">
+            <h3>Investment Calculator</h3>
+            <form onsubmit="doFV(event)" style="width: 400px;">
+                <ul>
+                    <li>
+                        <label>Amount invested (principal):</label>
+                        <input type="text" id="principal" placeholder="Enter principal amount"  style="width: 150px" autofocus/>
+                    </li>
+                    <li>
+                        <label>Annual interest rate (example: .035 for 3.5%):</label>
+                        <input type="text" id="annualrate" placeholder="Enter rate" style="width: 72px"/>
+                    </li>
+                    <li>
+                        <label>Number of years:</label>
+                        <input type="text" id="years" placeholder="Years" style="width: 50px"/>
+                    </li>
+                    <li>
+                        <label>Periods per year:</label>
+                        <input type="text" id="periodsperyear" placeholder="Periods" style="width: 50px"/>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li>
+                        <button type="submit">Compute Future Value</button> <small>or press <strong>Enter</strong></small>
+                        <span id="output" style="text-align: right; float: right; font-weight: 600"></span>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </body>
+</html>
