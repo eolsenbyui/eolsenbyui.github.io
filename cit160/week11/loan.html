@@ -49,6 +49,10 @@
              *          2. The outstanding loan balance
             */
 
+            // Option for Locale string to display cents for money numbers.
+            const centOptions = {minimumFractionDigits: 2, maximumFractionDigits: 2};
+
+
             // Calculate the payent of an amortizing loan
             function computePayment(principal, annualRate, years, paymentsPerYear) {
                 // Calculate the loan payment
@@ -56,8 +60,10 @@
                 let periods = paymentsPerYear * years;
 
                 let payment = (principal * periodRate) / (1 - (1 + periodRate)**(0-periods));
+
+                let roundedPayment = Math.round(payment * 10**2) / 10**2;
                 
-                return payment;
+                return roundedPayment;
             }
 
             // Calculate the outstanding balance of an amortizing loan
@@ -85,9 +91,9 @@
 
                 let payment = computePayment(principal, annualRate, years, paymentsPerYear);
 
-                let output = Math.round(payment * 10**2) / 10**2;
+                let output = payment.toLocaleString(undefined, centOptions);
 
-                document.getElementById('payment').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+                document.getElementById('payment').innerHTML = "$ " + output + "&nbsp;";
             }
 
             // Handle the input and output for the loan balance
@@ -101,9 +107,9 @@
                 // Compute the outstanding loan balance
                 let balance = computeBalance(principal, annualRate, years, paymentsPerYear, paymentsToDate);
 
-                let output = Math.round(balance * 10**2) / 10**2;;
+                let output = (Math.round(balance * 10**2) / 10**2).toLocaleString(undefined, centOptions);
 
-                document.getElementById('output').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+                document.getElementById('output').innerHTML = "$ " + output + "&nbsp;";
             }
 
             // Handle the form submission
@@ -113,20 +119,31 @@
                 doBalance();
             }
 
+            // Check and see if we have enough information to calculate the payment.
             function tryPayment() {
+                let focusId = 'paymentstodate';
+
                 let principal = parseFloat(document.getElementById('principal').value);
                 let annualRate = parseFloat(document.getElementById('annualrate').value);
                 let years = parseFloat(document.getElementById('years').value);
                 let paymentsPerYear = parseFloat(document.getElementById('paymentsperyear').value);
 
+
+                // There is probably a cleaner, more efficient way to do the following.  
+                // Still thinking through it.
+                if (isNaN(paymentsPerYear)) focusId = 'paymentsperyear';
+                if (isNaN(years)) focusId = 'years';
+                if (isNaN(annualRate)) focusId = 'annualrate';
+                if (isNaN(principal)) focusId = 'principal';
+
                 if (!isNaN(principal) &&
                     !isNaN(annualRate) &&
                     !isNaN(years) &&
                     !isNaN(paymentsPerYear)) {
-                        doPayment();
+                        doPayment();    // Calculate the payment when we have all needed information.
                 }
 
-                document.getElementById('paymentstodate').focus();
+                document.getElementById(focusId).focus();
             }
         </script>
 
@@ -154,10 +171,13 @@
                     </li>
                     <li>
                         <label>Payments per year:</label>
+                        <!-- A "blur" event fires when an element loses focus.  
+                             When something is out of focus, it's blurry, right? -->
+                        <!-- The onblur handler helps make keyboard entry smoother and faster in this case. -->
                         <input type="text" id="paymentsperyear" onblur="tryPayment()" placeholder="Pmnts" style="width: 50px"/>
                     </li>
                     <li>
-                        <button type="button" onclick="doPayment()">Computer Payment</button>
+                        <button type="button" onclick="tryPayment()">Compute Payment</button>
                         <span id="payment"style="text-align: right; float: right; font-weight: 600"></span>
                     </li>
                         <label>Number of payments paid to date:</label>
