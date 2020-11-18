@@ -53,10 +53,8 @@
             }
 
 
-            // Process when the HTML document is loaded.
-            function doInputOutput(event) {
-                event.preventDefault();
-
+            // Process the input and the output
+            function doInputOutput() {
                 let temp = parseFloat(document.getElementById('temp').value);
                 let speed = parseFloat(document.getElementById('wind-speed').value);
 
@@ -69,12 +67,18 @@
                 } else {
                     output = '<span style="color: darkred">';
                     output += "Wind Chill is not defined for temperatures above 50&deg; F ";
-                    output +- "or wind speeds lower than 3 mph";
+                    output += "or wind speeds lower than 3 mph";
                     output += "<br/>&nbsp;&nbsp;according to the National Weather Service."
                     output += '</span>';
                 }
 
                 document.getElementById('output').innerHTML = output;
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault();
+
+                doInputOutput();
             }
         </script>
 
@@ -83,10 +87,11 @@
     <body>
         <header style="margin-left: 30px;">
             <h2>Week 10, Programming Assignment 1</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Chilly_Willy_logo.png">
         </header>
         <section style="margin-left: 60px;">
             <h3>Calculate Wind Chill Factor</h3>
-            <form onsubmit="doInputOutput(event)">
+            <form onsubmit="handleSubmit(event)">
                 <ul>
                     <li>
                         <label>Temperature in &deg;Fahrenheit:</label>
