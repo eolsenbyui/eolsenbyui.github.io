@@ -31,6 +31,10 @@
             */
             "use strict";
 
+            // Option for Locale string to display cents for money numbers.
+            const centOptions = {minimumFractionDigits: 2, maximumFractionDigits: 2};
+
+
             // Finds the Future Value of a lump sum investment
             function computeFutureValue(principal, annualRate, years, periodsPerYear) {
                 let periods = years * periodsPerYear;
@@ -58,7 +62,7 @@
 
                 let output = Math.round(futureValue * 10**2) / 10**2;
 
-                document.getElementById('output').innerHTML = "$ " + output.toLocaleString() + "&nbsp;";
+                document.getElementById('output').innerHTML = "$ " + output.toLocaleString(undefined, centOptions) + "&nbsp;";
             }
         </script>
 
