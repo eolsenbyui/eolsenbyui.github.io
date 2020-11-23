@@ -6,29 +6,14 @@
         <meta name="author" content="Eugene C. Olsen">
         <meta name="course" content="CIT160">
         <meta name="section" content="7">
-        <meta name="instructor" content="Eric Solokowsky">
+        <meta name="instructor" content="Eric Sokolowsky">
 
         <meta name="week" content="11">
         <meta name="assignment" content="1">
 
         <title>Invest</title>
 
-        <style>
-            form ul {
-                list-style-type: none; 
-                padding-left: 0;
-            }
-
-            form li {
-                margin-top: 5px;
-            }
-
-            form input {
-                float: right;
-                text-align: right;
-                clear: both;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="https://cdn-eugene-olsen.s3-us-west-1.amazonaws.com/styles/invest.css" />
 
         <script>
             /*  Input-Process-Output Model
@@ -44,6 +29,7 @@
              *
              *  Output: The the value of the investment at maturity or Future Value (FV)
             */
+            "use strict";
 
             // Finds the Future Value of a lump sum investment
             function computeFutureValue(principal, annualRate, years, periodsPerYear) {
@@ -62,9 +48,11 @@
                 event.preventDefault(); 
 
                 let principal = parseFloat(document.getElementById('principal').value);
-                let annualRate = parseFloat(document.getElementById('annualrate').value);
+                let percentageRate = parseFloat(document.getElementById('rate').value);
                 let years = parseFloat(document.getElementById('years').value);
                 let periodsPerYear = parseFloat(document.getElementById('periodsperyear').value);
+
+                let annualRate = percentageRate / 100;  // Convert percent to decimal
 
                 let futureValue = computeFutureValue(principal, annualRate, years, periodsPerYear);
 
@@ -76,21 +64,21 @@
 
     </head>
 
-    <body>
+    <body class="dollars">
         <header style="margin-left: 30px;">
-            <h2>Week 10, Programming Assignment 1</h2>
+            <h1 class="treasury">Week 11, Programming Assignment 1</h1>
         </header>
         <section style="margin-left: 60px;">
-            <h3>Investment Calculator</h3>
-            <form onsubmit="doFV(event)" style="width: 400px;">
-                <ul>
+            <form class="card money" onsubmit="doFV(event)" style="width: 400px; padding: 15px;">  
+                <h2 class="card-heading" style="margin-top: -5px">Investment Calculator</h2>
+                <ul class="form-ul">
                     <li>
                         <label>Amount invested (principal):</label>
                         <input type="text" id="principal" placeholder="Enter principal amount"  style="width: 150px" autofocus/>
                     </li>
                     <li>
-                        <label>Annual interest rate (example: .035 for 3.5%):</label>
-                        <input type="text" id="annualrate" placeholder="Enter rate" style="width: 72px"/>
+                        <label>Annual interest rate % (example: 3.5 for 3.5%):</label>
+                        <input type="text" id="rate" placeholder="Enter rate" style="width: 72px"/>
                     </li>
                     <li>
                         <label>Number of years:</label>
@@ -106,6 +94,8 @@
                         <span id="output" style="text-align: right; float: right; font-weight: 600"></span>
                     </li>
                 </ul>
+                <small>&copy; Copyright 2020 Eugene C. Olsen<br>
+                Money photo courtesy Wikimedia Commons</small>
             </form>
         </section>
     </body>
