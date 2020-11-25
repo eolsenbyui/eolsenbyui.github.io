@@ -28,11 +28,11 @@
              *
              *  Process: 1. payment = principal * rate per period, all divided by 1 - (1 + rate per period)**-total number of periods for the life of the loan
              *           2. balance = principal * (1 + rate per period)**payments paid to date less the following:
-                            payment per period * ((1 + rate per period)**payments paid to date - 1) / rate per period
+             *              payment per period * ((1 + rate per period)**payments paid to date - 1) / rate per period
              *
              *  Output: 1. The computed payment
              *          2. The outstanding loan balance
-            */
+             */
             "use strict";
 
             // Option for Locale string to display cents for money numbers.
@@ -151,7 +151,7 @@
                 </h3>
                 <ul>
                     <li>
-                        <label>Amount invested (principal):</label>
+                        <label>Amount borrowed (principal):</label>
                         <input type="text" id="principal" placeholder="Enter principal amount"  style="width: 150px" autofocus/>
                     </li>
                     <li>
