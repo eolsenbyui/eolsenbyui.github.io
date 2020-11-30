@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Eugene C. Olsen">
+    <meta name="course" content="CIT160">
+    <meta name="section" content="7">
+    <meta name="instructor" content="Eric Sokolowsky">
+
+    <meta name="week" content="12, 13">
+    <meta name="assignment" content="1">
+
+    <meta name="copyright" content="&copy; 2020 Eugene C. Olsen">
+
+    <title>Test Array Functions</title>
+
+    <link rel="stylesheet" href="https://cdn-eugene-olsen.s3-us-west-1.amazonaws.com/styles/dodger-table.css">
+
+    <script>
+        /* Input-Process-Output Model
+         *
+         * Input: no user input
+         * Processing: Test the countEvens and multiply functions by calling them.
+         * Output: The values returned from the countEvens and multiply functions.
+         */
+        "use strict";
+
+
+        // Return the sum of the two numbers at the beginning and the end of the array
+        function addEnds(list) {
+            return list[0] + list[list.length - 1];
+        }
+
+
+        function getMiddle(list) {
+            let result = 0.0;
+            let center = Math.trunc(list.length / 2);
+
+            if (list.length % 2 === 0) {    // If there are an even number of elements
+                result = (list[center - 1] + list[center]) / 2; // Average the two middle elements
+            } else {    // otherwise if an odd number of elements
+                result = list[center];  // Return the middle element
+            }
+
+            return result;
+        }
+
+
+        // Count the even numbered elements in an array
+        function countEvens(list) {
+            let evensCount = 0;
+
+            list.forEach(function (element) {
+                if (element % 2 === 0) {
+                    evensCount++;
+                }
+            });
+
+            return evensCount;
+        }
+
+
+        // Multiply each element in the array by a value.
+        // This is how we do matrix multiplication for a one-dimensional matrix.
+        function multiply(list, multiplier) {
+            let newList = [];   // The original array will not be modified.
+
+            list.forEach(function (element) {
+                newList.push(element * multiplier);
+            });
+
+            return newList;
+        }
+
+
+        // Tests two arrays for equality.
+        // Extends the Array class to include the isEqual() method.
+        Array.prototype.isEqual = function(list) {
+            let result = false;     // Assume that the arrays are NOT equal until proven otherwise.
+
+            if (this.length === list.length) {  // If the lengths are not equal, then the arrays cannot be equal.
+                for (let index in this) {
+                    if (this[index] !== list[index]) {
+                        break;  // Stop on the first inequality
+                    }
+                }
+
+                result = true;  // If we found no inequality, then the arrays must be equal.
+            }
+
+            return result;
+        }
+
+
+        // Format the arguments passed to our candidate function for output
+        function formatArgs(args) {
+            let result = "";
+            let first = true;
+
+            for (let arg of args) {
+                if (first) {
+                    first = false;
+                } else {
+                    result += ", ";
+                }
+
+                result += JSON.stringify(arg);
+            }
+
+            return result;
+        }
+
+
+
+        // Test our functions
+        // Returns a table row that includes:
+        //   The reference to the function to test and the argument(s)
+        //   The expected result
+        //   The actual result
+        //   Whether the actual result matches the expected result (pass/fail)
+        //
+        // Note: The reference of the function to test is the first parameter.
+        //         That function is called by this test function using the apply() method.
+        //       The second parameter is the expected result.
+        //       The parameters that follow are passed to the function being tested.
+        //         
+        function testFunction(functionToTest, expectedResult, ...args) {
+            const frown = "&#x2639; ";
+            const passed = "<span style='color: darkgreen; font-weight: 600'>✓ Passed</span>";
+            const failed = "<span style='color: darkred; font-weight: 600'>" + frown + "Failed</span>";
+
+            let fnName = functionToTest.name;   // Get the function's name  
+            let fnResult = functionToTest.apply(null, args); // Call the function
+
+            let passFail = "";
+
+            let resultType = typeof (fnResult);
+
+            if (typeof (fnResult) === "object") {
+                if (Array.isArray(fnResult)) {
+                    resultType = "Array";
+
+                    // Test against expected result for pass/fail
+                    if (fnResult.isEqual(expectedResult)) {
+                        passFail = passed;
+                    } else {
+                        passFail = failed;
+                    }
+                }
+            } else {
+                // Test against expected result for pass/fail
+                if (fnResult === expectedResult) {
+                    // Passed
+                    passFail = passed;
+                } else {
+                    // Failed
+                    passFail = failed;
+                }
+            }
+
+
+            // Return a table row
+            let result = "<tr>" 
+                + '<td style="font-family: monospace; font-size: 12pt;">' + fnName + "( " + formatArgs(args) + " )</td>"
+                + '<td style="font-weight: 600;">' + JSON.stringify(fnResult) + '</td>'
+                + '<td>' + JSON.stringify(expectedResult) + '</td>'
+                + '<td>' + passFail + '</td>' 
+                + '</tr>';
+
+            return result;
+        }
+
+
+        // This function does real testing and displays results.
+        function test() {
+            // The following arrays were copied from the assignment instructions and pasted here.
+            const list1 = [ 17, 8, 9, 5, 20 ];
+            const list2 = [ 12, 4, 8, 15, 17, 5, 20, 11 ];
+
+
+            // Build output to display to the user.
+            // The second argument for the testFunction() call is the expected result, 
+            //   copied from the assignment instructions and pasted here.
+            let output =
+                testFunction(addEnds, 37, list1) +
+                testFunction(addEnds, 23, list2) +
+                testFunction(getMiddle, 9, list1) +
+                testFunction(getMiddle, 16, list2) +
+                testFunction(countEvens, 2, list1) +
+                testFunction(countEvens, 4, list2) +
+                testFunction(multiply, [51, 24, 27, 15, 60], list1, 3) + 
+                testFunction(multiply, [24, 8, 16, 30, 34, 10, 40, 22], list2, 2);
+
+            // Display the output string for the user to see.
+            document.getElementById('output').innerHTML = output;
+        }            
+    </script>
+</head>
+
+<body onload="test()">
+    <header style="margin-left: 20px;">
+        <h2>Week 12 and 13 Assignments</h2>
+    </header>
+    <section style="margin-left: 20px; margin-top: 20px">
+        <h3>Test JavaScript Functions that Operate on Arrays</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Function Call</th>
+                    <th>Actual Result</th>
+                    <th>Expected Result</th>
+                    <th>Pass/Fail</th>
+                </tr>
+            </thead>
+            <tbody id="output"></tbody>
+        </table>
+    </section>
+    <footer style="margin-left: 30px;"><small>&copy; 2020 Eugene C. Olsen<br><br>
+        Colors based on Dodger uniform blue and Dodger Stadium blue. &nbsp; Go Dodger Blue! &nbsp; 2020 World Series Champions!<br>
+        &nbsp; &nbsp; (I'm also a Rays fan, having lived in the Tampa Bay area, <em>except</em> when the Rays are playing the Dodgers.)</small></footer>
+</body>
+
+</html>
