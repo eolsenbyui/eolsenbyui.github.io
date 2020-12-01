@@ -16,24 +16,42 @@
 
     <title>Test Array Functions</title>
 
-    <link rel="stylesheet" href="https://cdn-eugene-olsen.s3-us-west-1.amazonaws.com/styles/dodger-table.css">
+    <link rel="stylesheet" href="https://cdn-eugene-olsen.s3-us-west-1.amazonaws.com/styles/dodger-table.css" >
 
     <script>
         /* Input-Process-Output Model
          *
          * Input: no user input
          * Processing: Test the addEnds() and getMiddle() functions by calling them.
-         * Output: The values returned from the countEvens and multiply functions.
+         * Output: The values returned from the addEnds() and getMiddle() functions.
          */
         "use strict";
 
 
-        // Return the sum of the two numbers at the beginning and the end of the array
+        // addEnds
+        // Parameter: Any one-dimensional array of numbers of any length.
+        //
+        // Input-Process-Output Model:
+        //
+        // Input: No user input.
+        // Process: Obtain the sum of the first and last element of the array passed in as an argument.
+        // Output: Return the sum of the first and last elements of the array.
+        //
         function addEnds(list) {
             return list[0] + list[list.length - 1];
         }
 
 
+        // getMiddle
+        // Parameter: Any one-dimensional array of numbers of any length.
+        //
+        // Input-Process-Output Model
+        //
+        // Input: No user input.
+        // Process: If the array's length is an odd number, return the middle element of the array.
+        //          If the array's length is an even number, return the average of the two middle elements of the array.
+        // Output: Return the result of the process described above.
+        // 
         function getMiddle(list) {
             let result = 0.0;
             let center = Math.trunc(list.length / 2);
@@ -48,6 +66,10 @@
         }
 
 
+
+        ///////////////////////////////////
+        // Support functions follow
+        ///////////////////////////////////
 
         // Format the arguments passed to our candidate function for output
         function formatArgs(args) {
@@ -83,8 +105,8 @@
         //         
         function testFunction(functionToTest, expectedResult, ...args) {
             const frown = "&#x2639; ";
-            const passed = "<span style='color: darkgreen; font-weight: 600'>✓ Passed</span>";
-            const failed = "<span style='color: darkred; font-weight: 600'>" + frown + "Failed</span>";
+            const passed = "<span class='pass'>✓ Passed</span>";
+            const failed = "<span class='fail'>" + frown + "Failed</span>";
 
             let fnName = functionToTest.name;   // Get the function's name  
             let fnResult = functionToTest.apply(null, args); // Call the function
@@ -115,11 +137,10 @@
                 }
             }
 
-
             // Return a table row
             let result = "<tr>" 
-                + '<td style="font-family: monospace; font-size: 12pt;">' + fnName + "( " + formatArgs(args) + " )</td>"
-                + '<td style="font-weight: 600;">' + JSON.stringify(fnResult) + '</td>'
+                + '<td class="code">' + fnName + "( " + formatArgs(args) + " )</td>"
+                + '<td class="bold">' + JSON.stringify(fnResult) + '</td>'
                 + '<td>' + JSON.stringify(expectedResult) + '</td>'
                 + '<td>' + passFail + '</td>' 
                 + '</tr>';
@@ -128,7 +149,9 @@
         }
 
 
-        // This function does real testing and displays results.
+        // test
+        // This function "drives" the testing and displays the results.
+        //
         function test() {
             // The following arrays were copied from the assignment instructions and pasted here.
             const list1 = [ 17, 8, 9, 5, 20 ];
