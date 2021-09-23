@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>WDD 330 Adding Machine</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <script>
+
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Adding Machine</h1>
+    <div>
+        <input type="number" , id="addend">
+        <button id="add"><em>n</em>th Partial Sum</button>
+    </div>
+    <div>
+        <input type="number" , id="addend2">
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+    </div>
+    <div id="sum"></div>
+
+    <script>
+        const buttonAdd = document.getElementById('add');
+        const buttonPlus = document.getElementById('plus');
+        const buttonMinus = document.getElementById('minus');
+
+        const getValues = function() {
+            number = parseInt(document.getElementById("addend").value);
+            number2 = parseInt(document.getElementById("addend2").value);
+
+            return [number, number2]
+        }
+
+        const setResult = result => {
+            document.getElementById("sum").innerHTML = result.toString();
+        }
+
+        const onClick = () => {
+            let number = parseInt(document.getElementById("addend").value);
+
+            let result = 0;
+            let equation = "";
+            for (let i = 1; i <= number; i++) {
+                if (i === 1) {
+                    equation += i.toString();
+                } else {
+                    equation += ` + ${i}`
+                }
+
+                result += i;
+            }
+
+            setResult(equation + ' = ' + result.toString());
+        }
+
+        function add() {
+            let numbers = getValues();
+
+            let sum = numbers[0] + numbers[1];
+
+            setResult(sum);
+        }
+
+        function subtract() {
+            [a, b] = getValues();
+
+            let difference = a - b;
+
+            setResult(difference)
+        }
+
+        buttonAdd.addEventListener('click', onClick);
+        buttonPlus.addEventListener('click', add);
+        buttonMinus.addEventListener('click', subtract);
+    </script>
+</body>
+
+</html>
