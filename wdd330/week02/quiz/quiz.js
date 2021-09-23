@@ -2,6 +2,8 @@ const fs = require('fs');
 
 process.stdin.setEncoding('utf-8');
 
+
+// Read a line from the console (stdin) synchronously.
 const readline = () => {
     let buffer = new ArrayBuffer(255);
     let view = new DataView(buffer, 0);
@@ -9,16 +11,12 @@ const readline = () => {
     return String.fromCharCode.apply(null, new Uint8Array(buffer)).substr(0, nBytes).trimEnd();
 }
 
-const quiz = [
-    ["What is Superman's real name?", "Clark Kent"],
-    ["What is Wonder Woman's real name?", "Diana Prince"],
-    ["What is Batman's real name?", "Bruce Wayne"]
-]
 
 const ask = question => {
     console.log(question);
     return readline();
 }
+
 
 const check = (response, answer) => {
     if (response === answer) {
@@ -29,6 +27,15 @@ const check = (response, answer) => {
     }
 }
 
+
+const quizData = [
+    ["What is Superman's real name?", "Clark Kent"],
+    ["What is Wonder Woman's real name?", "Diana Prince"],
+    ["What is Batman's real name?", "Bruce Wayne"]
+]
+
+
+// Run the game
 console.clear();
 
 console.log("Welcome to the interactive Quiz Ninja!\n");
@@ -36,10 +43,9 @@ console.log("Welcome to the interactive Quiz Ninja!\n");
 let score = 0;
 
 // main game loop
-for (const [question, answer] of quiz) {
+for (const [question, answer] of quizData) {
     const response = ask(question);
     check(response, answer);
 }
-
 
 console.log(`\nGame Over.  You scored ${score} point${score !== 1 ? 's' : ''}`);
