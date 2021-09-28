@@ -19,7 +19,16 @@
   <section>
     <h2>Web Page Exercises and Experiments</h2>
     <ul>
-      <li><a href="rainbow/rainbow.html" target="_blank">Rainbow</a></li>
+      <li><a href="events" target="_blank">Events</a></li>
+      <li>
+        https://www.churchofjesuschrist.org/music/library/hymns?lang=eng
+        <code>
+        <pre>
+        let tableRows = document.getElementsByClassName('music-table-item');
+        let hymnTitles = Array.from(tableRows).map(tr => tr.children[2].innerText);
+        </pre>
+      </code>
+      </li>
     </ul>
   </section>
 
@@ -27,6 +36,11 @@
     <h2>What I Did This Week</h2>
     <ol>
       <li>Read the assigned material.</li>
+      <li>
+        Studied the difference between for..in and for..of loops.  For..in in Python acts very 
+        differently from for..in in JavaScript.  Likewise, JavaScript's Array.foreach() acts very differently
+        from for each in C#.
+      </li>
     </ol>
   </section>
 
@@ -43,15 +57,29 @@
   </section>
 
   <section>
+    <h2>Notes</h2>
+    <ol>
+      <li>Arrow functions have no <em>this</em> pointer.</li>
+      <li>event.stopPropagation() is kind of like event.preventDefault().</li>
+    </ol>
+  </section>
+
+  <section>
     <h2>Questions</h2>
-    <p>None at this time.</p>
+    <ol>
+      <li>Is there, or can there be, a Slack channel for this course or your sections this semester?</li>
+    </ol>
   </section>
 
   <section>
     <h2>Comments</h2>
     <p></p>
     <ol>
-      <li>Everyone is entitled to my opinion! ;)</li>
+      <li>This week's material began to challenge me a little.</li>
+      <li>
+        I am working in both C# and Python at work.  It's an interesting challenge to shift back and forth
+        between these and JavaScript.
+      </li>
     </ol>
   </section>
 </body>
