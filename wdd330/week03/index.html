@@ -25,7 +25,9 @@
         <code>
         <pre>
         let tableRows = document.getElementsByClassName('music-table-item');
-        let hymnTitles = Array.from(tableRows).map(tr => tr.children[2].innerText);
+        //let hymnTitles = Array.from(tableRows).map(tr => tr.children[2].innerText);
+        let hymns = Array.from(tableRows).map(tr => [tr.children[3].innerText, tr.children[2].innerText]);
+        for (hymn of hymns) console.log(`${hymn[0]} ${hymn[1]}`);
         </pre>
       </code>
       </li>
@@ -37,9 +39,9 @@
     <ol>
       <li>Read the assigned material.</li>
       <li>
-        Studied the difference between for..in and for..of loops.  For..in in Python acts very 
-        differently from for..in in JavaScript.  Likewise, JavaScript's Array.foreach() acts very differently
-        from for each in C#.
+        Studied the difference between <strong>for..in</strong> and <strong>for..of</strong> loops.  
+        The <strong>for..in</strong> loop in Python acts very differently from <strong>for..in</strong> in JavaScript.  
+        Likewise, JavaScript's <strong>Array.foreach()</strong> acts very differently from <strong>for each</strong> in C#.
       </li>
     </ol>
   </section>
