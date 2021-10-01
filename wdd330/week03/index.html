@@ -55,6 +55,9 @@
         concepts were the ones writing the code.  They made some wrong turns along the way, but I think that helped 
         to reinforce the concepts once they got their code right.
       </li>
+      <li>
+        Read chapters 14 and 15 in <em>Eloquent JavaScript</em> and took notes.
+      </li>
     </ol>
   </section>
 
@@ -73,8 +76,22 @@
   <section>
     <h2>Notes</h2>
     <ol>
-      <li>Arrow functions have no <em>this</em> pointer.</li>
-      <li>event.stopPropagation() is kind of like event.preventDefault().</li>
+      <li>Arrow functions have no <code>this</code> pointer.</li>
+      <li><code>event.stopPropagation()</code> is kind of like <code>event.preventDefault()</code>.</li>
+      <li>
+        The childNodes property of an element is a NodeList type, not an array.  
+        We can make an array of it by using the <code>Array.from()</code> method if we want to use <code>Array.map(), Array.filter()</code>, etc.
+        We can also iterate over it with <code>NodeList.forEach()</code> and <code>for (let child of node.childNodes)</code>.
+      </li>
+      <li>
+        Element nodes represent HTML tags.  They are type 1 nodes and the JavaScript constant is <code>Node.ELEMENT_NODE</code>.
+      </li>
+      <li>
+        Text nodes represent text in the HTML document.  They are type 3 nodes.  The JavaScript constant is <code>Node.TEXT_NODE</code>.
+      </li>
+      <li>
+        Comments are type 8 nodes, <code>Node.COMMENT_NODE</code>.
+      </li>
     </ol>
   </section>
 
