@@ -25,9 +25,11 @@
         <code>
         <pre>
         let tableRows = document.getElementsByClassName('music-table-item');
-        //let hymnTitles = Array.from(tableRows).map(tr => tr.children[2].innerText);
-        let hymns = Array.from(tableRows).map(tr => [tr.children[3].innerText, tr.children[2].innerText]);
+        let hymnTitles = Array.from(tableRows).map(tr => tr.children[2].innerText);
+        let hymns = Array.from(tableRows).map(tr => [ parseInt(tr.children[3].innerText), tr.children[2].innerText ]);
         for (hymn of hymns) console.log(`${hymn[0]} ${hymn[1]}`);
+        // Or ... 
+        console.table(hymns);
         </pre>
       </code>
       </li>
@@ -42,6 +44,16 @@
         Studied the difference between <strong>for..in</strong> and <strong>for..of</strong> loops.  
         The <strong>for..in</strong> loop in Python acts very differently from <strong>for..in</strong> in JavaScript.  
         Likewise, JavaScript's <strong>Array.foreach()</strong> acts very differently from <strong>for each</strong> in C#.
+      </li>
+      <li>
+        Actively participated in the Team Activity.
+      </li>
+      <li>
+        After the team activity, some of my classmates had questions about objects so we did some spontaneous creation
+        and manipulation of some objects, starting with the inventors array from the activity and ending by creating
+        a car object, with make, model, year, and color properties.  The people who had trouble understanding the
+        concepts were the ones writing the code.  They made some wrong turns along the way, but I think that helped 
+        to reinforce the concepts once they got their code right.
       </li>
     </ol>
   </section>
@@ -69,7 +81,7 @@
   <section>
     <h2>Questions</h2>
     <ol>
-      <li>Is there, or can there be, a Slack channel for this course or your sections this semester?</li>
+      <li>To be, or not to be?  <em>That</em> is the question.</li>
     </ol>
   </section>
 
@@ -80,7 +92,9 @@
       <li>This week's material began to challenge me a little.</li>
       <li>
         I am working in both C# and Python at work.  It's an interesting challenge to shift back and forth
-        between these and JavaScript.
+        between these and JavaScript.  It's a little like taking Spanish, German, and Italian at the same time.
+        German takes a large mental shift, but also, Spanish and Italian are similar enough that sometimes 
+        one finds one's self speaking Spanish in Italian class and Italian in Spanish class.
       </li>
     </ol>
   </section>
