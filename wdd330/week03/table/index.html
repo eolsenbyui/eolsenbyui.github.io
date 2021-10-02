@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>WDD 330 Build a Table</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <script>
+        const MOUNTAINS = [
+            { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+            { name: "Everest", height: 8848, place: "Nepal" },
+            { name: "Mount Fuji", height: 3776, place: "Japan" },
+            { name: "Vaalserberg", height: 323, place: "Netherlands" },
+            { name: "Denali", height: 6168, place: "United States" },
+            { name: "Popocatepetl", height: 5465, place: "Mexico" },
+            { name: "Mont Blanc", height: 4808, place: "Italy/France" }
+        ];
+
+        const inventors = [
+            { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+            { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+            { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+            { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+            { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+            { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+            { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+            { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+            { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+            { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+            { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+            { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+        ];
+
+        String.prototype.toTitleCase = function () {    // Extend the String class
+            let newString = this.toLowerCase();
+            return newString.replace(newString.charAt(0), newString.charAt(0).toUpperCase());
+        }
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Build a Table</h1>
+    <section>
+        <h2>Mountains</h2>
+        <div id="dynamicTable">
+            <!-- Build a table here with code. -->
+        </div>
+    </section>
+    <script>
+        let mountains = MOUNTAINS.sort((a, b) => a.height > b.height ? 1 : -1)  // Sort mountains by height
+        let parent = document.getElementById("dynamicTable");
+        let table = document.createElement("table");
+        let padding = "10px"
+        parent.appendChild(table);
+
+        // Create the header
+        let headerRow = document.createElement("tr");
+        table.appendChild(headerRow);
+
+        for (const key in mountains[0]) {
+            let headerItem = document.createElement("th");
+            headerItem.style.paddingRight = padding;
+            headerItem.innerText = key.toTitleCase();     // Convert string to title case.
+            headerRow.appendChild(headerItem);
+        }
+
+        // Create rows
+        for (const mountain of mountains) {
+            let tr = document.createElement("tr");
+            parent.appendChild(tr);
+            for (const value of Object.values(mountain)) {
+                let td = document.createElement("td");
+                td.innerText = value;
+                td.style.paddingRight = padding;
+                if (typeof(value) == "number") {    // Right-justify number columns
+                    td.style.textAlign = "right";
+                }
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr);
+        }
+    </script>
+</body>
+
+</html>
