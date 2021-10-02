@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>WDD 330 Hat</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <script>
+
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <h1 style="margin-left: 1.6em;">The Cat's Hat</h1>
+    <table>
+        <tr>
+            <td>
+                <img id="house" src="sit.jpg">
+            </td>
+            <td style="font-size: 24pt; vertical-align: top; padding-left: 1em; padding-top: 20px;">
+                The sun did not shine.<br>
+                It was too wet to play.<br>
+                So we sat in the house<br>
+                All that cold, cold, wet day.<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                — Dr. Seuss
+            </td>
+        <tr style="height: 200px">
+            <td style="text-align: center">
+                <img id="cat" src="cat.png" style="position: relative">
+                <img id="hat" src="hat.png" style="position: relative">
+            </td>
+        </tr>
+        </tr>
+    </table>
+    <p style="font-size: 16pt; margin-top: 100px;">"The Cat's Hat" exercise from <em>Eloquent JavaScript,</em> Chapter 14</p>
+    <!--
+    <p style="text-align: center">
+        <img id="cat" src="cat.png" style="position: relative">
+        <img id="hat" src="hat.png" style="position: relative">
+    </p>
+    -->
+    <script>
+        let cat = document.getElementById("cat");
+        let hat = document.getElementById("hat");
+        let angle = Math.PI / 2;
+        let ellipseWidth = 150;
+        let ellipseHeight = 75;
+        let verticalOffset = 50;
+        let horizontalOffset = 100;
+
+        function animate(time, lastTime) {
+            if (lastTime != null) {
+                angle += (time - lastTime) * 0.001;
+            }
+            cat.style.top = (Math.sin(angle) * ellipseHeight + verticalOffset) + "px";
+            cat.style.left = (Math.cos(angle) * ellipseWidth + horizontalOffset) + "px";
+
+            hat.style.top = (Math.sin(angle + Math.PI) * ellipseHeight + verticalOffset) + "px";
+            hat.style.left = (Math.cos(angle + Math.PI) * ellipseWidth) + "px";
+            requestAnimationFrame(newTime => animate(newTime, time));
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+
+</html>
