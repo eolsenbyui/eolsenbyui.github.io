@@ -70,7 +70,7 @@ const render_board = () => {
   play_board.forEach((e, i) => {
     let newDiv = board_container.appendChild(document.createElement('div'));
     newDiv.classList.add("block");
-    //newDiv.onclick = addPlayerMove;
+    newDiv.onclick = addPlayerMove;
     newDiv.ontouchend = addPlayerMove;
     newDiv.innerText = play_board[i];
     newDiv.dataset.index = i;
@@ -130,7 +130,7 @@ const reset_board = () => {
 
 
 // Set up event handlers
-//document.getElementById("reset").onclick = reset_board;
+document.getElementById("reset").onclick = reset_board;
 document.getElementById("reset").ontouchend = reset_board;
 
 //initial render
