@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Da|Roboto');
+body{
+    background: #5F1C1C;
+    font-family: 'Roboto', sans-serif;
+}
+.dojo{
+    background:  url(https://cdna.artstation.com/p/assets/images/images/008/120/302/large/charlene-eaton-04-martial-arts-dojo-interior-daz3d.jpg) no-repeat;
+    width: 100%;
+    height: 1080px;
+    background-size: 100% auto;
+    padding-top: 10px;
+}
+.quiz-body{
+    background: rgba(255,255,255,1);
+    margin: 150px 35%;
+    padding: 10px 20px 50px 20px;
+    -webkit-box-shadow: 4px 4px 11px 3px rgba(0,0,0,0.7);
+    -moz-box-shadow: 4px 4px 11px 3px rgba(0,0,0,0.7);
+    box-shadow: 4px 4px 11px 3px rgba(0,0,0,0.7);
+}
+h1{
+    color: #611BBD;
+    font-family: 'Baloo Da', cursive;
+    font-weight: 900;
+    text-align: center;
+    font-size: 48px;
+    margin: 0;
+}
+button {
+    color: #ffffff;
+    background-color: #611BBD;
+    border-color: #130269;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    font-size: 24px;
+}
+
+#start {
+    margin-top: 1em;
+}
+
+#question {
+    font-size: 24px;
+}
+#result{
+    color: #fff;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+.welcome {
+    font-family: 'Baloo Da', cursive;
+    font-weight: 900;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 24pt;
+    color: #801C1C;
+}
+.correct {
+    background-color: #0c0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.wrong {
+    color: #fff;
+    background-color: #800;
+}
