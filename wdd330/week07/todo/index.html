@@ -11,19 +11,44 @@
     </script>
 
     <style>
+        input {
+            height: 2em;
+        }
+
+        input[type="checkbox"] {
+            width: 2em;
+        }
+
+        footer {
+            margin-top: 2em;
+        }
+
+        #deleteTask {
+            height: 1.8em;
+            font-size: large;
+            font-weight: bold;
+        }
 
     </style>
 </head>
 
 <body>
-    <H1>Todos</H1>
-    <table>
-        <tr>
-            <td><input type="checkbox"></td>
-            <td><input type="text"></td>
-            <td><button>X</button></td>
-        </tr>
-    </table>
+    <H1>To-Do List</H1>
+    <section id="list">
+        <table>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><input type="text"></td>
+                <td><button id="deleteTask">X</button></td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        <span id="tasksLeft">n tasks left.</span>&nbsp;&nbsp;
+        <button id="allTasks">All</button>
+        <button id="activeTasks">Active</button>
+        <button id="completedTasks">Completed</button>
+    </footer>
     <script>
 
     </script>
