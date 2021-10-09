@@ -19,8 +19,8 @@
   <section>
     <h2>Web Page Exercises and Experiments</h2>
     <ul>
-      <li><a href="quiz" target="_blank"><strong>Quiz Ninja</strong> for Week 4 with some customization</a></li>
-      <li>My <a href="tic" target="_blank">Tic-Tac-Toe</a> attempt.</li>
+      <li><a href="quiz" target="_blank"><strong>Quiz Ninja</strong> for Week 4</a> with customization.</li>
+      <li>My solo<a href="tic" target="_blank">Tic-Tac-Toe</a> solution, separate from the team activity.</li>
     </ul>
   </section>
 
@@ -30,7 +30,10 @@
       <li>Studied Chapter 8: Forms in <em>JavaScript: Novice to Ninja</em>.</li>
       <li>Studied Chapter 12: Object-Oriented Programming in JavaScript in <em>JavaScript: Novice to Ninja</em>.</li>
       <li>Studied the Modular JavaScript section of Chapter 15 in <em>JavaScript: Novice to Ninja</em>.</li>
-      <li>Prepared for the Team Activity</li>
+      <li>Prepared for and participated in the Team Activity</li>
+      <li>Studied Chapter 6, The Secret Life of Objects in <em>Eloquent JavaScript.</em></li>
+      <li>Studied Chapter 10, Modules in <em>Eloquent JavaScript.</em></li>
+      <li>Added the footer for the To-Do List challenge and added initial styling.</li>
     </ol>
   </section>
 
@@ -60,14 +63,30 @@
         Prefixing an identifier with a hash character ('#') makes it private.
         When released next year, this will give us private methods and member variables in classes.  Yay!
       </li>
+      <li>Great discussion on iterators in <em>Eloquent JavaScript</em>!</li>
+      <li>
+        Haverbeke, in <em>Eloquent JavaScript</em>, describes tangled code as a "big ball of mud,"
+        which is an apt visual.
+        Throughout my career, I have heard the metaphor "bowl of spaghetti" used to describe disorganized code.
+        Several years ago, a mid-level software engineer created such a monster where I was working at the time.
+        I was a software test manager at that time.  (Some people call software testing "quality assurance")
+        but I think that is a misnomer:  Testers cannot <em>assure</em> quality though they can help improve it,
+        and besides, quality is <em>everyone's</em> job, not just the testers.)
+        When my test engineers would report a bug, he would fix the bug
+        but create 5 or 6 more in the process of fixing the one bug.  After a couple of weeks of this,
+        the development was turned over to a principal software engineer, who re-designed the whole thing 
+        from the ground up and 
+        had it running in a few days, with an occasional and isolated bug here and there, which was quickly fixed
+        and had no side-effects.  The principal engineer's approach was to identify the discrete components first,
+        then design the interfaces, and then implement them in classes.
+      </li>
     </ol>
   </section>
 
   <section>
     <h2>Questions</h2>
     <ol>
-      <li>To is, or not to wuz? That is the ask.</li>
-      <li>No further questions.</li>
+      <li>None at this time.</li>
     </ol>
   </section>
 
@@ -75,22 +94,38 @@
     <h2>Comments</h2>
     <ol>
       <li>
+        Haverbeke claims, in <em>Eloquent JavaScript</em>, Chapter 6, that inheritance creates "more tangle." 
+        Twenty-seven years of software development with classes and objects, incluing inheritance and multiple
+        inheritance, tell me that this is not necessarily so.  Thoughtfully designed inheritance structures
+        need not be tangled at all but rather, can be clean and clear.   I have seen programmers break
+        encapulation and make a mess of polymorphism, just as I have seen programmers abuse inheritance.
+        I might accept the argument that inheritance may be easier to abuse than encapsulation and polymorphism
+        but cannot agree with the author that inheritance inherently creates "more tangle."
+        I do agree with the author, however, that we probably shouldn't actively go looking for opportunities
+        to construct class hierarchies.  The need for such will usually be obvious, if not painfully so.
+      </li>
+      <li>
+        I was disappointed to discover that JavaScript does not support <em>operator overloading.</em>  There is a
+        <a href="https://github.com/tc39/proposal-operator-overloading" target="_blank">formal proposal</a> 
+        to add the feature but it is not included in the <a href="https://tc39.es/ecma262/" target="_blank">
+        ECMSScript 2022 Language Specification</a>.  Maybe next time.
+      </li>
+      <li>
         Maybe some future version of ECMAScript will offer direct multiple inheritance.
         Most serious object-oriented languages have that feature.
         The <a
           href="https://medium.com/geekculture/proposals-included-in-the-incoming-ecmascript-2022-standard-for-javascript-6119a4518904"
           target="_blank">
-          proposal for ECMAScript 2022
-        </a> does not include multiple inheritance.
+          proposal for ECMAScript 2022</a> does not include multiple inheritance.
         Nor does the <a href="https://tc39.es/ecma262/" target="_blank">
-          ECMSScript 2022 Language Specification
-        </a>.
+          ECMSScript 2022 Language Specification</a>.
       </li>
       <li>
         Tic-Tac-Toe seems to be a popular exercise for programming classes and tutorials.  I have done several.
         The instructor's version of the exercise is the most concise that I've seen to date.
       </li>
-    </ol>>
+      <li>I wish I had time to do <em>all</em> of the exercises in <em>Eloquent JavaScript.</em></li>
+    </ol>
   </section>
 </body>
 </html>
