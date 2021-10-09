@@ -1,0 +1,9 @@
+
+.board {
+    width: 500px;
+    height: 500px;
+}
+
+.board td {
+    border: solid 1px black;
+}

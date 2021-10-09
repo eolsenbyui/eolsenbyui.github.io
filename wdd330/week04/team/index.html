@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>WDD 330 Tic-Tac-Toe</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="game.css" />
+    <script >
+
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <table class="board">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        const board = document.querySelector(".board");
+
+        let isX = true;
+
+        function placement(event) {
+            event.target.innerHtml = isX ? "X" : "O";
+        }
+
+        board.addEventListener('touchend', placement, false);
+        board.addEventListener('click', placement, false);
+    </script>
+</body>
+
+</html>
