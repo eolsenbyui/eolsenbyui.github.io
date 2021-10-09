@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>WDD 330 Vec Class</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <script>
+
+    </script>
+
+    <style>
+        p, div {
+            margin-left: 1.5em;
+            font-size: 1.2em;
+        }
+
+        section {
+            margin-top: 5em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Vec Class</h1>
+    <p>
+        The Vec class encapsulates the head of a vector at coordinates x and y.  
+        The implicit tail of the vector is the origin ccordinate (0, 0).
+    </p>
+    <div>
+        <h4>Contents</h4>
+        <a href="#constructors">Constructors</a><br>
+        <a href="#properties">Properties</a><br>
+        <a href="#methods">Methods</a><br>
+        <h4>Comments</h4>
+    </div>
+    <p>Exercise the Vec class in the console.</p>
+    <p>The code for the Vec class can be found in GitHub at ...</p>
+
+    <section id="constructors">
+        <h2>Constructors</h2>
+        <h3><code>Vec()</code></strong></h3>
+        <p>Creates an empty Vec object with <code>x</code> and <code>y</code> properties <em>undefined</em>.</p>
+        <h3><code>Vec(x, y)</code></h3>
+        <p>
+            Creates a Vec object that initializes the <code>x</code> and <code>y</code> properties with
+            the values passed to the constructor.
+        </p>
+    </section>
+
+    <section id="properties">
+        <h2>Properties</h2>
+        <h3><code>x</code></h3>
+        <p>The x coordinate of the head of the vector.</p>
+        <h3><code>y</code></h3>
+        <p>The y coordinate of the head of the vector.</p>
+        <h3><code>length</code></h3>
+        <p>The magnitude of the vector.</p>
+        <h3><code>angle</code></h3>
+        <p>The direction of the vector in radians.</p>
+        <h3><code>degrees</code></h3>
+        <p>The direction of the vector in degrees.</p>
+    </section>
+
+    <section id="methods">
+        <h2>Methods</h2>
+        <h3><code>plus(Vec)</code></h3>
+        <p>Add the x and y values of the passed in Vec object to the x and y values of <em>this</em> Vec object.</p>
+        <h3><code>minus(Vec)</code></h3>
+        <p>Subtract the x and y values of the passed in Vec object from the x and y values of <em>this</em> Vec object.</p>
+    </section>
+
+    <script src="vec.js"></script>
+</body>
+
+</html>
