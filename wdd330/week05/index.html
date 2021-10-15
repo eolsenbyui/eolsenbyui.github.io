@@ -96,6 +96,18 @@
                 of the System.Diagnostics library, which comes with the language.
             </li>
             <li>TypeScript is a great idea as JavaScript is so weakly typed but TypeScript is so strongly typed that I've found it difficult to use.</li>
+            <li>Creating a class for the sole purpose of encapsulating an array of objects, as was one suggested solution for the 
+                team activity this week, is not a common practice in industry.  Despite what I said about the MVC pattern, above,
+                the suggested MVC code for the activity, though it introduces an additional level of complexity: the controller, 
+                is far better organized than the other suggested solution.
+                <p>I think I came up with a simpler solution than either of them: Add a zero-based <code>index</code> attribute to 
+                    the displayed list item <code>&lt;li index="0"&gt;</code>, <code>&lt;li index="1"&gt;</code>, etc. for each hike.  
+                    Then, when the hike item in the UI is clicked on, grab the index from the list item that was clicked on<br> 
+                    <code>let index = event.target.index</code>
+                    and index into the hikeList array <code>hikeList[index]</code> and get the hike object we need directly, without the need to 
+                    loop through the array and compare names.
+                </p>
+            </li>
             <li>
                 I feel that I'm making good progress toward my personal goal of being able to put together a useful Web UI
                 as fast as I can build a Windows desktop UI using WinForms.
