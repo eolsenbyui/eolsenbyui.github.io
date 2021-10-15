@@ -1,4 +1,4 @@
-'use str'
+'use strict'
 
 const box = {
     locked: true,
