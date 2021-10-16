@@ -1,5 +1,7 @@
+'use strict'
+
 // hikeList is the object array
-// hikes is the UL that contains the hikes
+// hikes is the ID of the UL that contains the hikes
 document.getElementById("hikes").addEventListener("click", (event) => {
     // Display detail
     if (event.target && event.target.nodeName != 'UL') { // Ignore if clicked on the UL part
@@ -19,7 +21,7 @@ function renderHikeList(hikes, parent) {
     });
 }
 
-function renderOneHike(hike, index) {
+function renderOneHikeLight(hike, index) {
     const item = document.createElement("li");
 
     // Encapsulate the array index in the <li> itself.
