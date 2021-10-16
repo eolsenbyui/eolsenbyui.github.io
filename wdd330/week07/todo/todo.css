@@ -1,0 +1,93 @@
+/*
+html {
+    font-size: 17px;
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 48px;
+    }
+}
+*/
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%
+}
+
+td {
+    border: 1px solid #ddd;
+    border-width: medium;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input {
+    height: 2em;
+    width: 98%;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+input[type="checkbox"] {
+    width: 3em;
+}
+
+
+button[type="submit"] {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+form {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.task-input {
+    width: 90%;
+}
+
+.add {
+    width: 80%;
+    margin-left: 2px;
+}
+
+.deleteTask {
+    height: 1.8em;
+    width: 1.8em;
+    font-size: large;
+    font-weight: bold;
+}
+
+.filter {
+    border: none;
+    background-color: none;
+}
+
+.filter:hover {
+    border: 1px solid black;
+    border-width: thin;
+}
