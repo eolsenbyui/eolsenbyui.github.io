@@ -43,16 +43,16 @@ const hikeList = [
   document.getElementById("hikes").addEventListener("click", (event) => {
       // Display detail
       if (event.target && event.target.nodeName != 'UL') {
-          let li = event.target.closest('li');
+          let listItem = event.target.closest('li');
 
-          if (li.index == undefined) {
-              li = li.parentElement.closest('li');
+          if (listItem.index == undefined) {
+              listItem = listItem.parentElement.closest('li');
           }
 
           const hikeListElement = document.getElementById("hikes");
           hikeListElement.innerHTML = "";
 
-          let hike = hikeList[li.index];
+          let hike = hikeList[listItem.index];
 
           const item = document.createElement("li");
 
