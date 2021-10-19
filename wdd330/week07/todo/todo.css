@@ -23,9 +23,14 @@ table {
     width: 100%
 }
 
+tr {
+    outline: thin solid #ddd;
+}
+
 td {
-    border: 1px solid #ddd;
-    border-width: medium;
+    border: 1px solid #ddd;     /* For debugging */
+    border-width: medium;         /* For debugging */
+    border: none;
 }
 
 ul {
