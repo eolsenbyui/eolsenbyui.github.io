@@ -8,38 +8,26 @@
 
     <link rel="stylesheet" href="../../styles.css"/>
     <link rel="stylesheet" href="./todo.css"/>
+
+    <script type="module" src="./main.js"></script>
 </head>
 
 <body>
     <H1>To-Do List</H1>
     <section id="list">
         <table>
-            <tr>
-                <td><input type="checkbox" class="item-complete"></td>
-                <td class="task-input"><input type="text"></td>
-                <td><button class="deleteTask">X</button></td>
-            </tr>
         </table>
-
-        <ul class="hidden">
-            <li>
-                <input type="checkbox">
-                <input type="text">
-                <button class="deleteTask">X</button>
-            </li>
-        </ul>
     </section>
     <footer>
         <form id="add-task">
             <input type="text" id="new-task" class="add">
             <button type="submit">+</button>
         </form>
-            <span id="tasksLeft">n tasks left.</span>&nbsp;&nbsp;
+        <span id="tasksLeft">n tasks left.</span>&nbsp;&nbsp;
         <button id="allTasks" class="filter">All</button>
         <button id="activeTasks" class="filter">Active</button>
         <button id="completedTasks" class="filter">Completed</button>
     </footer>
-    <script src="./main.js" type="module"></script>
 </body>
 
 </html>
