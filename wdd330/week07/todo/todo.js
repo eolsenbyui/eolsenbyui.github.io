@@ -19,7 +19,7 @@ export default class Todo {
         this._content = value;
     }
 
-    get comlpeted() {
+    get completed() {
         return this._completed;
     }
 
@@ -28,19 +28,44 @@ export default class Todo {
     }
 
 
-    render() {
+    render(index, onChange, onDelete) {
         let tr = document.createElement('tr');
+        tr.setAttribute("data-index", index);
 
+        // Create the checkbox cell and the checkbox
         let td = document.createElement('td');
-        td.innerHTML = '<input type="checkbox" class="item-complete">';
+        td.setAttribute("data-index", index);
+
+        // Create the checkbox
+        let input = document.createElement("input");
+        td.appendChild(input);
+        input.type = "checkbox";
+        input.checked = this._completed;
+        input.classList.add("item-complete");
+
+        //input.addEventListener("change", this._completeTodo);   // Handle check and uncheck
+        input.addEventListener("change", onChange);
+
         tr.appendChild(td);
 
+        // Create the text cell
         td = document.createElement('td');
+        td.setAttribute("data-index", index);
+        td.classList.add("task-input")
         td.innerText = this._content;
+        if (this._completed) {
+            td.classList.add("strike")
+        }
         tr.appendChild(td);
 
+        // Create the delete button cell
         td = document.createElement('td');
-        td.innerHTML = '<button class="deleteTask">X</button>'
+        td.setAttribute("data-index", index);
+        let button = document.createElement("button")
+        button.classList.add("deleteTask");
+        button.innerText = "X";
+        button.addEventListener("click", onDelete);
+        td.appendChild(button);
         tr.appendChild(td);
 
         return tr;
