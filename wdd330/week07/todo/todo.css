@@ -15,8 +15,13 @@ html {
     }
 }
 */
+html {
+    max-width: 800px;
+}
+
 h1 {
     text-align: center;
+    font-family: 'Architects Daughter', cursive;
 }
 
 table {
@@ -50,8 +55,8 @@ input[type="checkbox"] {
 
 
 button[type="submit"] {
-    height: 2.5em;
-    width: 2.5em;
+    height: 32px;   /* icon size */
+    width: 32px;
 }
 
 form {
@@ -73,12 +78,15 @@ footer {
 
 .task-input {
     width: 90%;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.5em;
 }
 
 .add {
     width: 80%;
     margin-left: 2px;
 }
+
 
 .deleteTask {
     height: 1.8em;
@@ -95,4 +103,8 @@ footer {
 .filter:hover {
     border: 1px solid black;
     border-width: thin;
+}
+
+.strike {
+    text-decoration: line-through;
 }
