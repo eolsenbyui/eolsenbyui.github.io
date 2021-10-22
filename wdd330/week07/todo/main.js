@@ -3,6 +3,7 @@
 import Todo from "./todo.js";
 
 const todoList = [];
+var filter = "All"
 
 function displayTasksRemaining() {
     let length = todoList.filter(task => !task.completed).length;
@@ -18,8 +19,23 @@ function renderList() {
 
     let index = 0;
     for (let todo of todoList) {
-        let row = todo.render(index++, onChecked, onDelete);
-        table.appendChild(row);
+        switch(filter) {
+            case "Active":
+                if (!todo.completed) {
+                    let row = todo.render(index++, onChecked, onDelete);
+                    table.appendChild(row);
+                }
+                break;
+            case "Completed":
+                if (todo.completed) {
+                    let row = todo.render(index++, onChecked, onDelete);
+                    table.appendChild(row);
+                }
+                break;
+            default:
+                let row = todo.render(index++, onChecked, onDelete);
+                table.appendChild(row);
+        }
     }
 
     displayTasksRemaining();
@@ -77,3 +93,19 @@ function onDelete(event) {
 
     renderList();
 }
+
+
+document.getElementById("allTasks").addEventListener("click", (event) =>{
+    filter = "All";
+    renderList()
+});
+
+document.getElementById("activeTasks").addEventListener("click", (event) =>{
+    filter = "Active";
+    renderList()
+});
+
+document.getElementById("completedTasks").addEventListener("click", (event) =>{
+    filter = "Completed";
+    renderList()
+});
