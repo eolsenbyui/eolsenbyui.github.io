@@ -15,13 +15,22 @@ html {
     }
 }
 */
+* {
+    font-family: 'Architects Daughter', cursive;
+}
 html {
     max-width: 800px;
 }
 
+body {
+    background-color: #4A6DE5;
+    color: #CED8F7;
+    font-family: 'Architects Daughter', cursive;
+}
+
 h1 {
     text-align: center;
-    font-family: 'Architects Daughter', cursive;
+    font-weight: normal;
 }
 
 table {
@@ -43,14 +52,22 @@ ul {
 }
 
 input {
-    height: 2em;
+    height: 2.5em;
     width: 98%;
     margin-left: 1px;
     margin-right: 1px;
+    background-color: #CED8F7;
 }
 
 input[type="checkbox"] {
-    width: 3em;
+    width: 2.5em;
+}
+
+button {
+    background-color: #4A6DE5;
+    color: #CED8F7;
+    border: none;
+    font-size: 1em;
 }
 
 
@@ -62,6 +79,7 @@ button[type="submit"] {
 form {
     text-align: left;
     margin-bottom: 1em;
+    max-width: 800px;
 }
 
 footer {
