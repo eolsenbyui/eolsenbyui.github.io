@@ -1,54 +1,29 @@
-'use strict'
+'use strict';
 
 import Todo from "./todo.js";
+//import TaskList from "./tasklist.js";
+import * as storage from "./storage.js";
+import { displayTasksRemaining } from "./utility.js";
 
-const todoList = [];
+
+var taskList = [];
 var filter = "All"
 
-function displayTasksRemaining() {
-    let length = todoList.filter(task => !task.completed).length;
-
-    document.getElementById("tasksLeft").innerText = 
-        length == 1 ? `${length} task remaining.`:`${length} tasks remaining.`;
-}
 
 
-function renderList() {
-    let table = document.getElementsByTagName("table")[0];
-    table.innerHTML = "";
+//////////////////////////
+// General Event Handlers
 
-    let index = 0;
-    for (let todo of todoList) {
-        switch(filter) {
-            case "Active":
-                if (!todo.completed) {
-                    let row = todo.render(index++, onChecked, onDelete);
-                    table.appendChild(row);
-                }
-                break;
-            case "Completed":
-                if (todo.completed) {
-                    let row = todo.render(index++, onChecked, onDelete);
-                    table.appendChild(row);
-                }
-                break;
-            default:
-                let row = todo.render(index++, onChecked, onDelete);
-                table.appendChild(row);
-        }
-    }
-
-    displayTasksRemaining();
-}
-
-
-
+// DOM load event handler
 document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("tasksLeft").innerText = `${todoList.length} tasks remaining.`
+    taskList = storage.loadAll();
+    document.getElementById("tasksLeft").innerText = `${taskList.length} tasks remaining.`;
+
+    renderTaskList();
 });
 
 
-
+// Submit input form event handler
 document.getElementById("add-task").addEventListener("submit", (event) => {
     event.preventDefault();
     let element = document.getElementById("new-task");
@@ -56,23 +31,59 @@ document.getElementById("add-task").addEventListener("submit", (event) => {
     if (element.value === "") { return; }
     
     let todo = new Todo(element.value);
-    todoList.push(todo);
+    //console.log(todo.toString())
+    taskList.push(todo);
 
-    // TODO: Write the todoList array to local storage.
+    localStorage.setItem(todo.id, todo.toString());     // Add the todo to local storage
 
     // Render the To-Do List
-    renderList();
+    taskList.render(filter);
 
     element.value = ""; // Clear the input field
 });
 
 
+// Render the task list
+function renderTaskList() {
+    let table = document.getElementsByTagName("table")[0];
+    table.innerHTML = "";
 
+    let index = 0;
+    for (let todo of taskList) {
+        switch(filter) {
+            case "Active":
+                if (!todo.completed) {
+                    let row = todo.render(index, onChecked, onDelete);
+                    table.appendChild(row);
+                }
+                break;
+            case "Completed":
+                if (todo.completed) {
+                    let row = todo.render(index, onChecked, onDelete);
+                    table.appendChild(row);
+                }
+                break;
+            default:
+                let row = todo.render(index, onChecked, onDelete);
+                table.appendChild(row);
+        }
+
+        index++;
+    }
+    
+    displayTasksRemaining(taskList)
+}
+
+    
+////////////////////////////////////
+// Callbacks used by the Todo class
+
+// On checkbox checked callback
 function onChecked(event) {
     let node = event.target.parentNode;
     let index = node.getAttribute("data-index");
 
-    let task = todoList[index];
+    let task = taskList[index];
     task.completed = event.target.checked;
 
     if (task.completed) {
@@ -81,31 +92,43 @@ function onChecked(event) {
         node.nextSibling.classList.remove("strike");
     }
 
-    displayTasksRemaining();
+    localStorage.setItem(task.id, task.toString());     // Update the item in local storage
+
+    displayTasksRemaining(taskList);
 }
 
 
+// On to-do item Delete callback
 function onDelete(event) {
     let node = event.target.parentNode;
     let index = node.getAttribute("data-index");
 
-    todoList.splice(index, 1);
+    localStorage.removeItem(taskList[index].id);    // Remove item from local storage
 
-    renderList();
+    taskList.splice(index, 1);
+
+    renderTaskList();
 }
 
 
+
+///////////////////////////////
+// Filter click event handlers
+
+// Filter "All" tasks click event handler
 document.getElementById("allTasks").addEventListener("click", (event) =>{
     filter = "All";
-    renderList()
+    renderTaskList();
 });
 
+// Filter "Active" tasks click event handler
 document.getElementById("activeTasks").addEventListener("click", (event) =>{
     filter = "Active";
-    renderList()
+    renderTaskList();
 });
 
+// Filter "Completed" tasks click event handler
 document.getElementById("completedTasks").addEventListener("click", (event) =>{
     filter = "Completed";
-    renderList()
+    renderTaskList();
 });
