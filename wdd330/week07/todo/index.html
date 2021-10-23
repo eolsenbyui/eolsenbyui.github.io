@@ -24,10 +24,11 @@
     </section>
     <footer>
         <form id="add-task">
-            <input type="text" id="new-task" class="add">
+            <span class="label">Add a task:</span>
+            <input type="text" id="new-task" class="add" placeholder="Type text and press Enter or click the + to add a task.">
             <button type="submit">+</button>
         </form>
-        <span id="tasksLeft">n tasks left.</span>&nbsp;&nbsp;
+        <span id="tasksLeft" class="label">n tasks left.</span>&nbsp;&nbsp;
         <button id="allTasks" class="filter">All</button>
         <button id="activeTasks" class="filter">Active</button>
         <button id="completedTasks" class="filter">Completed</button>
