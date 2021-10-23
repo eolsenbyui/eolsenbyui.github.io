@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 export default class Todo {
-    constructor(content = "") {
-        this._id = Date();
+    constructor(content = "", date=new Date().toISOString(), completed = false) {
+        this._id = date;
         this._content = content;
-        this._completed = false;
+        this._completed = completed;
     }
 
     get id() {  // Date
@@ -37,14 +37,13 @@ export default class Todo {
         td.setAttribute("data-index", index);
 
         // Create the checkbox
-        let input = document.createElement("input");
-        td.appendChild(input);
-        input.type = "checkbox";
-        input.checked = this._completed;
-        input.classList.add("item-complete");
+        let checkBox = document.createElement("input");
+        td.appendChild(checkBox);
+        checkBox.type = "checkbox";
+        checkBox.checked = this._completed;
+        checkBox.classList.add("item-complete");
 
-        //input.addEventListener("change", this._completeTodo);   // Handle check and uncheck
-        input.addEventListener("change", onChange);
+        checkBox.addEventListener("change", onChange);
 
         tr.appendChild(td);
 
@@ -69,5 +68,10 @@ export default class Todo {
         tr.appendChild(td);
 
         return tr;
+    }
+
+
+    toString() {
+        return `{"id": "${this._id}", "content": "${this._content}", "completed" : ${this._completed}}`
     }
 }
