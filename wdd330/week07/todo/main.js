@@ -45,7 +45,7 @@ document.getElementById("add-task").addEventListener("submit", (event) => {
 
 // Render the task list
 function renderTaskList() {
-    let table = document.getElementsByTagName("table")[0];
+    let table = document.getElementsByTagName("tbody")[0];
     table.innerHTML = "";
 
     let index = 0;

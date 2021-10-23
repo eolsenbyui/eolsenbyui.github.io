@@ -22,7 +22,16 @@ h1 {
 }
 
 table {
-    width: 100%
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+tbody {
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex: auto;
 }
 
 tr {
