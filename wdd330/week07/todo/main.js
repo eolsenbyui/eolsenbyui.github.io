@@ -37,7 +37,7 @@ document.getElementById("add-task").addEventListener("submit", (event) => {
     localStorage.setItem(todo.id, todo.toString());     // Add the todo to local storage
 
     // Render the To-Do List
-    taskList.render(filter);
+    renderTaskList();
 
     element.value = ""; // Clear the input field
 });
