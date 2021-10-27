@@ -11,6 +11,10 @@ body {
     font-size: 1.25em;
 }
 
+code {
+    font-family: consolas, monospace;
+}
+
 section {
     margin-top: 4em;
 }
