@@ -20,6 +20,13 @@
         <h2>Web Page Exercises and Experiments</h2>
         <ul>
             <li>
+                Worked the 
+                <a href="ajax" target="_blank">AJAX example</a> in <em>JavaScript: Novice to Ninja</em> Chapter 13, AJAX.
+                Refactored the promise logic to <code>async/await</code>.
+            </li>
+            <li>
+                My concept of the <a href="hikes" target="_blank">Great Hikes</a> team exercise solution
+                using local storage for the comments.
             </li>
         </ul>
     </section>
@@ -60,8 +67,35 @@
         <h2>Notes</h2>
         <ol>
             <li>
+                <em>functionname</em><code>.call()</code> passes a <code>this</code> pointer to the first argument
+                passed to <code>.call</code>.
             </li>
-            <li></li>
+            <li>
+                The <code>.apply</code> method works the same way but the arguments after the first are in an array.
+            </li>
+            <li>
+                Properties can be added to functions.  Functions in JavaScript are objects, not merely pointers to code.
+            </li>
+            <li>
+                Properties are lost if a function redefines itself.
+            </li>
+            <li>
+                Memoization: cached results.  I can see uses for this.  I could use this in my current Python project at work, 
+                and lo, I find that Python 3.2+ supports it natively.
+            </li>
+            <li>
+                IIFE ("iffy") functions.  Clever but easier to accomplish in ES6 with code blocks as in C/C++ or C#.
+            </li>
+            <li>
+                XMLHttpRequest has been superseded by the Fetch API.  The Fetch API is a "living standard."
+                The Fetch API uses promises.  The <code>fetch()</code> method can also be used with <code>async/await</code>.
+                See instructions on how to do so <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await#rewriting_promise_code_with_asyncawait" target="_blank">here</a> 
+                and <a href="https://dmitripavlutin.com/javascript-fetch-async-await/" target="_blank">here</a>.
+            </li>
+            <li>
+                The <code>.json()</code> method is the most common of AJAX responses.  
+                The <code>.redirect()</code> method is not supported in any browser.
+            </li>
         </ol>
     </section>
 
@@ -76,8 +110,14 @@
         <h2>Comments</h2>
         <ol>
             <li>
+                The <em>JavaScript: Novice to Ninja</em> book isn't my favorite but I've got to say that its
+                explanation of promises is very good.
             </li>
             <li>
+                Promises are great but <code>async/await</code> makes for clearer, easier-to-understand code.
+            </li>
+            <li>
+                I have been using AJAX for years without knowing it.
             </li>
         </ol>
     </section>
