@@ -10,9 +10,14 @@
   <script>
 
     function loadMenu() {
-      links.forEach(element => {
+      links.block1.forEach(element => {
         document.getElementById("contentsBlockOne").innerHTML += `<li><a href=${element.url}>${element.label}</a></li>`
       });
+
+      links.block2.forEach(element => {
+        document.getElementById("contentsBlockTwo").innerHTML += `<li><a href=${element.url}>${element.label}</a></li>`
+      });
+
     }
 
   </script>
@@ -36,18 +41,16 @@
 <body onload="loadMenu()">
   
   <h1>WDD 330 Portfolio</h1>
-  <p id="student">Eugene C. Olsen, Section 7</p>
+  <p id="student">Eugene C. Olsen, Section 7, Fall 2021</p>
 
   <section class="block" id="block1">
     <h2>Block 1</h2>
     <ol id="contentsBlockOne"></ol>
-    <p>(Stay tuned for improved styling.)</p>
   </section>
 
   <section class="block" id="block2">
     <h2>Block 2</h2>
-    <ol id="contentsBlockTwo"></ol>
-    <p>Block 2 will be here before we know it!</p>
+    <ol id="contentsBlockTwo" start="8"></ol>
   </section>
 
 </body>
