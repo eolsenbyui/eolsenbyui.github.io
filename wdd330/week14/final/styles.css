@@ -17,6 +17,10 @@ h1 {
     color:rgb(64, 64, 64)
 }
 
+div.row {
+    display: table-row;
+}
+
 label, button, th {
     font-family: 'Yellowtail', cursive;
 }
@@ -25,15 +29,14 @@ label, input, button {
     font-size: 1.5em;
 }
 
-p {
-    font-family: 'Yellowtail', cursive;
-    margin-left: 3em;
-    font-size: 2em;
-    color:darkgreen;
+label {
+    display: table-cell;
+    text-align: right;
 }
 
 input {
     width: 8em;
+    display: table-cell;
 }
 
 tr:nth-child(odd) {
@@ -55,6 +58,12 @@ td:last-of-type {
 #syllables {
     width: 2em;
 }
+
+#trailer {
+    font-family: 'Yellowtail', cursive;
+    font-size: 1.5em;
+}
+
 #less {
     margin-left: 0em;
 }
@@ -62,4 +71,11 @@ td:last-of-type {
 #submit {
     margin-top: 1em;
     margin-left: 7em;
+}
+
+#stay-tuned {
+    font-family: 'Yellowtail', cursive;
+    margin-left: 3em;
+    font-size: 2em;
+    color:darkgreen;
 }
