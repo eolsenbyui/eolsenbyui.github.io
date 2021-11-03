@@ -39,6 +39,13 @@ h2 {
 table {
     margin-top: 2em;
     margin-left: 1em;
+    width: 100%
+}
+
+caption {
+    text-align: left;
+    margin-left: 0.1em;
+    margin-bottom: 0.5em;
 }
 
 td {
@@ -59,6 +66,10 @@ footer {
 
 .hidden {
     display: none;
+}
+
+.detail:nth-child(odd) {
+    background-color: rgba(228, 245, 239, 0.1);
 }
 
 #prevnext, #back {

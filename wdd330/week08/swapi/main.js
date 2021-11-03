@@ -27,13 +27,15 @@ document.getElementById("next").addEventListener("click", async (event) => {
 
 
 document.getElementById("back-button").addEventListener("click", async (event) => {
+    let table = document.getElementById("characters");
+    table.innerHTML = "";   // Clear out the table
+
     document.getElementById("instructions").classList.remove("hidden");
 
     buildList(page);
 
     document.getElementById("back").classList.add("hidden");    // Hide back button
     document.getElementById("prevnext").classList.remove("hidden");
-
 });
 
 async function buildList(page) {
@@ -76,24 +78,24 @@ async function onTdClick(event) {
 
         let table = document.getElementById("characters");
         table.innerHTML = "";   // Clear out the table
+
+        let character = await response.json();
+
+        let caption = document.createElement("caption");
+        table.appendChild(caption);
+        caption.innerText = character.name;
+        caption.style.fontSize = "2em";
         
         let tableBody = document.createElement("tbody");
         table.appendChild(tableBody);
 
-        let character = await response.json();
-
-        let tr = document.createElement("tr");
-        tableBody.appendChild(tr);
-
-        let td = document.createElement('td');
-        tr.appendChild(td);
-
-        td.innerText = character.name;
-        td.style.fontSize = "2em";
-
-        addRow(tableBody, "Gender:", character.gender);
-        addRow(tableBody, "Eye color:", character.eye_color);
-        addRow(tableBody, "Hair color:", character.hair_color);
+        addRow(tableBody, "Gender", character.gender);
+        addRow(tableBody, "Eye color", character.eye_color);
+        addRow(tableBody, "Hair color", character.hair_color);
+        addRow(tableBody, "Skin color", character.skin_color);
+        addRow(tableBody, "Birth year", character.birth_year);
+        addRow(tableBody, "Height", character.height);
+        addRow(tableBody, "Mass", character.mass);
 
         document.getElementById("back").classList.remove("hidden");    // Show back button
     }
@@ -102,7 +104,15 @@ async function onTdClick(event) {
 function addRow(body, label, data) {
     let tr = document.createElement("tr");
     body.appendChild(tr);
+    tr.classList.add("detail");
+
     let td = document.createElement('td');
     tr.appendChild(td);
-    td.innerText = label + " " + data;
+
+    td.innerText = label;
+
+    td = document.createElement('td');
+    tr.appendChild(td);
+
+    td.innerText = data;
 }
