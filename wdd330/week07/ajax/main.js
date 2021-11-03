@@ -19,7 +19,7 @@ textButton.addEventListener('click', async () => {
 
         outputDiv.innerText = await response.text();
     } catch (error) {
-        console.log('There was a problem with the fetch() operation: ' + error.message);
+        outputDiv.innerText = 'There was a problem with the fetch() operation: ' + error.message;
     }
 }, false);
 
