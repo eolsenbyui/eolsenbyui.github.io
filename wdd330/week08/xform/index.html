@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <title>WDD 330 Transforms</title>
+
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+
+    </script>
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: black;
+            color: whitesmoke;
+        }
+
+        html {
+            max-width: 800px;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .fade {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            top: -25px;
+            background-image: linear-gradient(0deg, transparent, black 75%);
+            z-index: 1;
+        }
+
+        .star-wars {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 800px;
+            color: #feda4a
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-size: 300%;
+            font-weight: 600;
+            letter-spacing: 6px;
+            line-height: 150%;
+            perspective: 400px;
+            text-align: justify;
+        }
+
+        .crawl {
+            position: relative;
+            top: 9999px;
+            transform-origin: 50% 100%;
+            animation: crawl 60s linear;
+        }
+
+        .crawl > .title {
+            font-size: 90%;
+            text-align: center;
+        }
+
+        .crawl > .title h1 {
+            margin: 0 0 100px;
+            text-transform: uppercase;
+        }
+
+        @keyframes crawl {
+            0% {
+                top: 0;
+                transform: rotateX(20deg)  translateZ(0);
+            }
+            100% { 
+                top: -6000px;
+                transform: rotateX(25deg) translateZ(-2500px);
+            }
+        }
+
+        #rotate {
+            width: 400px;
+            height: 5em;
+            margin-top: 4em;
+        }
+
+        #rotate h2:hover {
+            transform: translate(1em, 1em) rotate(10deg);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Some Transforms</h1>
+    <div id="rotate">
+        <h2>Hover over text to rotate.</h2>
+    </div>
+    <div>
+        Reload the page to restart the Star Wars intro.
+    </div>
+
+    <section class="star-wars">
+
+        <div class="crawl">
+          
+          <div class="title">
+            <p>Episode IV</p>
+            <h1>A New Hope</h1>
+          </div>
+          
+          <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.</p>     
+          <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet.</p>
+          <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy…</p>
+      
+        </div>
+      
+      </section>    
+    <script>
+
+    </script>
+</body>
+
+</html>
