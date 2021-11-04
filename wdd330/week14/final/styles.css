@@ -6,6 +6,11 @@ html {
     max-width: var(--max-width);
 }
 
+body {
+    background-image: url('./nordwood-themes-KcsKWw77Ovw-unsplash.jpg');
+    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');
+}
+
 
 h1 {
     font-family: 'Pinyon Script', cursive;
@@ -53,6 +58,16 @@ th, td {
 
 td:last-of-type {
     text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 0.5em;
+}
+
+.hidden {
+    display: none;
 }
 
 #syllables {

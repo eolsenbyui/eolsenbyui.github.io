@@ -19,6 +19,8 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     if (response.ok) {
         let text = await response.text();
 
+        document.getElementById("credits").classList.add("hidden");
+
         let array = JSON.parse(text);
 
         // Create table header
