@@ -25,14 +25,22 @@
     
     <footer>
         <div id="prevnext">
-            <button id="prev"><-- Prev</button>
-            <button id="next">Next --></button>
+            <button id="prev"><span class="arrow"><</span> Prev</button>
+            <button id="next">Next <span class="arrow">></span></button>
         </div>
         <div id="back" class="hidden">
-            <button id="back-button"><-- Back</button>
+            <button id="back-button"><span class="arrow"><</span> Back</button>
         </div>
-        <div id="swapi">
-            Data courtesy the Star Wars API: <a href="https://swapi.dev" target="_blank">https://swapi.dev</a>
+        <!-- TODO: Credit the fonts and photo -->
+        <div id="credits">
+            <div>
+                Tattooine background courtesy Death by Toys<br>
+                StarJedi typeface courtesy Boba Fonts<br>
+                AnakinMono typeface courtesy opipik
+            </div>
+            <div id="swapi">
+                Data courtesy the Star Wars API: <a href="https://swapi.dev" target="_blank">https://swapi.dev</a>
+            </div>
         </div>
     </footer>
     <script src="main.js" type="module"></script>
