@@ -39,6 +39,12 @@ document.getElementById("back-button").addEventListener("click", async (event) =
 });
 
 async function buildList(page) {
+    let table = document.getElementById("characters");
+    table.innerHTML = "";   // Clear out the table
+    // TODO: Start a wait spinner
+
+    // TODO: Add try-catch
+    // TODO: Add error display strip at top like PowerApps
     let response = await fetch(page);
 
     if (response.ok) {
@@ -48,9 +54,6 @@ async function buildList(page) {
 
         document.getElementById("prev").disabled = (prev === null);
         document.getElementById("next").disabled = (next === null);
-
-        let table = document.getElementById("characters");
-        table.innerHTML = "";   // Clear out the table
 
         let tableBody = document.createElement("tbody");
         table.appendChild(tableBody);
