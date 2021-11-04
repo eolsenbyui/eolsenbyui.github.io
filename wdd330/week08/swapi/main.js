@@ -64,6 +64,7 @@ async function buildList(page) {
 
             td.innerText = row.name;
             td.dataset.detail = row.url;    // Attach the detail url
+            td.style.cursor = "pointer";
             td.addEventListener("click", onTdClick);    // Add event handler for click/touch
         }
     }
