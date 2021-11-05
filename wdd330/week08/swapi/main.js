@@ -57,13 +57,11 @@ async function getApi(url) {
 
 
 async function buildList(page) {
-    console.log(`buildList(${page})`);
     let table = document.getElementById("characters");
     table.innerHTML = "";   // Clear out the table
     // TODO: Start a wait spinner
 
     characters = await getApi(page);
-    console.log(characters);
 
     prev = characters.previous;
     next = characters.next;
