@@ -76,6 +76,8 @@ function renderList(table) {
     let tableBody = document.createElement("tbody");
     table.appendChild(tableBody);
 
+    let index = 0;
+
     for (let character of characters.results) {
         let tr = document.createElement("tr");
         tableBody.appendChild(tr);
@@ -84,7 +86,7 @@ function renderList(table) {
         tr.appendChild(td);
 
         td.innerText = character.name;
-        td.dataset.detail = character.url;    // Attach the detail url
+        td.dataset.index = index++;
         td.style.cursor = "pointer";
         td.addEventListener("click", onTdClick);    // Add event handler for click/touch
     }
@@ -97,7 +99,7 @@ async function onTdClick(event) {
     let table = document.getElementById("characters");
     table.innerHTML = "";   // Clear out the table
 
-    const character = await getApi(event.target.dataset.detail);
+    const character = characters.results[event.target.dataset.index];
 
     let caption = document.createElement("caption");
     table.appendChild(caption);
