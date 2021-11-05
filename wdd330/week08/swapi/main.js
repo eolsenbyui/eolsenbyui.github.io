@@ -43,12 +43,21 @@ async function buildList(page) {
     table.innerHTML = "";   // Clear out the table
     // TODO: Start a wait spinner
 
-    // TODO: Add try-catch
-    // TODO: Add error display strip at top like PowerApps
-    let response = await fetch(page);
+    let response = null;
+    try {
+        response = await fetch(page);
+    } catch(e) {
+        // TODO: Add error display strip at top like PowerApps
+        console.error(e);   // TODO: Convey error to end user in a friendly way.
+    }
+
 
     if (response.ok) {
-        characters = await response.json();
+        try {
+            characters = await response.json();
+        } catch(e) {
+            console.error(e);
+        }
         prev = characters.previous;
         next = characters.next;
 
@@ -74,7 +83,14 @@ async function buildList(page) {
 }
 
 async function onTdClick(event) {
-    let response = await fetch(event.target.dataset.detail);
+    let response = null;
+    try {
+        response = await fetch(event.target.dataset.detail);
+    } catch (e) {
+        // TODO: Add error display strip at top like PowerApps
+        console.error(e);   // TODO: Convey error to end user in a friendly way.
+    }
+
 
     if (response.ok) {
         document.getElementById("prevnext").classList.add("hidden");
@@ -83,7 +99,13 @@ async function onTdClick(event) {
         let table = document.getElementById("characters");
         table.innerHTML = "";   // Clear out the table
 
-        let character = await response.json();
+        let character = null;
+        try {
+            character = await response.json();
+        } catch(e) {
+            // TODO: Add error display strip at top like PowerApps
+            console.error(e);   // TODO: Convey error to end user in a friendly way.
+        }
 
         let caption = document.createElement("caption");
         table.appendChild(caption);
