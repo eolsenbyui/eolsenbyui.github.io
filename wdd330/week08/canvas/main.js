@@ -19,7 +19,7 @@ window.addEventListener("load", (event) => {
     ctx.setLineDash([5, 5]);
     ctx.moveTo(0, 100);
     ctx.lineTo(200, 100);
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "white";
     ctx.stroke();
 
     // Draw a circle as the special case of an ellipse
@@ -31,7 +31,7 @@ window.addEventListener("load", (event) => {
     ctx.ellipse(300, 100, 60, 60, 0, 0, 2 * Math.PI);   // Equal axes makes a circle
     ctx.fillStyle = gradient;
     ctx.fill();
-    ctx.strokeStyle = "darkblue";
+    ctx.strokeStyle = "lemonchiffon";
     ctx.lineWidth = 2;
     ctx.stroke();
 });
