@@ -118,6 +118,10 @@ async function onTdClick(event) {
     addRow(tableBody, "Mass", character.mass);
 
     document.getElementById("back").classList.remove("hidden");    // Show back button
+
+    let world = await getApi(character.homeworld);
+
+    addRow(tableBody, "Home World", world.name);
 }
 
 function addRow(body, label, data) {
