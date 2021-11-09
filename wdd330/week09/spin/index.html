@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <title>WDD 330 Animation</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+
+    <style>
+        h2 {
+            margin-left: .5em;
+        }
+
+        p {
+            margin-left: 1em;
+        }
+        #square {
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            /* animation: spin 8s ease infinite; */
+            animation-name: spin-and-bounce;
+            animation-duration: 8s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes spin-and-bounce {
+            from {
+                transform: rotate(0deg);
+                margin-left: 0;
+                margin-top: 200px;
+            }
+
+            25% {
+                transform: rotate(180deg);
+                margin-left: 200px;
+                margin-top: 0;
+            }
+
+            50% {
+                transform: rotate(360deg);
+                margin-left: 400px;
+                margin-top: 200px;
+            }
+
+            75% {
+                transform: rotate(180deg);
+                margin-left: 200px;
+                margin-top: 0;
+            }
+
+            to {
+                transform: rotate(0deg);
+                margin-left: 0;
+                margin-top: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animation with CSS</h1>
+    <div id="description">
+        <h2>Hypnotic Animation</h2>
+        <p>Don't stare at this too long!</p>
+        <ul>
+            <li>
+                Animation duration: 8s
+            </li>
+            <li>
+                Animation timing function: ease
+            </li>
+            <li>
+                See styles for keyframes
+            </li>
+        </ul>
+    </div>
+    <div id='square'></div>
+</body>
+
+</html>
