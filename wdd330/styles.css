@@ -23,6 +23,10 @@ li {
     margin-bottom: .25em;
 }
 
+.to-do {
+    color: yellow;
+}
+
 .student {
     margin-top: -2em;
     margin-left: 2.5em;
