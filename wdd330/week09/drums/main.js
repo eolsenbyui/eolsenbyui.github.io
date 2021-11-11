@@ -24,8 +24,13 @@ document.addEventListener("keydown", (event) => {
     let audio = document.querySelector(`body > audio[data-key="${textKey}"]`);
 
     let key = document.querySelector(`body > div > div[data-key="${textKey}"]`);
-    //console.dir(key);
-    key.classList.add("playing");
+
+    key.classList.add("playing");   // Highlight the key while its sound plays
+
+    // Move the key vertically when pressed, up to 10 times, then reset.
+    let top = parseInt(key.style.marginTop, 10) || 0;
+    if (top > 100) { top = 0; } // Reset position
+    key.style.marginTop = top + 10 + 'px';
 
 
     // I think the following is too slow.  I prefer the keyup event.
@@ -35,7 +40,6 @@ document.addEventListener("keydown", (event) => {
 
     audio.currentTime = 0;
     audio.play();
-    //console.dir(audio);
 });
 
 
