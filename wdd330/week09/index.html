@@ -63,6 +63,14 @@
                     to understand the <code>transitionend</code> event introduced by the instructor's solution to 
                     the team activity this week.
             </li>
+            <li>
+                Experimented with transition properties in the team activity code, especially the
+                <code>transition-property</code> property.  I found that we can still see all of the 
+                property changes in the <code>playing</code> class even if the <code>transition-property</code>
+                is set to just <code>transform</code>.  Doing so spares our app from firing a multitude of
+                <code>transitionend</code> events.  This is probably not a significant performance enhancement
+                but it was an interesting and informative exercise.
+            </li>
         </ol>
     </section>
     <section>
@@ -103,6 +111,19 @@
             <li>We have been using local storage for class assignments for several weeks, now.</li>
             <li>In addition to the <code>transitionend</code> event, I experimented with the 
                 <code>ended</code> event for the audio object and the <code>keyup</code> event as well.
+                You can see these experiments in the  
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/commits/master/wdd330/week09/drums/main.js"
+                target="_blank">history for the <code>main.js</code> file on GitHub</a>.
+            </li>
+            <li>
+                In the team activity, since the <code>transition-property</code> for the <code>key</code> class is 
+                specified as <code>all</code>, many transitions occur.  The <code>transitionend</code> event is fired
+                for each property.  We are not interested in the transitions for most of the properties.  We are 
+                interested in the <code>transitionend</code> event for the <code>transform</code> property only.
+            </li>
+            <li>
+                The <code>transform</code> property seems to be consistently the last property to complete the transition
+                specified for the <code>key</code> class in the team activity starter code.
             </li>
         </ol>
     </section>
