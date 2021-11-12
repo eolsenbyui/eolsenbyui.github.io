@@ -2,6 +2,10 @@
     --max-width: 800px;
 }
 
+* {
+    font-family: 'Yellowtail', cursive;
+}
+
 html {
     max-width: var(--max-width);
 }
@@ -17,7 +21,8 @@ h1 {
     font-family: 'Yellowtail', cursive;
     font-family: 'Satisfy', cursive;
 
-    margin-left: 5em;
+    /* margin-left: 5em; */
+    text-align: center;
 
     color:rgb(64, 64, 64)
 }
@@ -26,13 +31,14 @@ div.row {
     display: table-row;
 }
 
-label, button, th {
+label, button, th, input[type='submit'] {
     font-family: 'Yellowtail', cursive;
 }
 
 label, input, button {
     font-size: 1.5em;
 }
+
 
 label {
     display: table-cell;
@@ -42,6 +48,8 @@ label {
 input {
     width: 8em;
     display: table-cell;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
 }
 
 input[type='checkbox'] {
@@ -49,20 +57,18 @@ input[type='checkbox'] {
     height: 1em;
 }
 
-#table tr:nth-child(odd) {
-    background-color: rgb(228, 245, 239);
+input[type='submit'] {
+    width: 4em;
+    display:block;
+    margin: 2em auto;
 }
 
-#table th {
-    color: rgb(80, 80, 80);
+thead:first-child {
+    text-align: left;
 }
 
-#table th, td {
-    font-size: 1.5em;
-}
-
-#table td:last-of-type {
-    text-align: center;
+select {
+    font-size: .9em;
 }
 
 footer {
@@ -71,11 +77,57 @@ footer {
     padding: 0.5em;
 }
 
+#results {
+    margin-top: 1em;
+}
+
+#results tr:nth-child(even) {
+    background-color: rgba(195, 235, 248, 0.25);
+}
+
+#results th {
+    color: rgb(80, 80, 80);
+    background-color: rgba(195, 235, 248, 0.377);
+}
+
+#results th, td {
+    font-size: 1.5em;
+}
+
+#results th:last-of-type {
+    width: 5em;
+    text-align: center;
+}
+
+#results td {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#results td:last-of-type {
+    text-align: center;
+}
+
+.chklabel {
+    float: right;
+    vertical-align: middle;
+    font-size: 1em;
+    padding-left: .25em;
+}
+
+.small {
+    font-size: .7em;
+}
+
 .hidden {
     display: none;
 }
+
 #form > table {
     font-family: 'Yellowtail', cursive;
+}
+
+#form td {
+    vertical-align: middle;
 }
 
 #form tr td:first-child {
@@ -95,10 +147,6 @@ footer {
     margin-left: 0em;
 }
 
-#submit {
-    margin-top: 1em;
-    margin-left: 7em;
-}
 
 #stay-tuned {
     font-family: 'Yellowtail', cursive;
