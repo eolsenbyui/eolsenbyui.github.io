@@ -1,13 +1,5 @@
 'use strict';
 
-const validKeys = [];
-
-window.addEventListener("load", (event) => {
-    let divs = document.querySelectorAll(".key[data-key]");
-
-    divs.forEach(div => validKeys.push(div.dataset.key));
-});
-
 
 document.addEventListener("keydown", (event) => {
 
@@ -18,9 +10,8 @@ document.addEventListener("keydown", (event) => {
 
     let textKey = code.toString();
 
-    if (!validKeys.includes(textKey)) { return; }
-
     let audio = document.querySelector(`audio[data-key="${textKey}"]`);
+    if (null === audio) { return; }
 
     let key = document.querySelector(`.key[data-key="${textKey}"]`);
 
@@ -28,9 +19,8 @@ document.addEventListener("keydown", (event) => {
 
     // Move the key vertically when pressed, up to 10 times, then reset.
     let top = parseInt(key.style.marginTop, 10) || 0;
-    if (top >= 100) {    // Reset position
-        top = 0; 
-        key.style.marginTop = top + 'px';
+    if (top >= 90) {    // Reset position
+        key.style.marginTop = '0';
     } else {
         key.style.marginTop = top + 10 + 'px';
     }
