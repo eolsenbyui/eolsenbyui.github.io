@@ -25,12 +25,14 @@ document.getElementById("form").addEventListener("submit", async (event) => {
 
         // Create table header
         let header = document.getElementById("header");
-        header.innerHTML = "";
+        header.innerHTML = "<th>Word</th><th>Score</th><th>Syllables</th>";
+        /*
         for (let key in array[0]) {
             let th = document.createElement("th");
             th.innerText = key;
             header.appendChild(th);
         }
+        */
 
         // Create table rows
         let body = document.getElementById("body");
