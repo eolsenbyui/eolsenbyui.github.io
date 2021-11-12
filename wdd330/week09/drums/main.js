@@ -2,7 +2,6 @@
 
 
 document.addEventListener("keydown", (event) => {
-
     let code = event.key.charCodeAt();
     if (code > 90) {
         code -= 32;     // Force to capital letter code.
@@ -11,7 +10,7 @@ document.addEventListener("keydown", (event) => {
     let textKey = code.toString();
 
     let audio = document.querySelector(`audio[data-key="${textKey}"]`);
-    if (null === audio) { return; }
+    if (!audio) { return; }
 
     let key = document.querySelector(`.key[data-key="${textKey}"]`);
 
@@ -47,8 +46,8 @@ document.addEventListener("keyup", (event) => {
 
     let textKey = code.toString();
 
-    if (!validKeys.includes(textKey)) { return; }
-
-    let key = document.querySelector(`body > div > div[data-key="${textKey}"]`);
+    let key = document.querySelector(`.key[data-key="${textKey}"]`);
+    if (!key) { return; }
+    
     key.classList.remove("playing");
 });
