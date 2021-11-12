@@ -19,19 +19,53 @@
     </header>
 
     <form id="form">
-        <div class="row">
-            <label for="rhyme">Rhymes with&nbsp;&nbsp;</label>
-            <input id="rhyme" type="text" />
-        </div>
-        <div id="less" class="row">
-            <label for="syllables">and less than&nbsp;&nbsp;</label>
-            <input id="syllables" type="number" min="2" max="20" />&nbsp;&nbsp;
-            <span id="trailer">syllables</span>
-        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        Rhymes with
+                    </td>
+                    <td>
+                        <input id="rhyme" type="text" />
+                    </td>
+                    <td>
+                        <input type="checkbox" id="near" name="near" value="near"> nearly
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Starts with
+                    </td>
+                    <td>
+                        <input id="starts" type="text" />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        Synonyms of&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input id="synonym" type="text" />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        and less than
+                    </td>
+                    <td>
+                        <input id="syllables" type="number" min="2" max="20" />
+                        <span id="trailer">syllables</span>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <button id="submit" type="submit">Submit</button>
     </form>
-
-    <p id="stay-tuned">Much more to come!</p>
 
     <table id="table">
         <thead id="header">

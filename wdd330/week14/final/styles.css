@@ -44,19 +44,24 @@ input {
     display: table-cell;
 }
 
-tr:nth-child(odd) {
+input[type='checkbox'] {
+    width: 1em;
+    height: 1em;
+}
+
+#table tr:nth-child(odd) {
     background-color: rgb(228, 245, 239);
 }
 
-th {
+#table th {
     color: rgb(80, 80, 80);
 }
 
-th, td {
+#table th, td {
     font-size: 1.5em;
 }
 
-td:last-of-type {
+#table td:last-of-type {
     text-align: center;
 }
 
@@ -69,6 +74,14 @@ footer {
 .hidden {
     display: none;
 }
+#form > table {
+    font-family: 'Yellowtail', cursive;
+}
+
+#form tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+}
 
 #syllables {
     width: 2em;
@@ -76,7 +89,6 @@ footer {
 
 #trailer {
     font-family: 'Yellowtail', cursive;
-    font-size: 1.5em;
 }
 
 #less {
