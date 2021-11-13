@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <title>WDD 330 Proposal</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&Pinyon+Script&family=Satisfy&family=Yellowtail&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>Poet's Pal</h1>
+    <div class="subtitle" id="subtitle">
+        Final Project Proposal
+        <p>Eugene C. Olsen, Section 7, Fall 2021</p>
+    </div>
+
+    <section id="purpose">
+        <h2>Purpose</h2>
+        <p>
+            The purpose of the <span class="pal">Poet's Pal</span> is to provide a simple one-stop tool for those 
+            who desire quick access to literary devices 
+            including rhyme, near-rhyme, alliteration, synonyms, and combinations thereof.
+        </p>
+        <p>
+            The <span class="pal">Poet's Pal</span> app is easy to use yet powerful.  The app is more than a rhyming dictionary and thesaurus,
+            though it is these things.  The app enables the wordsmith to create targeted search combinations 
+            such as "find me a word or words that rhyme with 'kind', begin with the letter 'f', mean 'discover', 
+            and have exactly 1 syllable."
+        </p>
+    </section>
+
+    <section id="audience">
+        <h2>Audience</h2>
+        <p>The audience for the app would include wordsmiths, 
+            such as poets and songwriters, who want quick access to the literary devices
+            mentioned above.
+        </p>
+    </section>
+
+    <section id="data">
+        <h2>Data Sources</h2>
+        <p>
+            The primary data source for the app is the <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>,
+            a word-finding query engine for developers.
+        </p>
+        <p>
+            Since the Datamuse API can return results that are not safe for work, church, or BYU, a secondary data source 
+            is a local JSON file that includes such words, obfuscated by Base64 encoding, to filter these words out of the results.
+        </p>
+        <p>
+            Finally, the Google fonts "Satisfy" and "Yellowtail" are used in the styling and a marbled background image
+            from Unsplash.com by Augustine Wong give a look to the app that is easy on the eyes.
+        </p>
+    </section>
+
+    <section>
+        <h2>Appearance and Styling</h2>
+        <p>Below are screen shots of a <a href="../../week14/final/" target="_blank">working model of the app</a>
+            that show its appearance, components, and styling, including colors and typography.</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        This is the basic layout of the app with results.
+                        <p>"Rhymes with" is self-evident.  The user can enter a word and retrieve a list of words
+                            that rhyme with the word entered.  Check the "nearly" checkbox to include near rhymes,
+                            as shown below.
+                        </p>
+                        <p>
+                            Enter one or more letters in the "Starts with" field to find words that alliterate.
+                        </p>
+                        <p>"Synonymns of" retrieves words that are synonyms of the word entered in the field.</p>
+                        <p>Finally, the results list can be filtered by number of syllables, either exactly or
+                            less than, as shown below.
+                        </p>
+                        <p>
+                            The Score column in the results indicates how well the word rhymes or how closely 
+                            it alliterates or in the case of the synonym, how closely the meanings match.
+                        </p>
+                    </td>
+                    <td>
+                        <img src="images/results.jpg" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Checking the 'nearly' checkbox directs the app to find words that nearly rhyme with the word entered to its left.
+                    </td>
+                    <td>
+                        <img src="images/near_rhyme.jpg" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        The last field is a filter that limits the results to words with exactly the specified number of syllables
+                        or less than a certain number of syllables, as selected from the drop-down list.  The default is "less than".
+                    </td>
+                    <td>
+                        <img src="images/select_syllables.jpg" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="modules">
+        <h2>Initial Module List</h2>
+        <p>The initial module list includes the usual suspects, 
+            plus a JSON file that includes words to be excluded from the results.</p>
+        <p>Additional JavaScript files may be added to house helper functions.</p>
+        <ul>
+            <li>index.html</li>
+            <li>main.js</li>
+            <li>styles.css</li>
+            <li>exclusions.json</li>
+        </ul>
+    </section>
+
+    <section id="milestones">
+        <h2>Development Milestones</h2>
+        <ul>
+            <li>Week 10: Near rhyme logic, "starts with" logic, synonym logic.</li>
+            <li>Week 11: JSON exclusion list.</li>
+            <li>Week 12: CSS Media queries and final styling.</li>
+            <li>Week 13: Final fit and polish.</li>
+            <li>Week 14: Turn it in!</li>
+        </ul>
+    </section>
+
+    <footer>
+        
+    </footer>
+</body>
+
+</html>
