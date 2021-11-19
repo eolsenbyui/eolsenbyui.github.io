@@ -9,13 +9,4 @@ window.addEventListener("load", async (event) => {
     let controller = new QuakesController("#quakeList");
 
     await controller.init();
-    /*
-    let location = await getLocation();
-    console.log(location);
-
-    let url = `${BASE_URL}&latitude=${location.coords.latitude}&longitude=${location.coords.longitude}&maxradiuskm=80`;
-
-    let json = await getJson(url);
-    console.log(json);
-    */
 });
