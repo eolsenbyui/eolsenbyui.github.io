@@ -1,0 +1,11 @@
+tr:nth-child(even) {
+    background-color: rgba(31, 107, 133, 0.2);
+}
+
+ul {
+    list-style-type:none
+}
+
+.hidden {
+    display: none;
+}

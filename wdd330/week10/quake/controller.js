@@ -15,7 +15,7 @@ export default class QuakesController {
         };
         // this is how our controller will know about the model and view...we add them right into the class as members.
         this.quakes = new Quake();
-        this.quakesView = new QuakesView();
+        this.quakesView = new QuakesView("#quakes", "#quake");
     }
 
 
@@ -54,13 +54,16 @@ export default class QuakesController {
         this.quakesView.renderQuakeList(quakeList, this.parentElement);
         // add a listener to the new list of quakes to allow drill down in to the details
         this.parentElement.addEventListener('touchend', e => {
-            this.getQuakeDetails(e.target.dataset.id);
+            let tr = e.target.closest("tr");
+            this.getQuakeDetails(tr.dataset.index);
         });
     }
 
 
-    async getQuakeDetails(quakeId) {
-        // get the details for the quakeId provided from the model, then send them to the view to be displayed
+    async getQuakeDetails(quakeIndex) {
+        // Get the details for the quake provided from the model, then send them to the view to be displayed
+        let quake = this.quakes.getQuakeByIndex(quakeIndex); 
 
+        this.quakesView.renderQuake(quake);
     }
 }

@@ -6,23 +6,31 @@
     <title>WDD 330 Quakes Near Me</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
 
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-
-    <style>
-        ul {
-            list-style-type: none;
-        }
-    </style>
 </head>
 
 <body>
     <main>
         <h1>Quake List</h1>
-        <ul id="quakeList" ></ul>
+        <section id="quakes">
+            <table id="quakeList">
+                <thead><th>Date</th><th>Time</th><th>Magnitude</th><th>Place</th><th>ID</th></thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+        <section id="quake" class="hidden">
+            <h2>Quake ID: <span id="quakeId"></span></h2>
+            <ul>
+
+            </ul>
+            <button id="back"><< Back</button>
+        </section>
     </main>
 
     <script src="main.js" type="module"></script>
