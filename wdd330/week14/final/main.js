@@ -1,10 +1,36 @@
 'use strict';
 
+const URL = "https://api.datamuse.com/words?";
+
 document.getElementById("form").addEventListener("submit", async (event) => {
     event.preventDefault()
 
-    let word = document.getElementById("rhyme").value;
-    if (word === "") { return; }
+    let query = [];
+    let rhymes = document.getElementById("rhyme").value;
+    let near = document.getElementById("near").checked;
+    let starts = document.getElementById("starts").value;
+    let synonym = document.getElementById("synonym").value;
+    if (rhymes) {
+        if (near) {
+            query.push("rel_nry=" + rhymes);
+        } else {
+            query.push("rel_rhy=" + rhymes);
+        }
+    }
+
+    if (starts) {
+        query.push("sp=" + starts + "*");
+    }
+
+    if (synonym) {
+        query.push("ml=" + synonym);
+    }
+
+    let body = document.getElementById("tbody");
+    body.innerHTML = "";
+
+    if (query.length === 0) { return; }
+
 
     let syllables = document.getElementById("syllables").value
     let nSyllables = 0;
@@ -12,7 +38,11 @@ document.getElementById("form").addEventListener("submit", async (event) => {
         nSyllables = parseInt(syllables);
     }
 
-    let url = "https://api.datamuse.com/words?rel_rhy=" + word;
+    let nSyl = document.getElementById("nSyl");
+
+    let nSylValue = nSyl.selectedOptions[0].innerText;
+
+    let url = URL + query.join('&');
 
     let response = await fetch(url);
 
@@ -25,6 +55,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
 
         // Create table header
         let header = document.getElementById("header");
+        // TODO: some results don't come back with syllables.  Adjust header accordingly
         header.innerHTML = "<th>Word</th><th>Score</th><th>Syllables</th>";
         /*
         for (let key in array[0]) {
@@ -35,11 +66,12 @@ document.getElementById("form").addEventListener("submit", async (event) => {
         */
 
         // Create table rows
-        let body = document.getElementById("body");
-        body.innerHTML = "";
-
         for (let item of array) {
-            if (nSyllables > 0 && item.numSyllables >= nSyllables) { continue; }    // skip
+            if (nSylValue === "exactly") {
+                if (item.numSyllables !== nSyllables) { continue; }
+            } else {
+                if (nSyllables > 0 && item.numSyllables >= nSyllables) { continue; }    // skip
+            }
 
             let row = document.createElement("tr");
             body.appendChild(row);
