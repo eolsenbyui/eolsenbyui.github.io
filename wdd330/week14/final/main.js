@@ -55,15 +55,14 @@ document.getElementById("form").addEventListener("submit", async (event) => {
 
         // Create table header
         let header = document.getElementById("header");
-        // TODO: some results don't come back with syllables.  Adjust header accordingly
-        header.innerHTML = "<th>Word</th><th>Score</th><th>Syllables</th>";
-        /*
+        header.innerHTML = "";
         for (let key in array[0]) {
+            // TODO: Make first character in key uppercase
+            // TODO: if (key === "numSyllables") => "Syllables";
             let th = document.createElement("th");
             th.innerText = key;
             header.appendChild(th);
         }
-        */
 
         // Create table rows
         for (let item of array) {
@@ -84,5 +83,16 @@ document.getElementById("form").addEventListener("submit", async (event) => {
         }
     } else {
         // TODO: do some user-friendly error handling
+    }
+});
+
+
+document.getElementById("nSyl").addEventListener("change", (event) => {
+    let syllables = document.getElementById("syllables");
+    let nSyl = document.getElementById("nSyl");
+    if (nSyl.selectedOptions[0].innerText === "exactly") {
+        syllables.min = 1;
+    } else {
+        syllables.min = 2;
     }
 });
