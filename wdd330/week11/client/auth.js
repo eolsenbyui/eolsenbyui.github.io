@@ -46,7 +46,6 @@ export default class Auth {
     try {
       // 3. add the code here to make a request for the user identified by email...don't forget to send the token!
       let user = await makeRequest(`users?email=${email}`, 'GET', null, this.jwtToken);
-      console.log(user);
       return user;
     } catch (error) {
       // if there were any errors display them

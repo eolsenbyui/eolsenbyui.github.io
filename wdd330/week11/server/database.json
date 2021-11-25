@@ -53,6 +53,22 @@
       "userId": "user1@email.com",
       "createdAt": 1559159640285,
       "id": 12
+    },
+    {
+      "title": "Test Post",
+      "name": "Eugene",
+      "content": "This is a test post",
+      "userId": "user2@email.com",
+      "createdAt": 1637867291754,
+      "id": 13
+    },
+    {
+      "title": "Yet another Post",
+      "name": "e",
+      "content": "See if this one works",
+      "userId": "user1@email.com",
+      "createdAt": 1637867583158,
+      "id": 14
     }
   ]
 }
