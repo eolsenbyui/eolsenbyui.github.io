@@ -15,7 +15,7 @@ export default class Auth {
     const password = document.getElementById('password');
     const username = document.getElementById('username');
 
-    const b64 = btoa(`${username.value}:${password.value}`);
+    const b64 = btoa(`${username.value}:${password.value}`);    // Convert to Base64 for Basic Authentication
 
     try {
       // 1. use the makeRequest function to pass our credentials to the server
