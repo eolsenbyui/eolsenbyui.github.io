@@ -14,10 +14,6 @@ export default class Auth {
     // replace the ids below with whatever you used in your form.
     const password = document.getElementById('password');
     const username = document.getElementById('username');
-    const postData = {
-      email: username.value,
-      password: password.value  
-    };
 
     const b64 = btoa(`${username.value}:${password.value}`);
 
