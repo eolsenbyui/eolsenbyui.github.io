@@ -36,13 +36,15 @@ export async function getWordList() {
     let query = buildQuery()
 
     if (query) {
-        let url = URL + buildQuery();
+        let url = URL + query;
 
         let response = await fetch(url);
 
         if (response.ok) {
             let wordList = await response.json();
             return wordList;
+        } else {
+            throw new Error(`${data.status}: ${data.message}`);
         }
     } else {
         return [];
