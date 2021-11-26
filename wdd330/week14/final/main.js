@@ -1,6 +1,11 @@
 'use strict';
 
 import { getWordList } from "./model.js";
+import View from './view.js'
+
+const view = new View();
+
+view.disableSyllables();
 
 document.getElementById("form").addEventListener("submit", async (event) => {
     event.preventDefault()
@@ -80,5 +85,9 @@ document.getElementById("syllables").addEventListener("input", (event) =>{
 
 
 document.getElementById("rhyme").addEventListener("input", (event) => {
-    // TODO: If empty, disable the syllables parameters
+    if (event.target.value) {
+        view.enableSyllables();
+    } else {
+        view.disableSyllables();
+    }
 });
