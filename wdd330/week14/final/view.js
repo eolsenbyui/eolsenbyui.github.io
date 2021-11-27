@@ -1,7 +1,8 @@
 'use strict';
 
-export default class View {
+import { offensive } from './offensiveb64.js';
 
+export default class View {
     renderList(wordList) {
         let body = document.getElementById("tbody");
         body.innerHTML = "";
@@ -17,6 +18,11 @@ export default class View {
 
         // Render table rows
         for (let item of wordList) {
+            // Check for profane and offensive words
+            let b64 = btoa(item.word);
+            let profane = offensive.some(element => element === b64);
+            if (profane) { continue; }  // Skip profane and offensive words
+
             // Filter out rows that don't match the number of syllables requested
             if (nSyllables > 0 && nSylValue === "exactly") {
                 if (item.numSyllables !== nSyllables) {
@@ -28,6 +34,7 @@ export default class View {
                 }
             }
 
+            // 
             let row = document.createElement("tr");
             body.appendChild(row);
 
