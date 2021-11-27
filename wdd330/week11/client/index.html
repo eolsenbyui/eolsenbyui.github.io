@@ -13,8 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 
     <style>
+        input {
+            font-size: 1.5em;
+        }
+
         .hidden {
             display: none;
+        }
+
+        #login > div:nth-child(3) > input[type=submit] {
+            margin-top: 0.5em;
         }
     </style>
 </head>
@@ -24,9 +32,15 @@
         <h1>JSON Web Token</h1>
         <div id="errors" class="errors hidden"></div>
         <form id="login">
-            <input id="username" type="text" placeholder="User email address" />
-            <input id="password" type="password" placeholder="Password" />
-            <input type="submit" />
+            <div>
+                <input id="username" type="text" placeholder="User email address" />
+            </div>
+            <div>
+                <input id="password" type="password" placeholder="Password" />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
         </form>
         <form id="addPost" class="hidden">
             <input id="title" type="text" placeholder="Title" /> <br>
