@@ -7,7 +7,7 @@ const view = new View();
 
 view.disableSyllables();
 
-document.getElementById("form").addEventListener("submit", async (event) => {
+document.getElementById("inputForm").addEventListener("submit", async (event) => {
     event.preventDefault()
 
     let wordList = await getWordList();
