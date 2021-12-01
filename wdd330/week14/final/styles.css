@@ -1,6 +1,9 @@
 :root {
-    --max-width: 800px;
+    --max-width: 640px;
+    /* TODO: Perhaps larger version of background? */
 }
+
+/* TODO: Media queries for iPhone 5 (320px [ < 360px] ) and Galaxy Fold (280px [ < 300px] )  */
 
 * {
     font-family: 'Yellowtail', cursive;
@@ -12,7 +15,7 @@ html {
 
 body {
     background-image: url('./nordwood-themes-KcsKWw77Ovw-unsplash.jpg');
-    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');
+    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');  /* Larger version, perhaps? */
 }
 
 
@@ -45,11 +48,16 @@ label {
     text-align: right;
 }
 
-input {
-    width: 8em;
+input[type='text'] {
+    width: 100%;
     display: table-cell;
+}
+
+input[type='text'], input[type='number'] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25em;
+    border-radius: 0.3em;
+    padding-left: 0.2em;
 }
 
 input[type='checkbox'] {
@@ -108,7 +116,7 @@ footer {
 }
 
 .chklabel {
-    float: right;
+    float: left;
     vertical-align: middle;
     font-size: 1em;
     padding-left: .25em;
@@ -122,21 +130,30 @@ footer {
     display: none;
 }
 
-#form > table {
+#inputForm > table {
     font-family: 'Yellowtail', cursive;
 }
 
-#form td {
+#inputForm td {
     vertical-align: middle;
 }
 
-#form tr td:first-child {
+#inputForm tr td:first-child {
     width: 1%;
     white-space: nowrap;
 }
 
+#inputForm tr td:last-child {
+    width: 5em;
+    padding-left: 0.7em;
+}
+
 #syllables {
-    width: 2em;
+    width: 1.2em;
+}
+
+#near {
+    float: left;
 }
 
 #trailer {
