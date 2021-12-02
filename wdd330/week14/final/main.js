@@ -6,6 +6,7 @@ import View from './view.js'
 const view = new View();
 
 view.disableSyllables();
+document.getElementById("rhyme").focus();
 
 document.getElementById("inputForm").addEventListener("submit", async (event) => {
     event.preventDefault()
@@ -45,4 +46,9 @@ document.getElementById("rhyme").addEventListener("input", (event) => {
     } else {
         view.disableSyllables();
     }
+});
+
+
+document.getElementById("clear").addEventListener("click", (event) => {
+    view.clear();
 });

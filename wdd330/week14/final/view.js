@@ -92,4 +92,21 @@ export default class View {
 
         return nSyl.selectedOptions[0].innerText;
     }
+
+
+    clear() {
+        document.getElementById("thead").innerHTML = "";
+        document.getElementById("tbody").innerHTML = "";
+
+        let rhyme = document.getElementById("rhyme");
+        rhyme.value = "";
+        document.getElementById("near").checked = false;
+        document.getElementById("starts").value = "";
+        document.getElementById("synonym").value = "";
+        document.getElementById("syllables").value = "";
+
+        document.getElementById("credits").classList.remove("hidden");
+
+        rhyme.focus();
+    }
 }
