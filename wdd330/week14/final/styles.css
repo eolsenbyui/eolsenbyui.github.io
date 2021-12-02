@@ -87,10 +87,12 @@ select {
 footer {
     position: fixed;
     bottom: 0;
-    padding: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     width: 100%;
     max-width: var(--max-width);
     text-align: center;
+    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');  /* Larger version, perhaps? */
 }
 
 #results {
