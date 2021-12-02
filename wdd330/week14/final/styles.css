@@ -3,14 +3,19 @@
     /* TODO: Perhaps larger version of background? */
 }
 
-/* TODO: Media queries for iPhone 5 (320px [ < 360px] ) and Galaxy Fold (280px [ < 300px] )  */
-
 * {
     font-family: 'Yellowtail', cursive;
 }
 
 html {
     max-width: var(--max-width);
+    font-size: 20px;
+}
+
+@media screen and (max-width: 640px) {
+    html {
+        font-size: 3.0vw;
+    }
 }
 
 body {
@@ -149,7 +154,7 @@ footer {
 }
 
 #syllables {
-    width: 1.2em;
+    width: 1.7em;
 }
 
 #near {
