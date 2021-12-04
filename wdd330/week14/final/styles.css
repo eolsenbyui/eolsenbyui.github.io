@@ -72,7 +72,7 @@ input[type='checkbox'] {
 
 input[type='submit'] {
     width: 4em;
-    margin: 2em auto;
+    margin-right: 0.25em;
 }
 
 thead:first-child {
@@ -176,16 +176,5 @@ footer {
 #buttons {
     display: block;
     text-align: center;
-}
-
-#clr {
-    margin-bottom: 0.5em;
-}
-
-
-#stay-tuned {
-    font-family: 'Yellowtail', cursive;
-    margin-left: 3em;
-    font-size: 2em;
-    color:darkgreen;
+    margin-top: 1.5em;
 }
