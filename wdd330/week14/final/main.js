@@ -13,8 +13,6 @@ document.getElementById("inputForm").addEventListener("submit", async (event) =>
 
     let wordList = await getWordList();
 
-    if (wordList.length === 0) { return; }
-
     view.renderList(wordList);
 });
 
