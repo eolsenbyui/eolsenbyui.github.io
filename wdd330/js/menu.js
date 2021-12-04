@@ -47,5 +47,9 @@ const links = {
             label: "Week 11 Content and Report",
             url: "./week11/"
         },
+        {
+            label: "Week 12 Content and Report",
+            url: "./week12/"
+        },
     ]
 }
