@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <title>WDD 330 Grid</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+
+    </script>
+
+    <style>
+        html {
+            height: 100%
+        }
+        body {
+            display: grid;
+            grid-template-rows: 100px 200px auto 50px;
+            grid-template-columns: none;
+            grid-template-areas: "pagehead" "section1" "section2" "pagefoot";
+        }
+        header {
+            grid-area: pagehead;
+            background-color: rgba(0, 0, 255, 0.05);
+            padding: 0.25em;
+        }
+
+        #section1 {
+            grid-area: section1;
+            background-color: rgba(255, 0, 0, 0.05);
+            padding: 2em;
+        }
+
+        #section2 {
+            grid-area: section2;
+            background-color: rgba(0, 255, 0, 0.05);
+            padding: 2em;
+        }
+
+        #section2 table {
+            width: 100%;
+            height: 100%
+        }
+
+        footer {
+            grid-area: pagefoot;
+            background-color: rgba(0, 255, 255, 0.1);
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+        }
+
+        footer p {
+            padding-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+
+    <section id="section1">
+        Section 1
+    </section>
+
+    <section id="section2">
+        <table>
+            <tr>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dapibus quam justo, eu auctor tellus eleifend nec. Sed sed sollicitudin magna. Sed eu rhoncus odio. In mattis mi pretium pretium dignissim. Mauris hendrerit finibus malesuada. Fusce commodo est id massa pulvinar, vel facilisis sapien aliquam. Duis ipsum magna, cursus vel dictum nec, vulputate vel sapien. Maecenas congue porttitor lectus, et semper lorem egestas vel. Morbi sed velit id mi pharetra maximus vitae a dolor. Integer interdum leo nec enim imperdiet, et efficitur nunc consequat. Cras consequat auctor nulla non luctus. Morbi non massa nec sem tincidunt semper ac ut tortor. Mauris in nisi in purus bibendum hendrerit ut et ipsum. Nunc consequat rhoncus nisl a cursus.</td>
+            </tr>
+            <tr><td>Mauris sed urna ut odio convallis sagittis tincidunt id nisl. Aliquam egestas orci sagittis elementum eleifend. Sed nulla est, posuere non lacinia quis, gravida consectetur neque. Aenean et diam a tellus elementum faucibus. Vivamus ultrices diam eu augue tempus maximus. Vivamus lobortis ipsum vel placerat blandit. Donec bibendum ipsum nec egestas fermentum. Nullam convallis hendrerit posuere. Integer eget lacinia nunc. Nunc ut volutpat libero, quis consectetur neque. Ut eu tincidunt arcu. Proin condimentum nisi eros, consequat cursus leo auctor ac. In hac habitasse platea dictumst. Nam auctor condimentum rutrum. Nam sollicitudin velit sit amet hendrerit volutpat. Nam ligula magna, imperdiet id lacinia in, elementum convallis purus.</td></tr>
+            <tr><td>Sed vestibulum at orci vitae vehicula. Morbi placerat ultricies neque non interdum. Nulla malesuada tristique ipsum, vitae vehicula sem porta eget. Sed hendrerit, felis in tristique auctor, risus justo tristique lorem, pulvinar vulputate orci turpis non tellus. Phasellus id sagittis lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi lobortis tortor eu lectus molestie, eu commodo diam congue. Praesent sit amet iaculis sapien. Aenean nec diam varius, congue turpis eu, pulvinar ligula.</td></tr>
+            <tr><td>Cras semper, tellus in dignissim malesuada, urna ligula volutpat leo, vitae vulputate quam leo sit amet lectus. Quisque at varius ante. Nam maximus rutrum augue non convallis. Etiam iaculis hendrerit risus eget malesuada. Etiam pretium tellus at volutpat tempus. Phasellus dignissim velit quis ipsum laoreet pellentesque. Suspendisse blandit, ante a consequat laoreet, lectus neque mattis ipsum, eu vehicula sapien mi in sem.</td></tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>
