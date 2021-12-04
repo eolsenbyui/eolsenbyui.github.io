@@ -44,6 +44,8 @@ export default class View {
                 cell.innerText = value;
             }
         }
+
+        this.displayNumberOfResults();
     }
 
 
@@ -94,7 +96,26 @@ export default class View {
     }
 
 
+    displayNumberOfResults() {
+        let tbody = document.getElementById("tbody");
+        let info = document.getElementById("info");
+
+        let nRows = tbody.rows.length;
+
+        let results = nRows === 1 ? "result" : "results";
+
+        let returned = nRows === 0 ? "returned." : "returned:"
+
+        info.innerText = `${nRows} ${results} ${returned}`
+        info.classList.remove("hidden");
+    }
+
+
     clear() {
+        let info = document.getElementById("info");
+        info.classList.add("hidden");
+        info.innerHTML = "";
+
         document.getElementById("thead").innerHTML = "";
         document.getElementById("tbody").innerHTML = "";
 
@@ -104,6 +125,8 @@ export default class View {
         document.getElementById("starts").value = "";
         document.getElementById("synonym").value = "";
         document.getElementById("syllables").value = "";
+
+        this.disableSyllables();
 
         document.getElementById("credits").classList.remove("hidden");
 

@@ -93,9 +93,10 @@ footer {
     text-align: center;
 }
 
-#results {
-    margin-top: 1em;
+#output {
+    margin-top: 2em;
 }
+
 
 #results tr:nth-child(even) {
     background-color: rgba(195, 235, 248, 0.25);
@@ -117,6 +118,10 @@ footer {
 
 #results td {
     font-family: 'Times New Roman', Times, serif;
+}
+
+#results td:first-of-type{
+    padding-right: 1em;
 }
 
 #results td:last-of-type {
@@ -171,6 +176,11 @@ footer {
 
 #less {
     margin-left: 0em;
+}
+
+#info {
+    font-size: 1.25em;
+    padding-left: 0.4em;
 }
 
 #buttons {
