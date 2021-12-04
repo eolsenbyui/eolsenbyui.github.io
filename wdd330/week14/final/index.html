@@ -19,77 +19,85 @@
     </header>
 
     <section>
-    <form id="inputForm">
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        Rhymes with
-                    </td>
-                    <td>
-                        <input id="rhyme" type="text" />
-                    </td>
-                    <td>
-                        <input type="checkbox" id="near" name="near" value="near">
-                        <label for="near" class="chklabel">nearly</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Starts with
-                    </td>
-                    <td>
-                        <input id="starts" type="text" />
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        Synonyms of&nbsp;&nbsp;
-                    </td>
-                    <td>
-                        <input id="synonym" type="text" />
-                    </td>
-                    <td></td>
-                </tr>
-                <tr id="syllableRow">
-                    <td>
-                        <span class="small">and&nbsp;</span>
-                        <select name="nSyl" id="nSyl">
-                            <option value="less">less than</option>
-                            <option value="exact">exactly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input id="syllables" type="number" min="2" max="20" />
-                        <span id="trailer">syllables</span>
-                    </td>
-                    <td>
-                        
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="buttons">
-            <input id="submit" type="submit" >
-            <button id="clear">Clear</button>
-        </div>
-    </form>
+        <form id="inputForm">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Rhymes with
+                        </td>
+                        <td>
+                            <input id="rhyme" type="text" />
+                        </td>
+                        <td>
+                            <input type="checkbox" id="near" name="near" value="near">
+                            <label for="near" class="chklabel">nearly</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Starts with
+                        </td>
+                        <td>
+                            <input id="starts" type="text" />
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Synonyms of&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <input id="synonym" type="text" />
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr id="syllableRow">
+                        <td>
+                            <span class="small">and&nbsp;</span>
+                            <select name="nSyl" id="nSyl">
+                                <option value="less">less than</option>
+                                <option value="exact">exactly</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input id="syllables" type="number" min="2" max="20" />
+                            <span id="trailer">syllables</span>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="buttons">
+                <input id="submit" type="submit">
+                <button id="clear" type="button">Clear</button>
+            </div>
+        </form>
     </section>
 
     <section id="output">
-    <table id="results">
-        <thead id="thead">
+        <div id="errors" class="hidden">
+        </div>
+        <div id="info" class="hidden">
+        </div>
 
-        </thead>
-        <tbody id="tbody">
-        </tbody>
-    </table>
+        <table id="results">
+            <thead id="thead">
+
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
     </section>
 
     <footer>
         <div id="credits">
-            Background image by <a href="https://unsplash.com/@augustinewong?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Augustine Wong</a> on <a href="https://unsplash.com/s/photos/marble-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            Background image by <a
+                href="https://unsplash.com/@augustinewong?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Augustine
+                Wong</a> on <a
+                href="https://unsplash.com/s/photos/marble-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </div>
     </footer>
     <script src="main.js" type="module"></script>
