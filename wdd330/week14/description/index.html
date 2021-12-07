@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
-    <title>WDD 330</title>
+    <title>WDD 330 Final Project Description</title>
 
     <link rel="stylesheet" href="../styles.css" />
     <script>
@@ -12,13 +12,23 @@
     </script>
 
     <style>
+        * {
+            font-size: 14pt;
+        }
+        html {
+            background-color: whitesmoke;
+        }
         body {
             max-width: 800px;
         }
+
+        section {
+            margin-top: 3em;
+        }
     
         .student {
-            margin-top: -1.5em;
-            margin-left: 2.5em;
+            margin-top: -0.7em;
+            margin-left: 1.5em;
         }
     </style>
 </head>
@@ -34,18 +44,69 @@
         Master Yuan-Ma said, ‘My best program has five hundred lines.’ 
         Hearing this, Tzu-li and Tzu-ssu were enlightened.<br><br>
 
-        &mdash; Master Yuan-Ma, <em>The Book of Programming</em></p>
-    </section>
-    <section>
+        &mdash; Master Yuan-Ma, <em>The Book of Programming</em>
+    </p>
+    <div>
         <p>Like Master Yuan-Ma's best program, my final project, Poet's Pal, has about 500 lines of code.</p>
+    </div>
     </section>
     <section>
         <h2>Description of the Poet's Pal</h2>
-        <p></p>
+        <p>
+            Poet's Pal is a small, mobile-friendly one-stop Web app for the discovery of
+            basic literary devices based on specific criteria, such as rhyme, alliteration, and synonyms,
+            for use by poets, songwriters, and other wordsmiths.
+            It is more than just a rhyming dictionary and thesaurus, though it is these things; it uniquely allows the
+            user to search by combinations of these devices and limit the results by the number of syllables &mdash;
+            a handy feature when the wordsmith has a specific number or range of syllables to work with.
+        </p>
+        <p>
+            The user interface of the Poet's Pal has two sections:
+            <ol>
+                <li>A form for entering search criteria:</li>
+                <ol type="a">
+                    <li>A word to rhyme with.</li>
+                    <li>Words that begin with a letter or letters.</li>
+                    <li>Synonyms of a word.</li>
+                    <li>Any combination of the above.</li>
+                    <li>Optional limiting of the results to a specific number or range of syllables.</li>
+                </ol>
+                <li>A table for displaying the search's results.</li>
+            </ol>
+        </p>
+        <p>
+            The search engine for the Poet's Pal is the <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>.
+        </p>
     </section>
     <section>
         <h2>How to Use the Poet's Pal</h2>
-        <p></p>
+        <p>
+            The Poet's Pal is a Web app that is mobile-friendly in portrait mode.
+            The upper part of the user interface is a form with four input fields, 
+            as shown below:
+        </p>
+        <img src="images/formfull.JPG" alt="Full form">
+        <p>
+            As seen in the example above, you can fill in any or all of the input fields.
+            You can then click or tap the Submit button or press the Enter key and the
+            app will search for the criteria entered and display any results in a table 
+            below the submit button.
+        </p>
+        <p>
+            Options for syllable selection are "less than" and "exactly", selectable 
+            in the drop-down list to the right of the word "and" in the last line of
+            input fields.  <strong>Note:</strong> Since the number of syllables is
+            returned only when rhyming is involved, the "syllable" fields are disabled
+            when nothing is entered in the "Rhymes with" field.
+        </p>
+        <p>
+            You can also search for near-rhymes by checking the checkbox between the 
+            rhyme entry field and the "nearly" label.
+        </p>
+        <p>
+            Finally, tapping or clicking the Clear button will clear all of the fields and help 
+            you start with a clean slate.
+        </p>
     </section>
     <section>
         <h2>CSS Features Employed</h2>
@@ -66,10 +127,25 @@
             Therefore, as I began to write proof-of-concept UI code for the Poet's Pal, I did so 
             using the device tools in Chrome.
         </p>
+        <p>
+            One of the major design goals has been to keep the app simple. 
+            There is always the temptation to make things more complex.  
+            Sometimes I resisted the temptation to add more "whistles and bells" and sometimes I did not.
+        </p>
     </section>
     <section>
         <h2>Original Concept and Final Implementation</h2>
-        <p></p>
+        <p>
+            The final implementation of the Poet's Pal varies only in small details from the original concept.
+            The final result matches the original concept in every major respect.
+        </p>
+        <p>
+            The Datamuse API is easy to use in its raw form but the output JSON is unformatted.  
+            It is easy to enter the url and query parameters for the Datamuse API in the address bar
+            of a browser and get the results on a Web page.
+            The Poet's Pal was conceptualized to make input even easier and intuitive, and the output readable.
+            The final implementation of the Poet's Pal achieves these goals.
+        </p>
     </section>
     <section>
         <h2>Challenges and Resolutions</h2>
@@ -79,7 +155,11 @@
         <h2>Application of Topics from WDD330</h2>
         <p></p>
         <ul>
-            <li></li>
+            <li>
+                The RESTful <code>fetch()</code> call to the Datamuse API was taken nearly verbatim from
+                the Week 11 <code>getJSON()</code> starter code for the JWT Team Activity, with the addition
+                of the <code>throw</code> from the modified <code>makeRequest()</code> function.
+            </li>
             <li></li>
         </ul>
     </section>
