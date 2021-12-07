@@ -114,7 +114,44 @@
     <section>
         <h2>CSS Features Employed</h2>
         <p></p>
-        <ul></ul>
+        <ul>
+            <li><code>:root</code> to define common values in variables.</li>
+            <li>
+                Defined a basic font size in the <code>&lt;html&gt;</code> tag.  All other 
+                sizes are defined in <code>em</code>.
+            </li>
+            <li>
+                One simple <code>@media</code> query that shrinks the elements for smaller screens.
+                Since all sizes are in <code>em</code>, only one simple media query was needed.
+                All controls and fonts shrink proportionally for smaller screens.
+            </li>
+            <li>
+                Styles for sizing and positioning input fields and their labels.
+            </li>
+            <li>
+                Use of <code>tr:nth-child(even)</code> to provide subtle striping for ease of reading
+                the results table.
+            </li>
+            <li>
+                Choice of fonts to give input fields, buttons, footer credits, and results table headers a "retro" look.
+                Also, rounded corners in the input fields and buttons reinforce the look.
+            </li>
+            <li>
+                Position the <code>&lt;footer&gt;</code> at the very bottom of the screen regardless of 
+                the vertical screen size.
+            </li>
+            <li>Provide an attractive marbled background image.</li>
+            <li>
+                Used <code>float: left</code> to coerce the near-rhyme checkbox and label to the very
+                left of their table data cell in order to be close to the rhyme input field.
+            </li>
+            <li>
+                Employed <code>:first-of-type</code>, <code>:last-of-type</code>, <code>:first-child</code>,
+                and <code>:last-child</code> to provide justification and padding to enhance the readability
+                of the results.
+            </li>
+            <li>Used <code>class="hidden"</code> with <code>display: none;</code> to selectively hide elements as needed.</li>
+        </ul>
     </section>
     <section>
         <h2>The Design Process</h2>
@@ -169,6 +206,7 @@
             <li>
                 Separation of concerns and a quasi-model-view-controller architecture.
             </li>
+            <li>Used a "hidden" class to selectively display and hide elements as we did in Week ?</li>
         </ul>
     </section>
     <section>
