@@ -60,11 +60,6 @@ input[type='text'], input[type='number'] {
     padding-left: 0.2em;
 }
 
-input[type='checkbox'] {
-    width: 1em;
-    height: 1em;
-}
-
 input[type='submit'] {
     width: 4em;
     margin-right: 0.25em;
@@ -128,13 +123,6 @@ footer {
     text-align: center;
 }
 
-.chklabel {
-    float: left;
-    vertical-align: middle;
-    font-size: 1em;
-    padding-left: .25em;
-}
-
 .small {
     font-size: .7em;
 }
@@ -165,10 +153,6 @@ footer {
 
 #syllables {
     width: 1.7em;
-}
-
-#near {
-    float: left;
 }
 
 #trailer {

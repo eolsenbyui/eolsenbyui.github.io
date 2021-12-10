@@ -176,7 +176,6 @@ export default class View {
 
         let rhyme = document.getElementById("rhyme");
         rhyme.value = "";
-        document.getElementById("near").checked = false;
         document.getElementById("starts").value = "";
         document.getElementById("synonym").value = "";
         document.getElementById("syllables").value = "";

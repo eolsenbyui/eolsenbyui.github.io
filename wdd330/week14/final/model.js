@@ -5,7 +5,6 @@ const URL = "https://api.datamuse.com/words?";
 export function buildQuery(perfect) {
     let query = [];
     let rhymes = document.getElementById("rhyme").value;
-    let near = document.getElementById("near").checked;
     let starts = document.getElementById("starts").value;
     let synonym = document.getElementById("synonym").value;
     if (rhymes) {
