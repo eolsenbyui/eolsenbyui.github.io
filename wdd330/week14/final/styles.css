@@ -160,6 +160,7 @@ footer {
 #inputForm tr td:last-child {
     width: 5em;
     padding-left: 0.7em;
+    padding-right: 0.8em;
 }
 
 #syllables {
