@@ -13,39 +13,21 @@ export default class View {
         // Create table header
         this.createTableHeader(perfect[0]);
 
+        // Redner the word lists
+        this._renderList(perfect, true);
+        this._renderList(imperfect, false);
+
+        this.displayNumberOfResults(imperfect.length > 0);
+    }
+
+
+    _renderList(list, isPerfect) {      // Private 
+        let body = document.getElementById("tbody");
+
         let nSyllables = this.getNumberOfSyllables();
         let nSylValue = this.getSyllableComparison();
 
-        // Render table rows
-        for (let item of perfect) {
-            // Check for profane and offensive words
-            let b64 = btoa(item.word);
-            let profane = offensive.some(element => element === b64);
-            if (profane) { continue; }  // Skip profane and offensive words
-
-            // Filter out rows that don't match the number of syllables requested
-            if (nSyllables > 0 && nSylValue === "exactly") {
-                if (item.numSyllables !== nSyllables) {
-                    continue;   // skip rows that don't exactly match number of syllables specified
-                }
-            } else {
-                if (nSyllables > 0 && item.numSyllables >= nSyllables) {
-                    continue;   // Skip rows that have more syllables than requested
-                }
-            }
-
-            // 
-            let row = document.createElement("tr");
-            body.appendChild(row);
-
-            for (let value of Object.values(item)) {
-                let cell = document.createElement("td");
-                row.appendChild(cell);
-                cell.innerText = value;
-            }
-        }
-
-        for (let item of imperfect) {
+        for (let item of list) {
             // Check for profane and offensive words
             let b64 = btoa(item.word);
             let profane = offensive.some(element => element === b64);
@@ -70,7 +52,8 @@ export default class View {
             for (let value of Object.values(item)) {
                 let cell = document.createElement("td");
                 row.appendChild(cell);
-                if (first) {
+
+                if (first && !isPerfect) {
                     let em = document.createElement("em");
                     cell.appendChild(em);
                     em.innerText = value;
@@ -80,8 +63,6 @@ export default class View {
                 }
             }
         }
-
-        this.displayNumberOfResults(imperfect.length > 0);
     }
 
 
@@ -153,7 +134,7 @@ export default class View {
 
         let results = nRows === 1 ? "result" : "results";
 
-        let imperfect = includeImperfect ? "Imperfect rhymes in italics." : "";
+        let imperfect = includeImperfect ? "Imperfect rhymes in <em>italics.</em>" : "";
 
 
         info.innerHTML = `${nRows} ${results} returned. &nbsp;&nbsp; ${imperfect}`
