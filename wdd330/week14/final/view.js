@@ -45,7 +45,43 @@ export default class View {
             }
         }
 
-        this.displayNumberOfResults();
+        for (let item of imperfect) {
+            // Check for profane and offensive words
+            let b64 = btoa(item.word);
+            let profane = offensive.some(element => element === b64);
+            if (profane) { continue; }  // Skip profane and offensive words
+
+            // Filter out rows that don't match the number of syllables requested
+            if (nSyllables > 0 && nSylValue === "exactly") {
+                if (item.numSyllables !== nSyllables) {
+                    continue;   // skip rows that don't exactly match number of syllables specified
+                }
+            } else {
+                if (nSyllables > 0 && item.numSyllables >= nSyllables) {
+                    continue;   // Skip rows that have more syllables than requested
+                }
+            }
+
+            // 
+            let row = document.createElement("tr");
+            body.appendChild(row);
+
+            let first = true;
+            for (let value of Object.values(item)) {
+                let cell = document.createElement("td");
+                row.appendChild(cell);
+                if (first) {
+                    let em = document.createElement("em");
+                    cell.appendChild(em);
+                    em.innerText = value;
+                    first = false;
+                } else {
+                    cell.innerText = value;
+                }
+            }
+        }
+
+        this.displayNumberOfResults(imperfect.length > 0);
     }
 
 
@@ -109,7 +145,7 @@ export default class View {
     }
 
 
-    displayNumberOfResults() {
+    displayNumberOfResults(includeImperfect) {
         let tbody = document.getElementById("tbody");
         let info = document.getElementById("info");
 
@@ -117,9 +153,10 @@ export default class View {
 
         let results = nRows === 1 ? "result" : "results";
 
-        let returned = nRows === 0 ? "returned." : "returned:"
+        let imperfect = includeImperfect ? "Imperfect rhymes in italics." : "";
 
-        info.innerText = `${nRows} ${results} ${returned}`
+
+        info.innerHTML = `${nRows} ${results} returned. &nbsp;&nbsp; ${imperfect}`
         info.classList.remove("hidden");
     }
 

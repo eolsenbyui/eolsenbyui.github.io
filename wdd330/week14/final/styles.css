@@ -116,7 +116,7 @@ footer {
     text-align: center;
 }
 
-#results td {
+#results td, #results td em {
     font-family: 'Times New Roman', Times, serif;
 }
 
