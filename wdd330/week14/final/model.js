@@ -25,7 +25,7 @@ export function buildQuery() {
     }
 
     if (query.length > 0) {
-        return query.join('&');
+        return query.join('&') + "&max=50";     // limit to 50 results
     } else {
         return "";
     }
@@ -44,7 +44,7 @@ export async function getWordList() {
             let wordList = await response.json();
             return wordList;
         } else {
-            throw new Error(`${data.status}: ${data.message}`);
+            throw new Error(`${response.status}: ${response.statusText}`);
         }
     } else {
         return [];

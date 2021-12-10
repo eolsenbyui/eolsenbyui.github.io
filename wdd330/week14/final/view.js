@@ -96,6 +96,19 @@ export default class View {
     }
 
 
+    displayError(message) {
+        let errorField = document.getElementById("errors");
+        errorField.innerText = "Error: " + message;
+        errorField.classList.remove("hidden");
+    }
+
+    clearError() { 
+        let errorField = document.getElementById("errors");
+        errorField.innerText = "";
+        errorField.classList.add("hidden");
+    }
+
+
     displayNumberOfResults() {
         let tbody = document.getElementById("tbody");
         let info = document.getElementById("info");
@@ -110,11 +123,16 @@ export default class View {
         info.classList.remove("hidden");
     }
 
-
-    clear() {
+    clearInfo() {
         let info = document.getElementById("info");
         info.classList.add("hidden");
         info.innerHTML = "";
+    }
+
+
+    clear() {
+        this.clearError();
+        this.clearInfo();
 
         document.getElementById("thead").innerHTML = "";
         document.getElementById("tbody").innerHTML = "";
