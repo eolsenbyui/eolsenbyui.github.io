@@ -22,6 +22,14 @@
             max-width: 800px;
         }
 
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.25em;
+        }
+
         section {
             margin-top: 3em;
         }
@@ -37,14 +45,14 @@
     <h1>Description of Final Project &mdash; Poet's Pal</h1>
     <p class="student">Eugene C. Olsen, Section 7, Fall 2021</p>
     <section>
-    <p>
+    <p><em>
         Tzu-li and Tzu-ssu were boasting about the size of their latest programs. 
         ‘Two-hundred thousand lines,’ said Tzu-li, ‘not counting comments!’ Tzu-ssu responded, 
         ‘Pssh, mine is almost a million lines already.’<br>
         Master Yuan-Ma said, ‘My best program has five hundred lines.’ 
         Hearing this, Tzu-li and Tzu-ssu were enlightened.<br><br>
 
-        &mdash; Master Yuan-Ma, <em>The Book of Programming</em>
+        &mdash; Master Yuan-Ma, </em>The Book of Programming
     </p>
     <div>
         <p>Like Master Yuan-Ma's best program, my final project, Poet's Pal, has about 500 lines of code.</p>
@@ -66,12 +74,15 @@
                 <li>A form for entering search criteria:</li>
                 <ol type="a">
                     <li>A word to rhyme with.</li>
-                    <li>Words that begin with a letter or letters.</li>
+                    <li>Words that begin with a letter or letters, useful in building alliteration and other similar devices.</li>
                     <li>Synonyms of a word.</li>
                     <li>Any combination of the above.</li>
                     <li>Optional limiting of the results to a specific number or range of syllables.</li>
                 </ol>
-                <li>A table for displaying the search's results.</li>
+                <li>
+                    A table for displaying the search's results.  Results are limited to 50 
+                    words that rhyme "perfectly" with the addition of up to 50 imperfect rhymes.
+                </li>
             </ol>
         </p>
         <p>
@@ -85,7 +96,7 @@
             The upper part of the user interface is a form with four input fields, 
             as shown below:
         </p>
-        <img src="images/formfull.JPG" alt="Full form">
+        <img src="images/poetspal.jpg" alt="Full form">
         <p>
             As seen in the example above, you can fill in any or all of the input fields.
             You can then click or tap the Submit button or press the Enter key and the
@@ -98,13 +109,6 @@
             input fields.  <strong>Note:</strong> Since the number of syllables is
             returned only when rhyming is involved, the "syllable" fields are disabled
             when nothing is entered in the "Rhymes with" field.
-        </p>
-        <p>
-            You can also search for near-rhymes by checking the checkbox between the 
-            rhyme entry field and the "nearly" label.  Note that the "near rhyme" feature
-            of the Datamuse API seems to be under development.  Many words return no near
-            rhymes but the feature is available for those words that do return a good
-            number of near rhymes.
         </p>
         <p>
             Finally, tapping or clicking the Clear button will clear all of the fields and help 
@@ -142,10 +146,6 @@
             </li>
             <li>Provide an attractive marbled background image.</li>
             <li>
-                Used <code>float: left</code> to coerce the near-rhyme checkbox and label to the very
-                left of their table data cell in order to be close to the rhyme input field.
-            </li>
-            <li>
                 Employed <code>:first-of-type</code>, <code>:last-of-type</code>, <code>:first-child</code>,
                 and <code>:last-child</code> to provide justification and padding to enhance the readability
                 of the results.
@@ -158,10 +158,10 @@
         <p>
             In the Master Mobile UX video, assigned in Week 1 of this WDD330 course, 
             we learned about designing mobile-first.  
-            At about the same time, at work, we had built an app for Cisco Systems
-            and they asked us to make it "mobile-friendly."  I found first-hand that
+            At about the same time, at work, we had built a Web app for Cisco Systems
+            and they asked us to make it "mobile-friendly" after the fact.  I found first-hand that
             it is much easier to design mobile-first than to take an app designed
-            for tablet or Web and make it mobile-friendly.
+            for tablet or Web and make it mobile-friendly later.
         </p>
         <p>
             Therefore, as I began to write proof-of-concept UI code for the Poet's Pal, I did so 
@@ -177,7 +177,25 @@
         <h2>Original Concept and Final Implementation</h2>
         <p>
             The final implementation of the Poet's Pal varies only in small details from the original concept.
-            The final result matches the original concept in every major respect.
+            The final result matches the original concept in every major respect.   
+        </p>
+        <p>
+            One exception to this is the handling of imperfect rhymes, also known as "near-rhymes."
+            Originally, the app
+            displayed a checkbox to the right of the "Rhymes with" input field with a label that said 
+            "nearly" to the right of the checkbox, as shown below:
+        </p>
+        <img src="images/formfull.JPG" alt="Full form">
+        <p>
+            Usability testing with friends and 
+            family showed this to be confusing.  One of my sons suggested that I display perfect as well as 
+            any imperfect rhymes and just dislpay the words that rhyme imperfectly in <em>italics.</em>  
+        </p>
+        <p>
+            In the final delivery of the app, the checkbox and its label have been removed
+            and perfect rhymes are displayed first in the results table,
+            followed by the list of imperfect rhymes.  Again, all words that are deemed by the API
+            to rhyme imperfectly are <em>italicized.</em>
         </p>
         <p>
             The Datamuse API is easy to use in its raw form but the output JSON is unformatted.  
@@ -189,7 +207,25 @@
     </section>
     <section>
         <h2>Challenges and Resolutions</h2>
-        <p></p>
+        <p>
+            The Datamuse API is easy to use and there were few challenges.  The couple of challenges
+            I did encounter were related to CSS and styling.
+        </p>
+        <ol>
+            <li>Positioning the "nearly" checkbox and its label.</li>
+            <li>The results table overwrote the footer.</li>
+        </ol>
+        <h3>Resolutions</h3>
+        <ol>
+            <li>
+                Successfully used the <code>float: left</code> style for the "nearly" checkbox and its label.
+                Then usability testing showed that the checkbox was confusing, so it was ultimately discarded.
+            </li>
+            <li>
+                The footer is now hidden when results are displayed.  Its visibility is restored when the Clear button is
+                tapped or clicked.  The user is more interested in the results than the credits in the footer.
+            </li>
+        </ol>
     </section>
     <section>
         <h2>Application of Topics from WDD330</h2>
@@ -204,7 +240,7 @@
                 Mobile-first design from Week 1.
             </li>
             <li>
-                Separation of concerns and a quasi-model-view-controller architecture.
+                Separation of concerns and a quasi-model-view-controller (MVC) architecture.
             </li>
             <li>Used a "hidden" class to selectively display and hide elements as we did in Week ?</li>
         </ul>
