@@ -11,16 +11,17 @@ document.getElementById("rhyme").focus();
 document.getElementById("inputForm").addEventListener("submit", async (event) => {
     event.preventDefault()
 
-    let wordList = [];
+    let perfect = [];
+    let imperfect = [];
 
     try {
-        wordList = await getWordList();
+        [perfect, imperfect] = await getWordList();
     }
     catch (error) {
         view.displayError(error.message);
     }
 
-    view.renderList(wordList);
+    view.renderList(perfect, imperfect);
 });
 
 

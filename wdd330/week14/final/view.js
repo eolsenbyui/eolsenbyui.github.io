@@ -3,7 +3,7 @@
 import { offensive } from './offensiveb64.js';
 
 export default class View {
-    renderList(wordList) {
+    renderList(perfect, imperfect) {
         let body = document.getElementById("tbody");
         body.innerHTML = "";
 
@@ -11,13 +11,13 @@ export default class View {
         document.getElementById("credits").classList.add("hidden");
 
         // Create table header
-        this.createTableHeader(wordList[0]);
+        this.createTableHeader(perfect[0]);
 
         let nSyllables = this.getNumberOfSyllables();
         let nSylValue = this.getSyllableComparison();
 
         // Render table rows
-        for (let item of wordList) {
+        for (let item of perfect) {
             // Check for profane and offensive words
             let b64 = btoa(item.word);
             let profane = offensive.some(element => element === b64);
