@@ -179,3 +179,8 @@ footer {
     text-align: center;
     margin-top: 1.5em;
 }
+
+#api {
+    font-variant-caps: small-caps;
+    font-weight: 600;
+}
