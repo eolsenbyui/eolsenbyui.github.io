@@ -151,6 +151,7 @@
                 of the results.
             </li>
             <li>Used <code>class="hidden"</code> with <code>display: none;</code> to selectively hide elements as needed.</li>
+            <li>The <code>:hover</code> pseudo-class selector is used for input fields and buttons.</li>
         </ul>
     </section>
     <section>
@@ -158,7 +159,7 @@
         <p>
             In the Master Mobile UX video, assigned in Week 1 of this WDD330 course, 
             we learned about designing mobile-first.  
-            At about the same time, at work, we had built a Web app for Cisco Systems
+            <em>The very next week</em> at work, we had built a Web app for Cisco Systems
             and they asked us to make it "mobile-friendly" after the fact.  I found first-hand that
             it is much easier to design mobile-first than to take an app designed
             for tablet or Web and make it mobile-friendly later.
@@ -168,9 +169,29 @@
             using the device tools in Chrome.
         </p>
         <p>
-            One of the major design goals has been to keep the app simple. 
+            One of the major design goals has been to keep the app simple and functional. 
             There is always the temptation to make things more complex.  
             Sometimes I resisted the temptation to add more "whistles and bells" and sometimes I did not.
+        </p>
+        <p>
+            The Model-View-Controller (MVC) pattern was considered but the model was so small that it didn't 
+            seem useful or helpful to make it a class.  The View code was complex and extensive enough that putting 
+            it in a class made very good sense.  A controller class seemed to be an unnecessary layer
+            of complexity in this use case, so a controller class was not created.  
+            Rather, the model and view are coordinated directly in the event handlers.  
+            All event handling is done in main.js. 
+            What we ended up with is separation of concerns in a Model-View pattern, coordinated by 
+            the event handlers rather than in a controller class.
+        </p>
+        <p>
+            The Datamuse API sometimes returns results that are not "safe for work," family friendly, or 
+            appropriate for BYU.  I decided to filter out such results.  I found an Open Source list of 
+            profane words by Zac Anger, which I encoded to Base64 so I didn't have to look at the words.
+            This list is used to filter profanity out of the results.
+        </p>
+        <p>
+            A marbled background image was added to "dress the app up" a little bit without being gaudy
+            or distracting.
         </p>
     </section>
     <section>
@@ -233,24 +254,58 @@
     </section>
     <section>
         <h2>Application of Topics from WDD330</h2>
-        <p></p>
+        <p>Here are a dozen.  There are probably more, but this is a representative sample:</p>
         <ul>
+            <li>
+                Mobile-first design from the "Master Mobile UX" video from Week 1.
+            </li>
+            <li>
+                Don't Repeat Yourself (DRY) principle from Week 2's Team Activity, particularly in model.js
+                but also in the View class in view.js and in the CSS.
+            </li>
+            <li>
+                Modules were created for "separation of concerns."  The module, main.js, includes all of the event
+                handlers and model.js takes care of the interface with the Datamuse API.  The model is so small that
+                it probably doesn't warrant being a class.  The view is contained in a View class in view.js.
+                I felt that creating a controller class would add complexity
+                that would provide no advantage to this use case, though the modules were created with MVC in mind.
+            </li>
+            <li>
+                Form and object-oriented programming (OOP) from Week 4.  The UI begins with a form in which to enter
+                search criteria to be submitted to the Datamuse API.  OOP is found in the View class (view.js).
+            </li>
+            <li>Used a "hidden" class to selectively display and hide elements as we did in Week 5 in the Great Hikes activity.</li>
+            <li>
+                The principles and techniques of testing and debugging from Week 5 were used throughout the project.
+            </li>
+            <li>
+                Building HTML "on the fly" in JavaScript using the <code>document.createElement()</code> 
+                and <code>appendChild()</code> methods, 
+                as we did in the Great Hikes and Star Wars API activities.
+            </li>
+            <li>
+                Definitely used AJAX, as we learned in Week 7, to make calls to the Datamuse API.
+            </li>
+            <li>
+                Used a small Node.js app to encode the profane words list for the profanity filter 
+                to Base64 so I didn't have to look at the profane words.
+            </li>
+            <li>
+                The "number of syllables" control only allows numeric input, and only a certain range of numbers
+                (Form validation, Week 10).  All other input controls accept free text.
+            </li>
+            <li>
+                Import and export, also from Week 10, were used in the modules.
+            </li>
             <li>
                 The RESTful <code>fetch()</code> call to the Datamuse API was taken nearly verbatim from
                 the Week 11 <code>getJSON()</code> starter code for the JWT Team Activity, with the addition
                 of the <code>throw</code> from the modified <code>makeRequest()</code> function.
             </li>
-            <li>
-                Mobile-first design from Week 1.
-            </li>
-            <li>
-                Separation of concerns and a quasi-model-view-controller (MVC) architecture.
-            </li>
-            <li>Used a "hidden" class to selectively display and hide elements as we did in Week ?</li>
         </ul>
     </section>
     <section>
-        <p>And now, we give you &lt;drum roll&gt; the <a href="../final/" target="_blank">Poet's Pal</a>.</p>
+        <p><strong>And now, we give you</strong> &lt;drum roll&gt; the <a href="../final/" target="_blank">Poet's Pal</a>.</p>
     </section>
     <footer>
         
