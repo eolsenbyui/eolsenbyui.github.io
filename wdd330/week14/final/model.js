@@ -13,6 +13,10 @@ export function buildQuery(perfect) {
         } else {
             query.push("rel_nry=" + rhymes);
         }
+    } else {
+        if (!perfect) {
+            return "";
+        }
     }
 
     if (starts) {
