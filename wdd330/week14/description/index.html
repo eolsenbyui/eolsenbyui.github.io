@@ -30,6 +30,10 @@
             font-size: 1.25em;
         }
 
+        h3 {
+            margin-top: 2em;
+        }
+
         section {
             margin-top: 3em;
         }
@@ -119,44 +123,9 @@
     </section>
     <section>
         <h2>CSS Features Employed</h2>
-        <p></p>
-        <ul>
-            <li><code>:root</code> to define common values in variables.</li>
-            <li>
-                Defined a basic font size in the <code>&lt;html&gt;</code> tag.  All other 
-                sizes are defined in <code>em</code>.
-            </li>
-            <li>
-                One simple <code>@media</code> query that shrinks the elements for smaller screens.
-                Since all sizes are in <code>em</code>, only one simple media query was needed.
-                All controls and fonts shrink proportionally for smaller screens.
-            </li>
-            <li>
-                Styles for sizing and positioning input fields and their labels.
-            </li>
-            <li>
-                Use of <code>tr:nth-child(even)</code> to provide subtle striping for ease of reading
-                the results table.
-            </li>
-            <li>
-                Choice of fonts to give input fields, buttons, footer credits, and results table headers a "retro" look.
-                Also, rounded corners in the input fields and buttons reinforce the look.
-            </li>
-            <li>
-                Position the <code>&lt;footer&gt;</code> at the very bottom of the screen regardless of 
-                the vertical screen size.
-            </li>
-            <li>Provide an attractive marbled background image.</li>
-            <li>
-                Employed <code>:first-of-type</code>, <code>:last-of-type</code>, <code>:first-child</code>,
-                and <code>:last-child</code> to provide justification and padding to enhance the readability
-                of the results.
-            </li>
-            <li>Used <code>class="hidden"</code> with <code>display: none;</code> to selectively hide elements as needed.</li>
-            <li>The <code>:hover</code> pseudo-class selector is used for input fields and buttons.</li>
-        </ul>
+        <p>Please see the <a href="#grading-css">CSS</a> section of <a href="#grading">Grading Rubrics to Code</a>, below.</p>
     </section>
-    <section>
+    <section id="design">
         <h2>The Design Process</h2>
         <p>
             In the Master Mobile UX video, assigned in Week 1 of this WDD330 course, 
@@ -227,6 +196,185 @@
             The Poet's Pal was conceptualized to make input even easier and intuitive, and the output readable.
             The final implementation of the Poet's Pal achieves these goals.
         </p>
+    </section>
+    <section id="grading">
+        <h2>Grading Rubrics to Code</h2>
+        <p>
+            This section maps the grading rubrics to specific modules and functions in the 
+            <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/tree/master/wdd330/week14/final" target="_blank">code</a>.
+            It is meant to be representative and not exhaustive.
+        </p>
+        <h3>JavaScript Usage</h3>
+        <p>There are four JavaScript modules in the Poet's Pal:
+            <ul>
+                <li>
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a>, 
+                    which contains all event handlers, which collectively coordinate the model and the view.
+                </li>
+                <li>
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/model.js" target="_blank">model.js</a>, 
+                    which serves as the model for the application, interfacing with the 
+                    <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>.
+                </li>
+                <li>
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>, 
+                    which contains the View class that manages the UI.
+                </li>
+                <li>
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/offensiveb64.js" target="_blank">offensiveB64.js</a>, 
+                    which exports a Base64-encoded array of profane and otherwise offensive words and phrases.</li>
+            </ul>
+        </p>
+        <p>Below is a list of specific JavaScript grading rubrics mapped to module and function:</p>
+        <ul>
+            <li>
+                <strong>Serious, honest logic.</strong>
+                Building the queries for the 
+                <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>
+                is serious, honest logic.  This can be found in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/model.js" target="_blank">model.js</a>
+                in the <code>buildQuery()</code> and <code>getWordList()</code> functions.
+                <br><br>
+                There is also logic for conditionally rendering the JSON results in
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>
+                in the <code>renderList()</code> and <code>_renderList()</code> methods.  The <code>createTableHeader()</code>
+                method also contains some logic, buiding the results table header based on the type of JSON
+                objects returned by the API.
+            </li>
+            <li>
+                <strong>Validating screen data.</strong>
+                The approach to validating screen data in Poet's Pal is to <em>prevent</em> validation probems in the first place.
+                The <code>change</code> event handler for the "exactly" | "less than" dropdown conditionally alters the acceptable 
+                values for the numeric input field to its right.  This is found in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a>.
+            </li>
+            <li>
+                <strong>Looping through an array of JSON data to display to the screen.</strong>
+                This can be found in the <code>renderList()</code> and <code>_renderList()</code> methods
+                of the View class in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>.                
+            </li>
+            <li>
+                <strong>Creating and using events.</strong>
+                All event handlers can be found in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a>.
+                For details on the event handlers, please see <a href="#events">Events</a>, below.
+            </li>
+            <li>
+                <strong>Changing element styles with JavaScript.</strong>
+                Since the number of syllables is only returned by the 
+                <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a> 
+                when rhyming is involved, the elements related to number of syllables are enabled only
+                when the "Rhymes with" input field (<code>id="rhyme"</code>) has text entered into it.
+                In order to make the group of controls <em>appear</em> to be disabled as well as being 
+                actually disabled, the colors for the enclosing <code>&lt;div&gt;</code> are changed
+                to a light gray.  This can be found in the <code>enableSyllables()</code> and 
+                <code>disableSyllables()</code> in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>.
+                <br><br>
+                The app also does something similar
+                in changing the <code>min</code> attribute of the numeric input field for number of syllables.
+                This code is found in the <code>change</code> event handler for the "nSyl" dropdown in 
+                <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a>.
+            </li>
+            <li>
+                <strong>Changing element classes to use different CSS rules.</strong>
+            </li>
+        </ul>
+        <h3>Third-Party APIs</h3>
+        <p>
+            The <code>/words</code> endpoint of the <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>
+            is used with various query parameters depending on user input.  As noted in the 
+            <a href="#grading-json">JSON</a> section, below, two calls are made to the API when rhymes are requested.
+            API calls typically respond in less than 70 milliseconds.
+        </p>
+        <h3 id="grading-css">CSS</h3>
+        <p>
+            All CSS is found in the file 
+            <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/styles.css" target="_blank">styles.css</a>.
+        </p>
+        <ul>
+            <li><code>:root</code> to define common values in variables.</li>
+            <li>
+                Defined a basic font size in the <code>&lt;html&gt;</code> tag.  All other 
+                sizes are defined in <code>em</code>.
+            </li>
+            <li>
+                One simple <code>@media</code> query that shrinks the elements for smaller screens.
+                Since all sizes are in <code>em</code>, only one simple media query was needed.
+                All controls and fonts shrink proportionally for smaller screens.
+            </li>
+            <li>
+                Styles for sizing and positioning input fields and their labels.
+            </li>
+            <li>
+                Use of <code>tr:nth-child(even)</code> to provide subtle striping for ease of reading
+                the results table.
+            </li>
+            <li>
+                Choice of fonts to give input fields, buttons, footer credits, and results table headers a "retro" look.
+                Also, rounded corners in the input fields and buttons reinforce the look.
+            </li>
+            <li>
+                Position the <code>&lt;footer&gt;</code> at the very bottom of the screen regardless of 
+                the vertical screen size.
+            </li>
+            <li>Provide an attractive marbled background image.</li>
+            <li>
+                Employed <code>:first-of-type</code>, <code>:last-of-type</code>, <code>:first-child</code>,
+                and <code>:last-child</code> to provide justification and padding to enhance the readability
+                of the results.
+            </li>
+            <li>Used <code>class="hidden"</code> with <code>display: none;</code> to selectively hide elements as needed.</li>
+            <li>The <code>:hover</code> pseudo-class selector is used for input fields and buttons.</li>
+        </ul>
+        <h3 id="grading-json">JSON</h3>
+        <p>
+            The response from the <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>
+            is an array of JSON objects.  The content of those JSON objects varies depending on the query
+            sent to the API, which in turn, depends on the fields filled out by the user.  The logic for parsing
+            and rendering the arrays of JSON objects is found in the View class in view.js, specifically in the 
+            public <code>renderList()</code> and the private <code>_renderList()</code> methods.
+        </p>
+        <p>
+            When the "Rhymes with" input field is filled by the user, two API calls are sent to the API:
+            <ol>
+                <li>Query for perfect rhymes.</li>
+                <li>Query for imperfect rhymes.</li>
+            </ol>
+            The JSON arrays from the responses of both are combined and displayed in the output table.
+        </p>
+        <h3 id="events">Events</h3>
+        <p>
+            All event handlers are found in main.js as well as pseudo-class selectors in styles.css.
+            In order of appearance, they are:
+        </p>
+        <ul>
+            <li><code>submit</code> for the input form.</li>
+            <li>
+                <code>change</code> for the number of syllables input field.  If "exactly" is chosen 
+                in the drop-down to the left, the minimum number of syllables can be 1, otherwise,
+                the minumum number of syllables for "less than" must be 2.
+            </li>
+            <li>
+                The <code>input</code> event is handled for each text input field.   At a minimum,
+                it clears any error and information text.  There is additional processing 
+                for the following fields:
+                <ul>
+                    <li>
+                        If text is present in the "Rhymes with" input field, the "number of syllables" controls are enabled.
+                        Otherwise, when the "Rhymes with" field is empty, the "number of syllables" controls are disabled.
+                    </li>
+                    <li>
+                        If the number entered in the "number of syllables" input field is exactly 1, the text
+                        "syllables" that follows it is changed to the singular, "syllable."
+                    </li>
+                </ul>
+            </li>
+            <li><code>click</code> event for the Clear button, which clears all fields.</li>
+        </ul>
+        <h3>Local Storage</h3>
+        <p>No local storage is used in the Poet's Pal app.</p>
     </section>
     <section>
         <h2>Challenges and Resolutions</h2>
