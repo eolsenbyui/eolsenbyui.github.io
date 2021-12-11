@@ -1,7 +1,7 @@
 :root {
     --max-width: 640px;
     --border-radius: 0.3em;
-    /* TODO: Perhaps larger version of background? */
+    --xparent-blue: rgba(195, 235, 248, 0.25);
 }
 
 * {
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');  /* Larger version, perhaps? */
+    background-image: url('./augustine-wong-li0iC0rjvvg-unsplash.jpg');  
 }
 
 
@@ -60,6 +60,10 @@ input[type='text'], input[type='number'] {
     padding-left: 0.2em;
 }
 
+input[type='text']:hover, input[type='number']:hover {
+    background-color: var(--xparent-blue);
+}
+
 input[type='submit'] {
     width: 4em;
     margin-right: 0.25em;
@@ -68,6 +72,10 @@ input[type='submit'] {
 
 button {
     border-radius: var(--border-radius);
+}
+
+input[type='submit']:hover, button:hover {
+    background-color: var(--xparent-blue);
 }
 
 thead:first-child {
@@ -94,7 +102,7 @@ footer {
 
 
 #results tr:nth-child(even) {
-    background-color: rgba(195, 235, 248, 0.25);
+    background-color: var(--xparent-blue);
 }
 
 #results th {
