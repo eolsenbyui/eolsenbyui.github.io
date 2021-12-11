@@ -42,6 +42,10 @@
             margin-top: -0.7em;
             margin-left: 1.5em;
         }
+
+        #javascript-rubrics li {
+            margin-top: 1em;
+        }
     </style>
 </head>
 
@@ -100,7 +104,7 @@
                 </ol>
                 <li>
                     A table for displaying the search's results.  Results are limited to 50 
-                    words that rhyme "perfectly" with the addition of up to 50 imperfect rhymes.
+                    words that match "perfectly" with the addition of up to 50 imperfect rhymes.
                 </li>
             </ol>
         </p>
@@ -143,10 +147,11 @@
     <section id="design">
         <h2>The Design Process</h2>
         <p>
-            In the Master Mobile UX video, assigned in Week 1 of this WDD330 course, 
+            In the <a href="https://www.sitepoint.com/premium/courses/master-mobile-ux-2952" target="_blank">Master Mobile UX videos</a>, 
+            assigned in Week 1 of this WDD330 course, 
             we learned about designing mobile-first.  
             <em>The very next week</em> at work, we had built a Web app for Cisco Systems
-            and they asked us to make it "mobile-friendly" after the fact.  I found first-hand that
+            and they asked us to make it "mobile-friendly" after the fact.  I found out first-hand that
             it is much easier to design mobile-first than to take an app designed
             for tablet or Web and make it mobile-friendly later.
         </p>
@@ -160,13 +165,13 @@
             Sometimes I resisted the temptation to add more "whistles and bells" and sometimes I did not.
         </p>
         <p>
-            The Model-View-Controller (MVC) pattern was considered but the model was so small that it didn't 
-            seem useful or helpful to make it a class.  The View code was complex and extensive enough that putting 
+            The Model-View-Controller (MVC) pattern was considered but the model is so small that it didn't 
+            seem useful or helpful to make it a class.  The View code is complex and extensive enough that putting 
             it in a class made very good sense.  A controller class seemed to be an unnecessary layer
-            of complexity in this use case, so a controller class was not created.  
+            of complexity for this use case, so a controller class was not created.  
             Rather, the model and view are coordinated directly in the event handlers.  
             All event handling is done in main.js. 
-            What we ended up with is separation of concerns in a Model-View pattern, coordinated by 
+            What we ended up with is the separation of concerns in a Model-View pattern, coordinated by 
             the event handlers rather than in a controller class.
         </p>
         <p>
@@ -217,31 +222,31 @@
         <p>
             This section maps the grading rubrics to specific modules and functions in the 
             <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/tree/master/wdd330/week14/final" target="_blank">code</a>.
-            It is meant to be representative and not exhaustive.
+            The entries are meant to be representative and not exhaustive.
         </p>
-        <h3>JavaScript Usage</h3>
+        <h3 id="grading-javascript">JavaScript Usage</h3>
         <p>There are four JavaScript modules in the Poet's Pal:
             <ul>
                 <li>
-                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a>, 
-                    which contains all event handlers, which collectively coordinate the model and the view.
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/main.js" target="_blank">main.js</a> 
+                    contains all event handlers, which collectively coordinate the model and the view.
                 </li>
                 <li>
-                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/model.js" target="_blank">model.js</a>, 
-                    which serves as the model for the application, interfacing with the 
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/model.js" target="_blank">model.js</a>
+                    serves as the model for the application, interfacing with the 
                     <a href="https://www.datamuse.com/api/" target="_blank">Datamuse API</a>.
                 </li>
                 <li>
-                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>, 
-                    which contains the View class that manages the UI.
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>
+                    contains the View class that manages the UI.
                 </li>
                 <li>
-                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/offensiveb64.js" target="_blank">offensiveB64.js</a>, 
-                    which exports a Base64-encoded array of profane and otherwise offensive words and phrases.</li>
+                    <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/offensiveb64.js" target="_blank">offensiveB64.js</a>
+                    exports a Base64-encoded array of profane and otherwise offensive words and phrases.</li>
             </ul>
         </p>
         <p>Below is a list of specific JavaScript grading rubrics mapped to module and function:</p>
-        <ul>
+        <ul id="javascript-rubrics">
             <li>
                 <strong>Serious, honest logic.</strong>
                 Building the queries for the 
@@ -253,7 +258,7 @@
                 There is also logic for conditionally rendering the JSON results in
                 <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/view.js" target="_blank">view.js</a>
                 in the <code>renderList()</code> and <code>_renderList()</code> methods.  The <code>createTableHeader()</code>
-                method also contains some logic, buiding the results table header based on the type of JSON
+                method also contains some logic, buiding the results table header based on the content of the JSON
                 objects returned by the API.
             </li>
             <li>
@@ -311,7 +316,7 @@
         </p>
         <h3 id="grading-css">CSS</h3>
         <p>
-            All CSS is found in the file 
+            All styles in CSS are found in the file 
             <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/blob/master/wdd330/week14/final/styles.css" target="_blank">styles.css</a>.
         </p>
         <ul>
@@ -447,7 +452,8 @@
             </li>
             <li>Used a "hidden" class to selectively display and hide elements as we did in Week 5 in the Great Hikes activity.</li>
             <li>
-                The principles and techniques of testing and debugging from Week 5 were used throughout the project.
+                The principles and techniques for testing and debugging from Week 5 were used throughout the 
+                duration of the project.
             </li>
             <li>
                 Building HTML "on the fly" in JavaScript using the <code>document.createElement()</code> 
