@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>WDD 330 Week 13</title>
+
+    <link rel="stylesheet" href="../styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        ul li:before {
+            content: "✔️";
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Week 13 Content and Report</h1>
+    <p class="student">Eugene C. Olsen, Section 7, Fall 2021</p>
+
+    <section>
+        <h2>Web Page Exercises and Experiments</h2>
+        <ul>
+            <li>
+                Progress on final project: <a href="../week14/final/" target="_blank">Poet's Pal</a>. 
+                Here's the <a href="https://github.com/eolsenbyui/eolsenbyui.github.io/tree/master/wdd330/week14/final" target="_blank">code</a>.
+                See specific tasks completed in <a href="#accomplishments">What I Did This Week</a>, below.
+           </li>
+     </ul>
+    </section>
+
+    <section id="accomplishments">
+        <h2>What I Did This Week</h2>
+        <ol>
+            <li>
+                Finalized work on the <a href="../week14/final/" target="_blank">Poet's Pal app</a> for my final project.  
+                Specifically:
+                <ol type="a">
+                    <li>Thorough functional and usability testing including friends and family members as testers.</li>
+                    <li>
+                        Removed the "nearly" checkbox and label as usability testing showed that these confused
+                        most users.  Now I just get both the perfect and imperfect (aka "near") rhymes
+                        and display them.  This makes for 2 calls to the API for rhymes but most API calls respond in 
+                        less than 70 milliseconds.
+                    </li>
+                    <li>Fixed minor bugs.</li>
+                    <li>Improved styling incrementally.</li>
+                    <li>Completed the required functional description write-up for the project.</li>
+                    <li>
+                        Added credit for the Datamuse API.
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>Plans for Next Week</h2>
+        <ol>
+            <li>
+                Turn in the project!
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Blockers</h2>
+        <ol>
+            <li>None at this time.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Notes</h2>
+        <ol>
+            <li>
+                Had family and friends test the app and conducted an informal usability study, also with family and friends.
+                <ol type="a">
+                    <li>Uncovered a few bugs, which I fixed.</li>
+                    <li>
+                        It became very clear, early on, that the "nearly" checkbox to the right of the "Rhymes with" input 
+                        field was more confusing than helpful.
+                    </li>
+                    <li>
+                        Demographic: Every adult female tester (including one transgender born female) asked what the score in the results means.  
+                        Not one of the male testers even mentioned it.  Every online rhyming dictionary 
+                        I've seen has some sort of scoring mechanism to indicate how well a result word rhymes
+                        with the search word.  The same applies for synonyms, etc. in the Datamuse API.
+                        There were five female testers, including one teen, and 5 male testers, all adults.
+                    </li>
+                    <li>The most-requested feature is to add searching for antonyms.</li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Questions</h2>
+        <ol>
+            <li>None at this time.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Comments</h2>
+        <ol>
+            <li>
+                <strong>Don't shake the Jell-O!</strong>  When a piece of software is almost ready to release, keep changes small.
+                Each change, no matter how minor, shakes the Jell-O and it takes a while for Jell-O to 
+                stop shaking.
+            </li>
+        </ol>
+    </section>
+
+</body>
+
+</html>
