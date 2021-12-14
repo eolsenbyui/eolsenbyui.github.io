@@ -24,7 +24,12 @@ export function buildQuery(perfect) {
     }
 
     if (synonym) {
-        query.push("ml=" + synonym);
+        let synChoice = document.getElementById("synant");
+        if (synChoice.value === "synonym") {
+            query.push(`rel_syn=${synonym}`);
+        } else {
+            query.push(`rel_ant=${synonym}`);
+        }
     }
 
     if (query.length > 0) {
