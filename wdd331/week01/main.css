@@ -10,8 +10,26 @@ body {
     margin: 0;
 }
 
+main {
+    background-color: #FAEBD7;
+}
+
+
 h1, h2 {
     font-family: 'Lora', serif;
+}
+
+a:link, a:visited {
+    color: #6495ED;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #DEB887;
 }
 
 
@@ -36,20 +54,18 @@ header a:active {
     color: #DEB887;
 }
 
-main {
-    background-color: #FAEBD7;
-}
 
-main a:link, a:visited {
-    color: #6495ED;
+h2 a:link, h2 a:visited {
+    color: black;
     text-decoration: none;
 }
 
-main a:hover {
+h2 a:hover {
+    color: #6495ED;
     text-decoration: underline;
 }
 
-main a:active {
+h2 a:active {
     color: #DEB887;
 }
 
@@ -83,3 +99,4 @@ li {
 .post-date {
     color: #808080;
 }
+
