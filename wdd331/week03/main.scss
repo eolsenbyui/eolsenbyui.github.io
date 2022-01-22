@@ -9,13 +9,15 @@ $serif: 'Lora', serif;
 $easy-text: #202020;
 $beige: #FAEBD7;
 
-$dark-beige: #DEB887;
+//$dark-beige: #DEB887;
+$dark-beige: darken($beige, 20%);
 $a-active: $dark-beige;
 
 $medium-blue: #6495ED;
 $a-visited: $medium-blue;   // This gives us flexibility: we can change them all at once -OR- individually
 $header-bg: $medium-blue;
 $h2-a-hover: $medium-blue;
+$h2-a-visited-hover: #000000;
 
 $article-background: #FFFFFF;
 
@@ -28,6 +30,7 @@ $full-width: 100%;
 $rearrange-width: 800px;
 $header-width: 25%;
 $main-width: 75%;
+
 
 // Mixin
 @mixin visited-hover($color, $decoration: none) {
@@ -53,6 +56,7 @@ h1, h2 {
 }
 
 
+///////////////////////////////////////////////
 // Nesting examples follow in a, header, and h2
 
 a {     // Default anchor tag behavior
@@ -99,7 +103,7 @@ h2 {
     a {     // Anchor tag behavior in second-level heading
         &:link,
         &:visited {
-            @include visited-hover(black);
+            @include visited-hover($h2-a-visited-hover);
         }
 
         &:hover {
