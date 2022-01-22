@@ -24,6 +24,16 @@ a:active {
   color: #efbe7c;
 }
 
+div {
+  display: block;
+}
+@media screen and (min-width: 800px) {
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 header {
   background-color: #6495ED;
   text-align: right;
@@ -40,6 +50,21 @@ header a:hover {
 }
 header a:active {
   color: #efbe7c;
+}
+@media screen and (min-width: 800px) {
+  header {
+    width: 25%;
+    padding: 3% 1%;
+  }
+}
+
+main {
+  width: 100%;
+}
+@media screen and (min-width: 800px) {
+  main {
+    width: 75%;
+  }
 }
 
 h2 a:link, h2 a:visited {
@@ -95,22 +120,6 @@ li {
 
 .post-date {
   color: #808080;
-}
-
-@media screen and (min-width: 800px) {
-  div {
-    display: flex;
-    flex-direction: row;
-  }
-
-  header {
-    width: 25%;
-    padding: 3% 1%;
-  }
-
-  main {
-    width: 75%;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -56,8 +56,10 @@ h1, h2 {
 }
 
 
-///////////////////////////////////////////////
-// Nesting examples follow in a, header, and h2
+///////////////////////////////////////////////////////////
+// Nesting examples follow in a, div, header, main, and h2.
+// The header and h2 elements use multiple-level nesting.
+// Nested media queries can be found in this section.
 
 a {     // Default anchor tag behavior
     &:link, 
@@ -71,6 +73,16 @@ a {     // Default anchor tag behavior
     
     &:active {
         color: $dark-beige;
+    }
+}
+
+
+div {
+    display: block;
+
+    @media screen and (min-width: $rearrange-width) {
+        display: flex;
+        flex-direction:row;
     }
 }
 
@@ -96,8 +108,20 @@ header {
                 color: $dark-beige;
         }
     }
+
+    @media screen and (min-width: $rearrange-width) {
+        width: $header-width;
+        padding: 3% 1%;
+    }
 }
 
+main {
+    width: $full-width;
+
+    @media screen and (min-width: $rearrange-width) {
+        width: $main-width;
+    }
+}
 
 h2 {
     a {     // Anchor tag behavior in second-level heading
@@ -115,6 +139,7 @@ h2 {
         }
     }
 }
+// End of nesting examples
 
 
 article {
@@ -159,20 +184,4 @@ li {
 
 .post-date {
     color: $post-date;
-}
-
-@media screen and (min-width: $rearrange-width) {
-    div {
-        display: flex;
-        flex-direction:row;
-    }
-
-    header {
-        width: $header-width;
-        padding: 3% 1%;
-    }
-
-    main {
-        width: $main-width;
-    }
 }
