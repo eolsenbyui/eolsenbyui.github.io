@@ -9,7 +9,6 @@ $serif: 'Lora', serif;
 $easy-text: #202020;
 $beige: #FAEBD7;
 
-//$dark-beige: #DEB887;
 $dark-beige: darken($beige, 20%);
 $a-active: $dark-beige;
 
@@ -140,6 +139,7 @@ h2 {
     }
 }
 // End of nesting examples
+/////////////////////////////////////////
 
 
 article {
