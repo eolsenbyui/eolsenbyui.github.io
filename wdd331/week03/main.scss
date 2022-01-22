@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+// Font variables
+$sans: Helvetica, Arial, sans-serif;
+$serif: 'Lora', serif;
+
+
+// Color variables
+$easy-text: #202020;
+$beige: #FAEBD7;
+
+$dark-beige: #DEB887;
+$a-active: $dark-beige;
+
+$medium-blue: #6495ED;
+$a-visited: $medium-blue;   // This gives us flexibility: we can change them all at once -OR- individually
+$header-bg: $medium-blue;
+$h2-a-hover: $medium-blue;
+
+$article-background: #FFFFFF;
+
+$post-date: #808080;
+$shadow: #D3D3D3;
+
+
+// Width variables
+$full-width: 100%;
+$rearrange-width: 800px;
+$header-width: 25%;
+$main-width: 75%;
+
+// Mixin
+@mixin visited-hover($color, $decoration: none) {
+    color: $color;
+    text-decoration: $decoration;
+}
+
+
+// Styles 
+html {
+    font-family: $sans;
+}
+
+body {
+    background-color: $beige;
+    color: $easy-text;
+    margin: 0;
+}
+
+
+h1, h2 {
+    font-family: $serif;
+}
+
+
+// Nesting examples follow in a, header, and h2
+
+a {     // Default anchor tag behavior
+    &:link, 
+    &:visited {
+        @include visited-hover($a-visited);
+    }
+    
+    &:hover {
+        text-decoration: underline;
+    }
+    
+    &:active {
+        color: $dark-beige;
+    }
+}
+
+
+
+header {
+    background-color: $header-bg;
+    text-align: right;
+    padding: 7% 1.75%;
+    width: $full-width;
+
+    a {     // Anchor tag behavior in the header section
+        &:link, 
+        &:visited {
+            @include visited-hover($beige);
+        }
+
+        &:hover {
+            @include visited-hover(white, underline);
+        }
+
+        &:active {
+                color: $dark-beige;
+        }
+    }
+}
+
+
+h2 {
+    a {     // Anchor tag behavior in second-level heading
+        &:link,
+        &:visited {
+            @include visited-hover(black);
+        }
+
+        &:hover {
+            @include visited-hover($h2-a-hover, underline);
+        }
+        
+        &:active {
+            color: $dark-beige;
+        }
+    }
+}
+
+
+article {
+    background-color: $article-background;
+    margin: 2em auto;
+    width: 75%;
+    height: auto;
+    padding: 5%;
+    box-shadow: 5px 5px 5px $shadow;
+    font-size: 1.1em
+}
+
+ul {
+    list-style-type: none;
+    margin-right: 2em;
+}
+
+h1, ul, hr {
+    margin-right: 25px;
+}
+
+figure {
+    margin: 0;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    text-align: center;
+}
+
+img {
+    max-width: $full-width;
+    height: auto;
+}
+
+hr {
+    margin-left: 2em;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+
+.post-date {
+    color: $post-date;
+}
+
+@media screen and (min-width: $rearrange-width) {
+    div {
+        display: flex;
+        flex-direction:row;
+    }
+
+    header {
+        width: $header-width;
+        padding: 3% 1%;
+    }
+
+    main {
+        width: $main-width;
+    }
+}
