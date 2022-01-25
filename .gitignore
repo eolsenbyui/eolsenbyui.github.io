@@ -2,6 +2,7 @@
 *.zip
 instructor/
 wdd330/week09/parcel/
+wdd331/parcel
 .token
 
 # Logs
