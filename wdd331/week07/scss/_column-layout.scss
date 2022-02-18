@@ -1,0 +1,27 @@
+$columns: 8;
+$column-width: calc(100% / $columns);
+$index-start: 1;
+$index-end: $columns + 1;
+
+// Mixins
+@mixin col($span-num) {
+    flex: 0 0 $column-width * $span-num
+}
+
+@mixin offset($offset-amount) {
+    margin-left: $column-width * $offset-amount;
+}
+
+// Generate column classes
+@for $index from $index-start to $index-end {
+    .col-#{$index} {
+        @include col($index);
+    }
+}
+
+// Generate offset classes
+@for $index from $index-start to $index-end {
+    .offset-#{$index} {
+        @include offset($index);
+    }
+}
