@@ -1,8 +1,24 @@
 //variables to setup basic size and shape of the card and pips
-$card-width: 40vw;
-$card-height: $card-width*1.4;
+$card-width: 32vw;
+$card-height: $card-width*1.62;     // Golden ratio
 $font-size-number: $card-width * 0.1;
 $icon-size: calc($card-width / 5);
+
+$columns: 8;
+$column-width: calc(100% / $columns);
+$index-start: 1;
+$index-end: $columns + 1;
+
+// Mixins
+@mixin col($span-num) {
+    flex: 0 0 $column-width * $span-num
+}
+
+@mixin offset($offset-amount) {
+    margin-left: $column-width * $offset-amount;
+}
+
+
 
 *,
 *:before,
@@ -49,4 +65,32 @@ $icon-size: calc($card-width / 5);
 //rotate bottom pips 180deg
 .rotate {
     transform: rotate(180deg);
+}
+
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: space-between;
+    height: 100%;
+}
+
+.cell {
+    flex: 1;
+    text-align: center;
+}
+
+// Generate column classes
+@for $index from $index-start to $index-end {
+    .col-#{$index} {
+        @include col($index);
+    }
+}
+
+// Generate offset classes
+@for $index from $index-start to $index-end {
+    .offset-#{$index} {
+        @include offset($index);
+    }
 }
