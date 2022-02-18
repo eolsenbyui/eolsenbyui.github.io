@@ -63,3 +63,11 @@ web_modules/
 
 # Optional eslint cache
 .eslintcache
+
+#lint
+.stylelintrc.json
+analysis.json
+csslintoutput.txt
+
+#uncss
+optimized.css
