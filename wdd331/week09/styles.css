@@ -1010,9 +1010,17 @@
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  color: #020202;
+  background-color: #eaeaea;
+  font-family: "BYUI Open Sans", "Open Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, sans-serif;
+  font-weight: 400;
+  margin: 0;
 }
 
 img {
@@ -1028,4 +1036,169 @@ img {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.white-text {
+  color: #eaeaea;
+}
+
+.component-space {
+  margin-bottom: 2em;
+}
+
+header {
+  margin-bottom: 2.25em;
+}
+
+header a {
+  text-decoration: none;
+  color: #eaeaea;
+}
+
+h1 {
+  font-family: "BYU Open Sans", "Open Sans";
+  font-size: 1.25em;
+  font-weight: 300;
+  margin: 0;
+  padding: 15px;
+}
+@media (min-width: 52em) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+.site-banner {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  background: #056cb6;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.site-banner__left {
+  text-align: center;
+  background: #020202;
+}
+
+.site-banner__right {
+  text-align: right;
+}
+
+.site-banner__left,
+.site-banner__right {
+  padding: 0.85rem 0.5rem 0.5rem 0.5rem;
+}
+
+.site-header {
+  text-align: right;
+  background: #eaeaea;
+  border-bottom: 1px solid #020202;
+}
+@media (min-width: 52em) {
+  .site-header {
+    text-align: left;
+  }
+}
+
+.search-container {
+  display: none;
+}
+
+main {
+  padding: 0 1em;
+}
+
+a, a:hover {
+  color: #0076b6;
+  text-decoration: none;
+}
+
+figure {
+  border: 1px solid #b4b3b5;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+figcaption {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.3em;
+  margin-top: 0;
+}
+
+@media (min-width: 52em) {
+  .student-focused {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 52em) {
+  .interest-boxes {
+    max-width: 52em;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 34em) {
+  .interest-boxes a {
+    display: flex;
+  }
+}
+
+@media (min-width: 34em) and (max-width: 52em) {
+  .interest-box {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+    margin-left: 16.6666666667%;
+  }
+}
+@media (min-width: 52em) {
+  .interest-box {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.covid-info {
+  display: none;
+}
+
+.arrow-icon {
+  font-size: 1.4em;
+}
+
+.float-right {
+  float: right;
+}
+
+@media (min-width: 52em) {
+  #info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    justify-items: center;
+  }
+}
+
+.footer-content::before {
+  background: url(https://www.byui.edu/prebuilt/stylenew/images/foot/taylor_graphic_fixed.png) bottom no-repeat;
+  content: "";
+  display: block;
+  padding: 0;
+  height: 10em;
+}
+
+.footer-content::after {
+  background-color: #eaeaea;
+  border-top: 1px solid #c6c7c8;
+  border-bottom: 1px solid #020202;
+  content: "";
+  display: block;
+  padding: 2em;
 }

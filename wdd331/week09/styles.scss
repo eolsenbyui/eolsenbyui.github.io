@@ -1,7 +1,9 @@
 @import 'typography';
 @import 'icons';
 
-$sm-break: 48em;
+$sm-break: 34em;
+$lg-break: 52em;
+
 // colors
 $dark-gray: #727272;
 $med-gray: #b4b3b5;
@@ -11,16 +13,28 @@ $link-blue: #0076b6; //why do we have both of these blues?
 $byui-blue: #056cb6;
 
 // Utility classes
+
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
+
+
+body {
+  color: $body-font;
+  background-color: $light-gray;
+  font-family: "BYUI Open Sans", "Open Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
 img {
   max-width: 100%;
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -31,3 +45,15 @@ img {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.white-text {
+  color: $light-gray;
+}
+
+.component-space {
+  margin-bottom: 2em;
+}
+
+@import 'header';
+@import 'main';
+@import 'footer';

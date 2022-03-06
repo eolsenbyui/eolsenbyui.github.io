@@ -1,0 +1,79 @@
+main {
+    padding: 0 1em;
+}
+
+a, a:hover {
+    color: $link-blue;
+    text-decoration: none;
+}
+
+figure {
+    border: 1px solid $med-gray;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+figcaption {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: .3em;
+    margin-top: 0;
+}
+
+
+.student-focused {
+    @media(min-width: $lg-break) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.interest-boxes {
+    @media (min-width: $lg-break) {
+        max-width: $lg-break;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.interest-boxes a {
+    @media (min-width: $sm-break) {
+        display: flex;
+    }
+}
+
+.interest-box {
+    @media (min-width: $sm-break) and (max-width: $lg-break) {
+        flex: 0 0 66.6666666667%;
+        max-width: 66.6666666667%;
+        margin-left: 16.6666666667%;
+    }
+    @media (min-width: $lg-break) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+.covid-info {
+    display: none;
+}
+
+.arrow-icon {
+    font-size: 1.4em;
+}
+
+.float-right {
+    float: right;
+}
+
+#info {
+    @media (min-width: $lg-break) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        justify-items: center;
+    }
+}

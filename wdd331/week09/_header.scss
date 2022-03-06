@@ -1,0 +1,55 @@
+header {
+    margin-bottom: 2.25em;
+}
+
+header a {
+    text-decoration: none;
+    color: $light-gray;
+}
+
+h1 {
+    font-family: "BYU Open Sans", "Open Sans";
+    font-size: 1.25em;
+    font-weight: 300;
+    margin: 0;
+    padding: 15px;
+    @media (min-width: $lg-break) {
+        font-size: 1.5em;
+    }
+}
+
+.site-banner {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    background: $byui-blue;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.site-banner__left {
+    text-align: center;
+    background: $body-font;
+}
+
+.site-banner__right {
+    text-align: right;
+}
+
+.site-banner__left, 
+.site-banner__right {
+    padding: .85rem .5rem .5rem .5rem;
+}
+
+.site-header {
+    text-align: right;
+    background: $light-gray;
+    border-bottom: 1px solid $body-font;
+    @media (min-width: $lg-break) {
+        text-align: left;
+    }
+}
+
+.search-container {
+    display: none;
+}

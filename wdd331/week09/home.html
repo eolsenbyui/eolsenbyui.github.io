@@ -16,7 +16,6 @@
               <span class="sr-only">Link to BYU-Idaho home page</span>
             </span></a
           >
-          <h1>Home</h1>
         </div>
         <div class="site-banner__right">
           <a href="http://www.byui.edu/#">
@@ -37,34 +36,88 @@
             </span>
           </a>
         </div>
-        <form
-          aria-label="Search byui.edu"
-          method="get"
-          action="https://www.byui.edu/search/result?"
-          role="search"
-        >
-          <div>
-            <label for="searchDesktop" class="sr-only"
-              >Search BYU-I websites:
-            </label>
-            <input
-              id="searchDesktop"
-              name="q"
-              placeholder="Powered by Google"
-              alt="Search BYU-I websites (powered by Google.com)."
-              type="text"
-            />
+        <div class="search-container">
+          <form
+            aria-label="Search byui.edu"
+            method="get"
+            action="https://www.byui.edu/search/result?"
+            role="search"
+          >
+            <div>
+              <label for="searchDesktop" class="sr-only"
+                >Search BYU-I websites:
+              </label>
+              <input
+                id="searchDesktop"
+                name="q"
+                placeholder="Powered by Google"
+                alt="Search BYU-I websites (powered by Google.com)."
+                type="text"
+              />
 
-            <button type="submit">
-              <span aria-hidden="true" class="icon icon-magnifying-glass ">
-                <span class="sr-only">Submit</span>
-              </span>
-            </button>
-          </div>
-        </form>
+              <button type="submit">
+                <span aria-hidden="true" class="icon icon-magnifying-glass ">
+                  <span class="sr-only">Submit</span>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="site-header">
+        <h1 class="site-name">Brigham Young University - Idaho</h1>
       </div>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+      <section id="info">
+        <div class="covid-info component-space">COVID-19 Info</div>
+        <div class="student-focused component-space">
+          <a href="https://www.byui.edu/about/student-focused-by-design"
+            alt="Ready for a High-Value Education; young woman working a math problem."
+            aria-hidden="true">
+            <img src="https://www.byui.edu/images/homepage-main/pagebuilder/new_pictures/6-High-Value-Vaness-Homepage-Web.jpg"
+            alt="Ready for a High-Value Education; young woman working a math problem."
+            aria-hidden="true">
+          </a>
+        </div>
+        <div class="interest-boxes">
+          <div class="interest-box component-space">
+            <a href="http://video.byui.edu/" target>
+              <figure>
+                <img src="https://www.byui.edu/images/homepage-main/pagebuilder/CampusVideos.jpg">
+                <figcaption> Campus Videos
+                  <span class="arrow-icon icon-angle-right float-right" aria-hidden="true"></span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="interest-box component-space">
+            <a href="http://photo.byui.edu/" target>
+              <figure>
+                <img src="https://www.byui.edu/images/homepage-main/pagebuilder/PhotoGallery%280%29.jpg">
+                <figcaption> Photo Gallery
+                  <span class="arrow-icon icon-angle-right float-right" aria-hidden="true"></span>
+                </figcaption>
+              </figure>
+            </a>            
+          </div>
+          <div class="interest-box component-space">
+            <a href="http://www.byui.edu/campus-tours" target>
+              <figure>
+                <img src="https://www.byui.edu/images/homepage-main/pagebuilder/ExploreCampus.jpg">
+                <figcaption> Explore Campus
+                  <span class="arrow-icon icon-angle-right float-right" aria-hidden="true"></span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="news"></section>
+    </main>
+    <footer>
+      <h2 class="sr-only">Footer</h2>
+      <div class="footer-content"></div>
+    </footer>
   </body>
 </html>
