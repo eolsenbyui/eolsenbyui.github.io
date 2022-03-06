@@ -8,7 +8,7 @@
 
 .footer-content::after {
     background-color: $light-gray;
-    border-top: 1px solid #c6c7c8;
+    border-top: 1px solid $border-gray;
     border-bottom: 1px solid $body-font;
     content: "";
     display: block;
